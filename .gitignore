@@ -1,0 +1,14 @@
+.vs
+.vscode
+.VSCodeCounter
+.cache
+.xmake
+bin
+build
+out
+*.cache
+*.hw
+*.ip_user_files
+*.runs
+*.sdk
+*.sim
