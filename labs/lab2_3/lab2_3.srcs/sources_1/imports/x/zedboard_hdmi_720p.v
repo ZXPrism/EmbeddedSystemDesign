@@ -44,7 +44,6 @@ parameter scr_height = 12'd720;
 
 reg [11:0] hsync_cnt = 12'd0;
 reg [11:0] vsync_cnt = 12'd0;
-reg de_flag = 1'd0;
 
 wire h_valid;
 wire v_valid;
@@ -56,10 +55,11 @@ reg [11:0] loc_y;
 /* horizontal counter */
 always @(posedge clk_75_d0 ) begin
    if(reset == 1'b1) begin
-        hsync_cnt <= 12'd0;
-        vsync_cnt <= 12'd0;
+        hsync_cnt <= 12'd1;
+        vsync_cnt <= 12'd1;
         loc_x <= 12'd0;
         loc_y <= 12'd0;
+
    end
    else begin    
         // hsync posedge counter --- base on clk
@@ -73,6 +73,7 @@ always @(posedge clk_75_d0 ) begin
         // vsync posedge counter --- base on lines
         if (vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
+            loc_y <= 0;
         end
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
@@ -92,10 +93,12 @@ end
 
 assign hdmi_hsync = hsync_cnt <= h_sync;
 assign hdmi_vsync = vsync_cnt <= v_sync;
+assign hdmi_clk = clk_75_d0;
 
 assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
 assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
 assign hdmi_de = h_valid && v_valid;
+
 
 /* output */
 clk_pll  pll01(
