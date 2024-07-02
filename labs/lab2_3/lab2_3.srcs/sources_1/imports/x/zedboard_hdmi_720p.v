@@ -39,6 +39,9 @@ parameter v_fp = 12'd5;
 parameter v_bp = 12'd20;
 parameter v_sync = 12'd5;
 
+parameter scr_width = 12'd1280;
+parameter scr_height = 12'd720;
+
 reg [11:0] hsync_cnt = 12'd0;
 reg [11:0] vsync_cnt = 12'd0;
 reg de_flag = 1'd0;
@@ -55,6 +58,8 @@ always @(posedge clk_75_d0 ) begin
    if(reset == 1'b1) begin
         hsync_cnt <= 12'd0;
         vsync_cnt <= 12'd0;
+        loc_x <= 12'd0;
+        loc_y <= 12'd0;
    end
    else begin    
         // hsync posedge counter --- base on clk
@@ -66,11 +71,21 @@ always @(posedge clk_75_d0 ) begin
         end
 
         // vsync posedge counter --- base on lines
-        if ( vsync_cnt == v_total && hsync_cnt == h_total) begin
+        if (vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
         end
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
+        end
+        
+        // transmit data
+        if (hdmi_de) begin
+            loc_x <= loc_x + 12'd1;
+            
+            if(loc_x >= scr_width) begin
+                loc_x <= 0;
+                loc_y <= loc_y + 12'd1;
+            end
         end
     end
 end
