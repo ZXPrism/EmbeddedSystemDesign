@@ -28,8 +28,6 @@ wire 			   clk_150_d90;
 wire 			   clk_75_d0;
 wire 			   clk_75_d90;
 
-wire dbg_out [8:0];
-
 /* 1280x720 60hz */
 parameter h_total = 12'd1650;
 parameter h_fp = 12'd110;
@@ -43,16 +41,19 @@ parameter v_sync = 12'd5;
 
 reg [11:0] hsync_cnt = 12'd0;
 reg [11:0] vsync_cnt = 12'd0;
-reg de_flag =1'd0;
+reg de_flag = 1'd0;
 
 wire         h_valid;
 wire         v_valid;
+
+reg x_out;
+reg y_out;
 
 
 /* horizontal counter */
 /*Your code.*/
 always @(posedge clk_75_d0 ) begin
-   if(reset==1'b1) begin
+   if(reset == 1'b1) begin
         hsync_cnt <= 12'd0;
         vsync_cnt <= 12'd0;
    end
@@ -70,13 +71,8 @@ always @(posedge clk_75_d0 ) begin
             vsync_cnt <= 1;
             end
         else if (hsync_cnt == h_total) begin
-            vsync_cnt <=  vsync_cnt + 1;
+            vsync_cnt <= vsync_cnt + 1;
             end
-
-        if (hdmi_de) begin
-        end
-        else begin
-        end
            
         //hsync counter event(clk) 
         //hsync
@@ -118,9 +114,6 @@ assign hdmi_vsync = vsync_cnt <= v_sync;
 assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
 assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
 assign hdmi_de = h_valid && v_valid;
-
-assign dbg_out[0] = hdmi_scl;
-assign dbg_out[2] = hdmi_sda;
 
 /* output */
 clk_pll  pll01(
