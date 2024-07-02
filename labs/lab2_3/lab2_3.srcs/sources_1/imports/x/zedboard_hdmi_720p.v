@@ -43,68 +43,35 @@ reg [11:0] hsync_cnt = 12'd0;
 reg [11:0] vsync_cnt = 12'd0;
 reg de_flag = 1'd0;
 
-wire         h_valid;
-wire         v_valid;
+wire h_valid;
+wire v_valid;
 
 reg x_out;
 reg y_out;
 
 
 /* horizontal counter */
-/*Your code.*/
 always @(posedge clk_75_d0 ) begin
    if(reset == 1'b1) begin
         hsync_cnt <= 12'd0;
         vsync_cnt <= 12'd0;
    end
    else begin    
-        //hsync posedge counter---base on clk
+        // hsync posedge counter --- base on clk
         if (hsync_cnt == h_total) begin
             hsync_cnt <= 1;
-            end
-         else begin
-            hsync_cnt <= hsync_cnt + 1;
-            end
-
-        //vsync posedge counter---base on lines
-        if ( vsync_cnt == v_total && hsync_cnt == h_total) begin
-            vsync_cnt <= 1;
-            end
-        else if (hsync_cnt == h_total) begin
-            vsync_cnt <= vsync_cnt + 1;
-            end
-           
-        //hsync counter event(clk) 
-        //hsync
-       /* if(hsync_cnt >= 0 && hsync_cnt < h_sync)begin
-            hdmi_hsync <= 1'd1;
-            end
-        else begin
-            hdmi_hsync <= 1'd0;
-            end
-        if((hsync_cnt >= (h_bp + h_sync) && hsync_cnt < (h_total - h_fp)) && de_flag)begin//260 1540
-            hdmi_de <= 1'd1;
         end
         else begin
-            hdmi_de <= 1'd0;
-        end*/
-        //vsync counter event(lines)
-        //vsync
-       /* if(vsync_cnt >= 0 && vsync_cnt < v_sync)begin//0 4
-            hdmi_vsync <= 1'd1;
-            end
-        else begin
-            hdmi_vsync <= 1'd0;
-            end   */
-        //DE_flag
-        /*
-        if(vsync_cnt >= (v_sync + v_bp) && vsync_cnt <(v_total - v_fp))begin//25 745
-            de_flag <= 1'd1;
-            end
-        else begin
-            de_flag <= 1'd0;
-            end
-            */
+            hsync_cnt <= hsync_cnt + 1;
+        end
+
+        // vsync posedge counter --- base on lines
+        if ( vsync_cnt == v_total && hsync_cnt == h_total) begin
+            vsync_cnt <= 1;
+        end
+        else if (hsync_cnt == h_total) begin
+            vsync_cnt <= vsync_cnt + 1;
+        end
     end
 end
 
@@ -123,7 +90,7 @@ clk_pll  pll01(
              .clkout_75_d0(clk_75_d0),
              .clkout_75_d90(clk_75_d90),
              .clkout_100_d0(clk_100_d0)
-         );
+);
          
 i2c_sender sender(
     .clk_in(clk_75_d0),
@@ -138,7 +105,7 @@ gen_pat  pat_hdmi(
              .loc_x(x_out),
              .loc_y(y_out),
              .color_out(hdmi_d)
-         );
+);
 
 endmodule
 
