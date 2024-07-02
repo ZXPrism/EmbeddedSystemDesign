@@ -51,15 +51,11 @@ wire v_valid;
 reg [11:0] loc_x;
 reg [11:0] loc_y;
 
-
 /* horizontal counter */
 always @(posedge clk_75_d0 ) begin
    if(reset == 1'b1) begin
         hsync_cnt <= 12'd1;
         vsync_cnt <= 12'd1;
-        loc_x <= 12'd0;
-        loc_y <= 12'd0;
-
    end
    else begin    
         // hsync posedge counter --- base on clk
@@ -73,7 +69,7 @@ always @(posedge clk_75_d0 ) begin
         // vsync posedge counter --- base on lines
         if (vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
-            loc_y <= 0;
+            loc_y <= 0; // new frame
         end
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
@@ -82,14 +78,16 @@ always @(posedge clk_75_d0 ) begin
         // transmit data
         if (hdmi_de) begin
             loc_x <= loc_x + 12'd1;
-            
-            if(loc_x >= scr_width) begin
-                loc_x <= 0;
-                loc_y <= loc_y + 12'd1;
-            end
+        end 
+        else begin  
+            loc_x <= 12'd0;
         end
     end
 end
+
+//always@(negedge hdmi_de) begin
+//    loc_y <= loc_y + 12'd1;
+//end
 
 assign hdmi_hsync = hsync_cnt <= h_sync;
 assign hdmi_vsync = vsync_cnt <= v_sync;

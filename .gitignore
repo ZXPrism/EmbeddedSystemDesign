@@ -12,3 +12,5 @@ out
 *.runs
 *.sdk
 *.sim
+*.log
+*.jou

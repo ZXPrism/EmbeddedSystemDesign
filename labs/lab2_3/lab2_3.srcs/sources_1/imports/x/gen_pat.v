@@ -29,10 +29,10 @@ module gen_pat(
 
      always @(posedge clk_in) begin
         if( loc_x[0] == 0 ) begin
-            color_out <= 16'h4c54;
+            color_out <= {loc_x[7:0], loc_x[11:4]};
         end
         else begin
-            color_out <= 16'h4cFF;
+            color_out <= {loc_x[7:0], loc_x[11:4]};
         end
      end
 
