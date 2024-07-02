@@ -51,27 +51,32 @@ wire         v_valid;
 
 /* horizontal counter */
 /*Your code.*/
-always @(posedge clk_75_d0 )begin
-   if(reset==1'b1)begin
+always @(posedge clk_75_d0 ) begin
+   if(reset==1'b1) begin
         hsync_cnt <= 12'd0;
         vsync_cnt <= 12'd0;
    end
    else begin    
         //hsync posedge counter---base on clk
-        if (hsync_cnt == h_total)begin
+        if (hsync_cnt == h_total) begin
             hsync_cnt <= 1;
             end
          else begin
             hsync_cnt <= hsync_cnt + 1;
             end
+
         //vsync posedge counter---base on lines
-        if ( vsync_cnt == v_total && hsync_cnt == h_total)begin
+        if ( vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
             end
-        else if (hsync_cnt == h_total)begin
+        else if (hsync_cnt == h_total) begin
             vsync_cnt <=  vsync_cnt + 1;
             end
 
+        if (hdmi_de) begin
+        end
+        else begin
+        end
            
         //hsync counter event(clk) 
         //hsync
@@ -133,6 +138,14 @@ i2c_sender sender(
     .i2c_scl(hdmi_scl),
     .i2c_sda(hdmi_sda)
 );
+
+gen_pat  pat_hdmi(
+             .clk_in(clk_75_d0),
+             .reset(reset),
+             .loc_x(x_out),
+             .loc_y(y_out),
+             .color_out(hdmi_d)
+         );
 
 endmodule
 
