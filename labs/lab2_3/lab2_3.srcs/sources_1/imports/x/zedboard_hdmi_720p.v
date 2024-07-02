@@ -46,8 +46,8 @@ reg de_flag = 1'd0;
 wire h_valid;
 wire v_valid;
 
-reg x_out;
-reg y_out;
+reg [11:0] loc_x;
+reg [11:0] loc_y;
 
 
 /* horizontal counter */
@@ -102,8 +102,8 @@ i2c_sender sender(
 gen_pat  pat_hdmi(
              .clk_in(clk_75_d0),
              .reset(reset),
-             .loc_x(x_out),
-             .loc_y(y_out),
+             .loc_x(loc_x),
+             .loc_y(loc_y),
              .color_out(hdmi_d)
 );
 
