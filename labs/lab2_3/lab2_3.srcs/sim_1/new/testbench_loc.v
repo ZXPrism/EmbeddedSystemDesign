@@ -13,14 +13,12 @@ reg reset;
 wire hdmi_scl;
 wire hdmi_sda;
 
-wire clk_d90;
 
 wire [11:0] locx;
 wire [11:0] locy;
 
 zedboard_hdmi hdmi(
            .clk_100(clk_100_d0),
-           .clk_d90(clk_d90),
            .hdmi_clk(hdmi_clk),
            .hdmi_hsync(hdmi_hsync),
            .hdmi_vsync(hdmi_vsync),

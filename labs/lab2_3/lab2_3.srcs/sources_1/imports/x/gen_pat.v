@@ -13,7 +13,7 @@ module gen_pat(
            input reset,
            input [11:0] loc_x,
            input [11:0] loc_y,
-           output  reg [15:0] color_out // YUV422
+           output [15:0] color_out // YUV422
        );
 
                                     //  Y   Cb  Cr(YUV444)  R   G   B
@@ -27,24 +27,24 @@ module gen_pat(
 
     /*Your code*/
     
-     always @(posedge clk_in) begin
-        if( loc_x[0] == 0 ) begin
-            color_out <= 16'h4c54;
-        end
-        else begin
-            color_out <= 16'h4cff;
-        end
-     end
+//     always @(posedge clk_in) begin
+//        if( loc_x[0] == 0 ) begin
+//            color_out <= 16'h4c54;
+//        end
+//        else begin
+//            color_out <= 16'h4cff;
+//        end
+//     end
 
-    // 2
-    // always @(posedge clk_in) begin
-    //     if( loc_x[0] == 0 ) begin
-    //         color_out = {loc_x[7:0], loc_x[11:4]};
-    //     end
-    //     else begin
-    //         color_out = {loc_x[7:0], loc_x[11:4]};
-    //     end
-    // end
+ // 2
+//     always @(posedge clk_in) begin
+//         if( loc_x[0] == 0 ) begin
+//             color_out <= {loc_x[7:0], loc_y[8:1]};
+//         end
+//         else begin
+//             color_out <= {loc_x[7:0], loc_x[8:1] + loc_y[8:1]};
+//         end
+//     end
 
     // 3
     // reg counter[7:0];
@@ -63,54 +63,75 @@ module gen_pat(
     // end
 
     // 7
-    // parameter radius = 12'h100;
-    // reg cen_x[11:0];
-    // reg cen_y[11:0];
-    // always @(posedge clk_in or negedge reset) begin
-    //     if( reset == 1 ) begin
-    //         cen_x = 12'h100000;
-    //         cen_y = radius + radius;
-    //     end
-    //     else begin
-    //         if( (loc_x-cen_x)*(loc_x-cen_x) + (loc_y-cen_y)*(loc_y-cen_y) <= radius ) begin
-    //             if( loc_x[0] == 0 ) 
-    //                 color_out = {C_RED[23:16], C_RED[15:8]};
-    //             else
-    //                 color_out = {C_RED[23:16], C_RED[ 7:0]};
-    //         end
-    //         else begin
-    //             if( loc_x[0] == 0 ) 
-    //                 color_out = {C_BLUE[23:16], C_BLUE[15:8]};
-    //             else
-    //                 color_out = {C_BLUE[23:16], C_BLUE[ 7:0]};
-    //         end
-    //     end
-    // end
-    // reg counter[];
-    // reg stride_x;
-    // reg stride_y;
-    // parameter CLK;
-    // parameter win_x;
-    // parameter win_y;
-    // always @(posedge clk_in or negedge reset) begin
-    //     if( reset == 1 ) begin
-    //         counter = 0;
-    //     end
-    //     else begin
-    //         if( counter == CLK ) begin
-    //             if( loc_x == radius | loc_x == win_x - radius)
-    //                 stride_x = ~stride_x;
-    //             else if( loc_y == radius | loc_y == win_y - radius )
-    //                 stride_y = ~stride_y;
-    //             cen_x = cen_x + stride_x;
-    //             cen_y = cen_y + stride_y;
-    //         end
-    //         else begin
-    //             counter = counter + 1;
-    //         end
-    //     end
-    // end
+// parameter radius = 12'h100;
+// reg [31:0] cen_x;
+// reg [31:0] cen_y;
+// always @(posedge clk_in or negedge reset) begin
+//     if( reset == 1 ) begin
+//         cen_x <= 32'h100000;
+//         cen_y <= radius + radius;
+//     end
+//     else begin
+//         if( (loc_x-cen_x)*(loc_x-cen_x) + (loc_y-cen_y)*(loc_y-cen_y) <= radius ) begin
+//             if( loc_x[0] == 0 ) 
+//                 color_out = {C_RED[23:16], C_RED[15:8]};
+//             else
+//                 color_out = {C_RED[23:16], C_RED[ 7:0]};
+//         end
+//         else begin
+//             if( loc_x[0] == 0 ) 
+//                 color_out = {C_BLUE[23:16], C_BLUE[15:8]};
+//             else
+//                 color_out = {C_BLUE[23:16], C_BLUE[ 7:0]};
+//         end
+//     end
+// end
+// reg [31:0]counter;
+// reg stride_x;
+// reg stride_y;
+// parameter CLK= 32'd75000000;
+// parameter win_x= 1280;
+// parameter win_y= 720;
+// always @(posedge clk_in or negedge reset) begin
+//     if( reset == 1 ) begin
+//         counter = 0;
+//     end
+//     else begin
+//         if( counter == CLK ) begin
+//             if( loc_x == radius || loc_x == win_x - radius)
+//                 stride_x = ~stride_x;
+//             else if( loc_y == radius || loc_y == win_y - radius )
+//                 stride_y = ~stride_y;
+//             cen_x = cen_x + stride_x;
+//             cen_y = cen_y + stride_y;
+//         end
+//         else begin
+//             counter = counter + 1;
+//         end
+//     end
+// end
+
 
     // 8
-
+    parameter picture_wide  = 12'd320;  
+    parameter picture_high = 12'd275;  
+    reg [15:0] ram_addr;
+    reg ram_we;
+    reg [11:0] picture_x;
+    reg [11:0] picture_y;
+    always @(posedge clk_in) begin
+         ram_we <= 1;
+         picture_x <= loc_x % picture_wide;
+         picture_y <= loc_y % picture_high;
+         ram_addr <= picture_x + picture_y * picture_wide;
+    end
+    
+    assign color_out = r_data;
+    
+ip_ram ram_hdmi(
+    .clk_in(clk_in),
+    .ram_addr(ram_addr),
+    .ram_we(ram_we),
+    .r_data(r_data)
+);
 endmodule
