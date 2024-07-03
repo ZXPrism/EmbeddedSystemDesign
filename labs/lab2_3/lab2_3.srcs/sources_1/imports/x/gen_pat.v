@@ -13,7 +13,9 @@ module gen_pat(
            input reset,
            input [11:0] loc_x,
            input [11:0] loc_y,
-           output [15:0] color_out // YUV422
+           output [15:0] color_out,// YUV422
+           output [11:0] picturex,
+           output [11:0] picturey
        );
 
                                     //  Y   Cb  Cr(YUV444)  R   G   B
@@ -113,25 +115,39 @@ module gen_pat(
 
 
     // 8
-    parameter picture_wide  = 12'd320;  
-    parameter picture_high = 12'd275;  
-    reg [15:0] ram_addr;
+    parameter picture_width  = 12'd320;  
+    parameter picture_height= 12'd175;  
+    wire [15:0] ram_addr;
     reg ram_we;
     reg [11:0] picture_x;
     reg [11:0] picture_y;
-    always @(posedge clk_in) begin
-         ram_we <= 1;
-         picture_x <= loc_x % picture_wide;
-         picture_y <= loc_y % picture_high;
-         ram_addr <= picture_x + picture_y * picture_wide;
-    end
     
-    assign color_out = r_data;
+//    assign picturex = picture_x;
+//    assign picturey = picture_y;
     
+    assign picturex = loc_x % picture_width;
+    assign picturey = loc_y % picture_height;
+    assign ram_addr = picturex + picturey * picture_width;
+    
+//    always @(posedge clk_in) begin
+//    if(reset==1)begin
+//        ram_we <= 0;
+//        ram_addr <= 0;
+//        picture_x <= 0;
+//        picture_y <=0;
+//        end
+//    else begin
+//         picture_x <= loc_x % picture_width;
+//         picture_y <= loc_y % picture_height;
+//         ram_addr <= picture_x + picture_y * picture_width ;
+//         end
+//    end
+    
+
 ip_ram ram_hdmi(
     .clk_in(clk_in),
     .ram_addr(ram_addr),
     .ram_we(ram_we),
-    .r_data(r_data)
+    .r_data(color_out)
 );
 endmodule

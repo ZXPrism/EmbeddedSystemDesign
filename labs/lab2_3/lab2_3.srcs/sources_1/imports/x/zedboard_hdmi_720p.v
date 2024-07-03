@@ -1,27 +1,17 @@
-//---------------------------------------------------------------------------------
-//
-// important: this document is for use only in the <embedded system design>
-//
-// College of Electrical Engineering, Zhejiang University
-//
-// zhangpy@vlsi.zju.edu.cn
-//
-//---------------------------------------------------------------------------------
-
-
 module zedboard_hdmi(
            input            clk_100,
            output           hdmi_clk,
            output           hdmi_hsync,
            output           hdmi_vsync,
            output           hdmi_de,
-           output  wire [15:0]  hdmi_d,
-           //input 	      hdmi_int,
+           output  [15:0]   hdmi_d,
            input 	        reset,
-//           output [11:0]    locx,
-//           output [11:0]    locy,
            output           hdmi_scl,
-           output           hdmi_sda
+           output           hdmi_sda,
+           output   [11:0]  locx,
+           output   [11:0]  locy,
+           output [11:0] picturex,
+           output [11:0] picturey
        );
 
 wire 			   clk_150_d0;
@@ -29,19 +19,36 @@ wire 			   clk_150_d90;
 wire 			   clk_75_d0;
 wire 			   clk_75_d90;
 
-/* 1280x720 60hz */
-parameter h_total = 12'd1650;
-parameter h_fp = 12'd110;
-parameter h_bp = 12'd220;
-parameter h_sync = 12'd40;
+reg [7:0] frame_no;
 
-parameter v_total = 12'd750;
-parameter v_fp = 12'd5;
-parameter v_bp = 12'd20;
+/* 1280x720 60hz */
+//parameter h_total = 12'd1650;
+//parameter h_fp = 12'd110;
+//parameter h_bp = 12'd220;
+//parameter h_sync = 12'd40;
+
+//parameter v_total = 12'd750;
+//parameter v_fp = 12'd5;
+//parameter v_bp = 12'd20;
+//parameter v_sync = 12'd5;
+
+//parameter scr_width = 12'd1280;
+//parameter scr_height = 12'd720;
+/* end - 1280x720 60hz */
+
+/* 1920x1080 60hz */
+parameter h_total = 12'd2200;
+parameter h_fp = 12'd88;
+parameter h_bp = 12'd148;
+parameter h_sync = 12'd44;
+parameter v_total = 12'd1125;
+parameter v_fp = 12'd4;
+parameter v_bp = 12'd36;
 parameter v_sync = 12'd5;
 
-parameter scr_width = 12'd1280;
-parameter scr_height = 12'd720;
+parameter scr_width = 12'd1920;
+parameter scr_height = 12'd1080;
+/* end - 1920x1080 60hz */
 
 reg [11:0] hsync_cnt = 12'd0;
 reg [11:0] vsync_cnt = 12'd0;
@@ -52,16 +59,16 @@ wire v_valid;
 reg [11:0] loc_x;
 reg [11:0] loc_y;
 
-//assign locx = loc_x;
-//assign locy = loc_y;
-
+assign locx = loc_x;
+assign locy = loc_y;
 /* horizontal counter */
-always @(posedge clk_75_d0 ) begin
+always @(posedge clk_150_d0 ) begin
    if(reset == 1'b1) begin
         hsync_cnt <= 12'd1;
         vsync_cnt <= 12'd1;
         loc_x <= 0;
         loc_y <= 0;
+        frame_no <= 0;
    end
    else begin    
         // hsync posedge counter --- base on clk
@@ -76,7 +83,7 @@ always @(posedge clk_75_d0 ) begin
         if (vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
             loc_y <= 0;
-            
+            frame_no <= frame_no + 1;
         end
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
@@ -86,14 +93,12 @@ always @(posedge clk_75_d0 ) begin
             end
         end
         
-            // transmit data
+        // transmit data
         if (hdmi_de && loc_x < (scr_width-12'd1)) begin
             loc_x <= loc_x + 12'd1;
-            // new frame
         end 
         else begin  
             loc_x <= 12'd0;
-
         end
     end
 end
@@ -101,7 +106,7 @@ end
 
 assign hdmi_hsync = hsync_cnt <= h_sync;
 assign hdmi_vsync = vsync_cnt <= v_sync;
-assign hdmi_clk = clk_75_d0;
+assign hdmi_clk = clk_150_d0;
 
 assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
 assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
@@ -119,18 +124,20 @@ clk_pll  pll01(
 );
          
 i2c_sender sender(
-    .clk_in(clk_75_d0),
+    .clk_in(clk_150_d0),
     .reset(reset),
     .i2c_scl(hdmi_scl),
     .i2c_sda(hdmi_sda)
 );
 
 gen_pat  pat_hdmi(
-     .clk_in(clk_75_d90),
+     .clk_in(clk_150_d90),
      .reset(reset),
      .loc_x(loc_x),
      .loc_y(loc_y),
-     .color_out(hdmi_d)
+     .color_out(hdmi_d),
+     .picturex(picturex),
+     .picturey(picturey)
 );
 
 endmodule

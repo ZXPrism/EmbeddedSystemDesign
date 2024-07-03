@@ -17,6 +17,9 @@ wire hdmi_sda;
 wire [11:0] locx;
 wire [11:0] locy;
 
+wire [11:0] picturex;
+wire [11:0] picturey;
+
 zedboard_hdmi hdmi(
            .clk_100(clk_100_d0),
            .hdmi_clk(hdmi_clk),
@@ -28,7 +31,9 @@ zedboard_hdmi hdmi(
            .hdmi_scl(hdmi_scl),
            .hdmi_sda(hdmi_sda),
            .locx(locx),
-           .locy(locy)
+           .locy(locy),
+           .picturex(picturex),
+           .picturey(picturey)
        );
 
 initial clk_100_d0 = 1'b0;
