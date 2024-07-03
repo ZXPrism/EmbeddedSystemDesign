@@ -26,23 +26,23 @@ module gen_pat(
     parameter C_BLACK  = 24'h008080;  //   0 128 128          0   0   0
 
     /*Your code*/
-
+    
      always @(posedge clk_in) begin
         if( loc_x[0] == 0 ) begin
-            color_out <= {loc_x[7:0], loc_x[11:4]};
+            color_out <= 16'h4c54;
         end
         else begin
-            color_out <= {loc_x[7:0], loc_x[11:4]};
+            color_out <= 16'h4cff;
         end
      end
 
     // 2
     // always @(posedge clk_in) begin
     //     if( loc_x[0] == 0 ) begin
-    //         color_out = {loc_x[7:0], loc_y[8:1]};
+    //         color_out = {loc_x[7:0], loc_x[11:4]};
     //     end
     //     else begin
-    //         color_out = {loc_x[7:0], loc_x[8:1] + loc_y[8:1]};
+    //         color_out = {loc_x[7:0], loc_x[11:4]};
     //     end
     // end
 

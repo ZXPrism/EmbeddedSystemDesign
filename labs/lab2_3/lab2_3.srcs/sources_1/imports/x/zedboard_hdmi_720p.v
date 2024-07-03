@@ -18,9 +18,11 @@ module zedboard_hdmi(
            output  wire [15:0]  hdmi_d,
            //input 	      hdmi_int,
            input 	        reset,
-           
+           output [11:0]    locx,
+           output [11:0]    locy,
            output           hdmi_scl,
-           output           hdmi_sda
+           output           hdmi_sda,
+           output clk_d90
        );
 
 wire 			   clk_150_d0;
@@ -39,7 +41,7 @@ parameter v_fp = 12'd5;
 parameter v_bp = 12'd20;
 parameter v_sync = 12'd5;
 
-parameter scr_width = 12'd1280;
+parameter scr_width = 12'd1280-12'd1;
 parameter scr_height = 12'd720;
 
 reg [11:0] hsync_cnt = 12'd0;
@@ -50,6 +52,10 @@ wire v_valid;
 
 reg [11:0] loc_x;
 reg [11:0] loc_y;
+
+assign locx = loc_x;
+assign locy = loc_y;
+assign clk_d90 = clk_75_d90;
 
 /* horizontal counter */
 always @(posedge clk_75_d0 ) begin
@@ -74,20 +80,19 @@ always @(posedge clk_75_d0 ) begin
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
         end
-        
-        // transmit data
-        if (hdmi_de) begin
-            loc_x <= loc_x + 12'd1;
-        end 
-        else begin  
-            loc_x <= 12'd0;
-        end
     end
 end
 
-//always@(negedge hdmi_de) begin
-//    loc_y <= loc_y + 12'd1;
-//end
+always @(posedge clk_75_d90) begin
+    // transmit data
+    if (hdmi_de && loc_x < scr_width) begin
+        loc_x <= loc_x + 12'd1;
+    end 
+    else begin  
+        loc_x <= 12'd0;
+        loc_y <= loc_y + 12'd1;
+    end
+end
 
 assign hdmi_hsync = hsync_cnt <= h_sync;
 assign hdmi_vsync = vsync_cnt <= v_sync;
@@ -116,7 +121,7 @@ i2c_sender sender(
 );
 
 gen_pat  pat_hdmi(
-             .clk_in(clk_75_d0),
+             .clk_in(clk_75_d90),
              .reset(reset),
              .loc_x(loc_x),
              .loc_y(loc_y),
