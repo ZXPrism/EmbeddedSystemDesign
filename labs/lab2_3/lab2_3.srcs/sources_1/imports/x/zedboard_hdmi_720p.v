@@ -18,13 +18,17 @@ module zedboard_hdmi(
            output  [15:0]   hdmi_d,
            input 	        reset,
            output           hdmi_scl,
-           output           hdmi_sda
+           output           hdmi_sda,
+           output  [11:0] locx,
+           output  [11:0] locy
        );
 
 wire 			   clk_150_d0;
 wire 			   clk_150_d90;
 wire 			   clk_75_d0;
 wire 			   clk_75_d90;
+
+
 
 reg [7:0] frame_no;
 
@@ -65,6 +69,9 @@ wire v_valid;
 
 reg [11:0] loc_x;
 reg [11:0] loc_y;
+
+assign locx = loc_x;
+assign locy = loc_y;
 
 /* horizontal counter */
 always @(posedge clk_150_d0 ) begin
@@ -136,7 +143,7 @@ i2c_sender sender(
 );
 
 gen_pat  pat_hdmi(
-             .clk_in(clk_150_d0),
+             .clk_in(clk_150_d90),
              .reset(reset),
              .loc_x(loc_x),
              .loc_y(loc_y),

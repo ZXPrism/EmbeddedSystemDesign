@@ -2,7 +2,6 @@
 # Function: generate YUV422 images for testing (since programming on FPGA is rather time-consuming)
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 width = 1280
 height = 720
