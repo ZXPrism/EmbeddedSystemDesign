@@ -15,11 +15,20 @@ dataSrc = [
     [0 for __ in range(width)] for _ in range(height)
 ]  # NOTE: first dimension is height!
 
+a = 200
+cnt = 0
+
 # write image generation codes here
 for loc_y in range(height):
-    for loc_x in range(0, width, 2):
-        dataSrc[loc_y][loc_x] = 0xB2AB
-        dataSrc[loc_y][loc_x + 1] = 0xB200
+    for loc_x in range(0, width):
+        if loc_x & 1 == 0:
+            dataSrc[loc_y][loc_x] = ((loc_x & 0xFF) << 8) | ((loc_y & 0xFF))
+        else:
+            dataSrc[loc_y][loc_x] = ((loc_x & 0xFF) << 8) | (
+                (((loc_x & 0xFF) + (loc_y & 0xFF) + cnt) & 0xFF)
+            )
+        cnt += (loc_x & 1) + (loc_y & 1)
+        cnt %= 256
 
 for loc_y in range(height):
     for loc_x in range(0, width, 2):
