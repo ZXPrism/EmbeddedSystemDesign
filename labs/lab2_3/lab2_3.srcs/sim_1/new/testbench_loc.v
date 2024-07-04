@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module sim_lab2_3();
+module sim_lab2_3_loc();
 
 reg clk_100_d0;
 wire hdmi_clk;
@@ -17,8 +17,8 @@ wire hdmi_sda;
 wire [11:0] locx;
 wire [11:0] locy;
 
-wire [11:0] picturex;
-wire [11:0] picturey;
+//wire [8:0] picturex;
+//wire [8:0] picturey;
 
 zedboard_hdmi hdmi(
            .clk_100(clk_100_d0),
@@ -29,11 +29,11 @@ zedboard_hdmi hdmi(
            .hdmi_d(hdmi_d),
            .reset(reset),
            .hdmi_scl(hdmi_scl),
-           .hdmi_sda(hdmi_sda),
-           .locx(locx),
-           .locy(locy),
-           .picturex(picturex),
-           .picturey(picturey)
+           .hdmi_sda(hdmi_sda)
+//           .locx(locx),
+//           .locy(locy)
+//           .picturex(picturex),
+//           .picturey(picturey)
        );
 
 initial clk_100_d0 = 1'b0;

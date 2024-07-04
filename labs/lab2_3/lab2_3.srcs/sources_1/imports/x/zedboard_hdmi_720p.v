@@ -7,11 +7,12 @@ module zedboard_hdmi(
            output  [15:0]   hdmi_d,
            input 	        reset,
            output           hdmi_scl,
-           output           hdmi_sda,
-           output   [11:0]  locx,
-           output   [11:0]  locy,
-           output [11:0] picturex,
-           output [11:0] picturey
+           
+//           output   [11:0]  locx,
+//           output   [11:0]  locy
+//           output [8:0] picturex,
+//           output [8:0] picturey
+           output           hdmi_sda
        );
 
 wire 			   clk_150_d0;
@@ -56,19 +57,32 @@ reg [11:0] vsync_cnt = 12'd0;
 wire h_valid;
 wire v_valid;
 
-reg [11:0] loc_x;
-reg [11:0] loc_y;
+wire [11:0] loc_x;
+wire [11:0] loc_y;
+//assign locx = loc_x;
+//assign locy = loc_y;
 
-assign locx = loc_x;
-assign locy = loc_y;
+//wire [15:0] hdmid;
+
+assign loc_x = hsync_cnt - h_sync - h_bp;
+assign loc_y = vsync_cnt - v_sync - v_bp;
 /* horizontal counter */
+
+assign hdmi_hsync = hsync_cnt <= h_sync;
+assign hdmi_vsync = vsync_cnt <= v_sync;
+assign hdmi_clk = clk_150_d0;
+
+assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
+assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
+assign hdmi_de = h_valid && v_valid;
+
 always @(posedge clk_150_d0 ) begin
    if(reset == 1'b1) begin
         hsync_cnt <= 12'd1;
         vsync_cnt <= 12'd1;
-        loc_x <= 0;
-        loc_y <= 0;
+
         frame_no <= 0;
+        //hdmi_d <= 0;
    end
    else begin    
         // hsync posedge counter --- base on clk
@@ -82,35 +96,33 @@ always @(posedge clk_150_d0 ) begin
         // vsync posedge counter --- base on lines
         if (vsync_cnt == v_total && hsync_cnt == h_total) begin
             vsync_cnt <= 1;
-            loc_y <= 0;
+            //loc_y <= 0;
             frame_no <= frame_no + 1;
         end
         else if (hsync_cnt == h_total) begin
             vsync_cnt <= vsync_cnt + 1;
+        end
             
-            if(v_valid)begin
-                loc_y <= loc_y +12'd1;
-            end
-        end
+//        hdmi_d <= hdmid;    
+//            if(v_valid)begin
+//                loc_y <= loc_y +12'd1;
+//            end
+//        end
         
-        // transmit data
-        if (hdmi_de && loc_x < (scr_width-12'd1)) begin
-            loc_x <= loc_x + 12'd1;
-        end 
-        else begin  
-            loc_x <= 12'd0;
-        end
+//        // transmit data
+//        if (hdmi_de & loc_x < (scr_width-12'd1)) begin
+//            loc_x <= loc_x + 12'd1;
+//        end 
+//        else begin  
+//            loc_x <= 12'd0;
+//        end
+        
+        
     end
 end
 
 
-assign hdmi_hsync = hsync_cnt <= h_sync;
-assign hdmi_vsync = vsync_cnt <= v_sync;
-assign hdmi_clk = clk_150_d0;
 
-assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
-assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
-assign hdmi_de = h_valid && v_valid;
 
 
 /* output */
@@ -131,13 +143,13 @@ i2c_sender sender(
 );
 
 gen_pat  pat_hdmi(
-     .clk_in(clk_150_d90),
+     .clk_in(clk_150_d0),
      .reset(reset),
      .loc_x(loc_x),
      .loc_y(loc_y),
-     .color_out(hdmi_d),
-     .picturex(picturex),
-     .picturey(picturey)
+     .color_out(hdmi_d)
+//     .picturex(picturex),
+//     .picturey(picturey)
 );
 
 endmodule
