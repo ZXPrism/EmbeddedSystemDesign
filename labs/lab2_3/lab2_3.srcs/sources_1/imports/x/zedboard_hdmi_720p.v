@@ -145,8 +145,8 @@ i2c_sender sender(
 gen_pat  pat_hdmi(
      .clk_in(clk_150_d0),
      .reset(reset),
-     .loc_x(loc_x),
-     .loc_y(loc_y),
+     .locx(loc_x),
+     .locy(loc_y),
      .color_out(hdmi_d)
 //     .picturex(picturex),
 //     .picturey(picturey)
