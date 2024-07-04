@@ -18,9 +18,9 @@ module zedboard_hdmi(
            output  [15:0]   hdmi_d,
            input 	        reset,
            output           hdmi_scl,
-           output           hdmi_sda,
-           output  [11:0] locx,
-           output  [11:0] locy
+           output           hdmi_sda
+//           output  [11:0] locx,
+//           output  [11:0] locy
        );
 
 wire 			   clk_150_d0;
