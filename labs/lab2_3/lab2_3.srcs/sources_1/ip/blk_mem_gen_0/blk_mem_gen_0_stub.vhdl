@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Thu Jul  4 09:40:48 2024
+-- Date        : Thu Jul  4 15:42:09 2024
 -- Host        : Pencil-PC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               E:/VIvado/warehouse/EmbededSystemDesign/labs/lab2_3/lab2_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top blk_mem_gen_0 -prefix
+--               blk_mem_gen_0_ blk_mem_gen_0_stub.vhdl
 -- Design      : blk_mem_gen_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
