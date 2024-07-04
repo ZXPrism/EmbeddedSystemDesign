@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Thu Jul  4 15:42:09 2024
-// Host        : Pencil-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top blk_mem_gen_0 -prefix
-//               blk_mem_gen_0_ blk_mem_gen_0_stub.v
+// Date        : Thu Jul  4 17:13:02 2024
+// Host        : ZXPRISM running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub
+//               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab2_3/lab2_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_stub.v
 // Design      : blk_mem_gen_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

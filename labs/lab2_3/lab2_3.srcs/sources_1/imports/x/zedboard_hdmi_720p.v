@@ -64,8 +64,8 @@ wire [11:0] loc_y;
 
 //wire [15:0] hdmid;
 
-assign loc_x = hsync_cnt - h_sync - h_bp ;
-assign loc_y = vsync_cnt - v_sync - v_bp ;
+assign loc_x = hsync_cnt - h_sync - h_bp + 1;
+assign loc_y = vsync_cnt - v_sync - v_bp - 1;
 /* horizontal counter */
 
 assign hdmi_hsync = hsync_cnt <= h_sync;
