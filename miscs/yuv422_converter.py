@@ -4,7 +4,7 @@
 from PIL import Image
 import numpy as np
 
-path = "test.png"
+path = input("the path of image to convert: ")
 
 image = Image.open(path)
 data = np.array(image)
