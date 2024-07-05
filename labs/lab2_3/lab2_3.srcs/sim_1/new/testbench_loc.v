@@ -1,49 +1,49 @@
 `timescale 1ns / 1ps
 
-module sim_lab2_3_loc();
+module sim_lab2_3_loc ();
 
-reg clk_100_d0;
-wire hdmi_clk;
-wire hdmi_hsync;
-wire hdmi_vsync;
-wire hdmi_de;
-wire [15:0] hdmi_d;
-reg reset;
+    reg clk_100_d0;
+    wire hdmi_clk;
+    wire hdmi_hsync;
+    wire hdmi_vsync;
+    wire hdmi_de;
+    wire [15:0] hdmi_d;
+    reg reset;
 
-wire hdmi_scl;
-wire hdmi_sda;
+    wire hdmi_scl;
+    wire hdmi_sda;
 
 
-wire [11:0] locx;
-wire [11:0] locy;
+    wire [11:0] locx;
+    wire [11:0] locy;
 
-//wire [8:0] picturex;
-//wire [8:0] picturey;
+    //wire [8:0] picturex;
+    //wire [8:0] picturey;
 
-zedboard_hdmi hdmi(
-           .clk_100(clk_100_d0),
-           .hdmi_clk(hdmi_clk),
-           .hdmi_hsync(hdmi_hsync),
-           .hdmi_vsync(hdmi_vsync),
-           .hdmi_de(hdmi_de),
-           .hdmi_d(hdmi_d),
-           .reset(reset),
-           .hdmi_scl(hdmi_scl),
-           .hdmi_sda(hdmi_sda)
-//           .locx(locx),
-//           .locy(locy)
-//           .picturex(picturex),
-//           .picturey(picturey)
-       );
+    zedboard_hdmi hdmi (
+        .clk_100(clk_100_d0),
+        .hdmi_clk(hdmi_clk),
+        .hdmi_hsync(hdmi_hsync),
+        .hdmi_vsync(hdmi_vsync),
+        .hdmi_de(hdmi_de),
+        .hdmi_d(hdmi_d),
+        .reset(reset),
+        .hdmi_scl(hdmi_scl),
+        .hdmi_sda(hdmi_sda),
+        .locx(locx),
+        .locy(locy)
+        //           .picturex(picturex),
+        //           .picturey(picturey)
+    );
 
-initial clk_100_d0 = 1'b0;
-always #5 clk_100_d0 = ~clk_100_d0;
+    initial clk_100_d0 = 1'b0;
+    always #5 clk_100_d0 = ~clk_100_d0;
 
-initial reset = 1'b1;
+    initial reset = 1'b1;
 
-initial begin
-#400;
-reset = 1'b0;
-end
+    initial begin
+        #400;
+        reset = 1'b0;
+    end
 
 endmodule
