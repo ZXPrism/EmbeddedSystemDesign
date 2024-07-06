@@ -1,0 +1,1799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:library>customized_ip</spirit:library>
+  <spirit:name>sys_hdmi_axi_0_1</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>S00_AXI</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
+      <spirit:slave>
+        <spirit:memoryMapRef spirit:memoryMapRef="S00_AXI"/>
+      </spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_awaddr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWPROT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_awprot</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_awvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_awready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_wdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WSTRB</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_wstrb</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_wvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_wready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_bresp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_bvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_bready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_araddr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARPROT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_arprot</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_arvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_arready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_rdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_rresp</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_rvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_rready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>WIZ_DATA_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197">32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>WIZ_NUM_REG</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_NUM_REG" spirit:minimum="4" spirit:maximum="512" spirit:rangeType="long">4</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.SUPPORTS_NARROW_BURST" spirit:choiceRef="choice_pairs_ce1226b1">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>DATA_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.DATA_WIDTH">32</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PROTOCOL</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.PROTOCOL">AXI4LITE</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ID_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.ID_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ADDR_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH">16</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>AWUSER_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.AWUSER_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ARUSER_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.ARUSER_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>WUSER_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RUSER_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.RUSER_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>BUSER_WIDTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.BUSER_WIDTH">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>READ_WRITE_MODE</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.READ_WRITE_MODE">READ_WRITE</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_BURST</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_BURST">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_LOCK</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_LOCK">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_PROT</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_PROT">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_CACHE</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_CACHE">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_QOS</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_QOS">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_REGION</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_REGION">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_WSTRB</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_WSTRB">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_BRESP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_BRESP">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HAS_RRESP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.HAS_RRESP">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_OUTSTANDING">8</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_OUTSTANDING">8</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>MAX_BURST_LENGTH</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.MAX_BURST_LENGTH">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.PHASE">0.000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.CLK_DOMAIN">sys_processing_system7_0_0_FCLK_CLK0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_THREADS</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_THREADS">4</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_THREADS</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_THREADS">4</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RUSER_BITS_PER_BYTE</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.RUSER_BITS_PER_BYTE">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>WUSER_BITS_PER_BYTE</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WUSER_BITS_PER_BYTE">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S00_AXI.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S00_AXI_RST</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_aresetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S00_AXI_RST.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S00_AXI_CLK</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s00_axi_aclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.ASSOCIATED_BUSIF">S00_AXI</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.ASSOCIATED_RESET">s00_axi_aresetn</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.PHASE">0.000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN">sys_processing_system7_0_0_FCLK_CLK0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>hdmi_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hdmi_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.PHASE">0.000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.CLK_DOMAIN">sys_hdmi_axi_0_1_hdmi_clk</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.ASSOCIATED_RESET"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:memoryMaps>
+    <spirit:memoryMap>
+      <spirit:name>S00_AXI</spirit:name>
+      <spirit:addressBlock>
+        <spirit:name>S00_AXI_reg</spirit:name>
+        <spirit:baseAddress spirit:format="long" spirit:resolve="user">0</spirit:baseAddress>
+        <spirit:range spirit:format="long">4096</spirit:range>
+        <spirit:width spirit:format="long">32</spirit:width>
+        <spirit:usage>register</spirit:usage>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>OFFSET_BASE_PARAM</spirit:name>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S00_AXI.S00_AXI_REG.OFFSET_BASE_PARAM">C_S00_AXI_BASEADDR</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>OFFSET_HIGH_PARAM</spirit:name>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S00_AXI.S00_AXI_REG.OFFSET_HIGH_PARAM">C_S00_AXI_HIGHADDR</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:addressBlock>
+    </spirit:memoryMap>
+  </spirit:memoryMaps>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsynthesis</spirit:name>
+        <spirit:displayName>Verilog Synthesis</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>hdmi_axi_v1_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Sat Jul 06 05:51:10 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:dca10530</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_synthesisconstraints</spirit:name>
+        <spirit:displayName>Synthesis Constraints</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis.constraints</spirit:envIdentifier>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:dca10530</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsynthesiswrapper</spirit:name>
+        <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>sys_hdmi_axi_0_1</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Sat Jul 06 05:51:10 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:dca10530</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogbehavioralsimulation</spirit:name>
+        <spirit:displayName>Verilog Simulation</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>hdmi_axi_v1_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogbehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Sat Jul 06 05:51:10 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:eabc185c</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
+        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>sys_hdmi_axi_0_1</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Sat Jul 06 05:51:10 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:eabc185c</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_externalfiles</spirit:name>
+        <spirit:displayName>External Files</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Sat Jul 06 05:53:24 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:dca10530</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>hdmi_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_hsync</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_vsync</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_de</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_d</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_scl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_sda</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_awaddr</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_awprot</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_awvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_awready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_wdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_wstrb</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) / 8) - 1)">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_wvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_wready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_bresp</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_bvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_bready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_araddr</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_arprot</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_arvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_arready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_rdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_rresp</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_rvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_rready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_aclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s00_axi_aresetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
+        <spirit:displayName>C S00 AXI DATA WIDTH</spirit:displayName>
+        <spirit:description>Width of S_AXI data bus</spirit:description>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:order="3" spirit:rangeType="long">32</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_S00_AXI_ADDR_WIDTH</spirit:name>
+        <spirit:displayName>C S00 AXI ADDR WIDTH</spirit:displayName>
+        <spirit:description>Width of S_AXI address bus</spirit:description>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH" spirit:order="4" spirit:rangeType="long">16</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_6fc15197</spirit:name>
+      <spirit:enumeration>32</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_pairs_ce1226b1</spirit:name>
+      <spirit:enumeration spirit:text="true">1</spirit:enumeration>
+      <spirit:enumeration spirit:text="false">0</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/blk_mem_gen_0/blk_mem_gen_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/clk_wiz_0/clk_wiz_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/gen_pat.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/hdl/hdmi_axi_v1_0_S00_AXI.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/i2c_sender.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/zedboard_hdmi_720p.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/hdl/hdmi_axi_v1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>synth/sys_hdmi_axi_0_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/blk_mem_gen_0/blk_mem_gen_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/clk_wiz_0/clk_wiz_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/gen_pat.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/hdl/hdmi_axi_v1_0_S00_AXI.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/i2c_sender.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/src/zedboard_hdmi_720p.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/e3e1/hdl/hdmi_axi_v1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>sim/sys_hdmi_axi_0_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>sys_hdmi_axi_0_1.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sys_hdmi_axi_0_1_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sys_hdmi_axi_0_1_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sys_hdmi_axi_0_1_sim_netlist.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sys_hdmi_axi_0_1_sim_netlist.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>axi ip for hdmi controller</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
+      <spirit:displayName>C S00 AXI DATA WIDTH</spirit:displayName>
+      <spirit:description>Width of S_AXI data bus</spirit:description>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197" spirit:order="3">32</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_S00_AXI_DATA_WIDTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>C_S00_AXI_ADDR_WIDTH</spirit:name>
+      <spirit:displayName>C S00 AXI ADDR WIDTH</spirit:displayName>
+      <spirit:description>Width of S_AXI address bus</spirit:description>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_ADDR_WIDTH" spirit:order="4" spirit:rangeType="long">16</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_S00_AXI_ADDR_WIDTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>C_S00_AXI_BASEADDR</spirit:name>
+      <spirit:displayName>C S00 AXI BASEADDR</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_BASEADDR" spirit:order="5" spirit:bitStringLength="32">0xFFFFFFFF</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_S00_AXI_BASEADDR">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>C_S00_AXI_HIGHADDR</spirit:name>
+      <spirit:displayName>C S00 AXI HIGHADDR</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_HIGHADDR" spirit:order="6" spirit:bitStringLength="32">0x00000000</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.C_S00_AXI_HIGHADDR">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">sys_hdmi_axi_0_1</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:displayName>hdmi_axi_v1.0</xilinx:displayName>
+      <xilinx:xpmLibraries>
+        <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
+        <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
+      </xilinx:xpmLibraries>
+      <xilinx:coreRevision>37</xilinx:coreRevision>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36a6891f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42342b50_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2717fe66_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7326d633_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e49aae_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f51dd90_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29580880_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@717f7167_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fd65c92_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bb028d4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30ff4fd2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b37c757_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a2d6cb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17ce93e8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364fdda9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1db181d7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@74df6953_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@699e2bed_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2db2e2ea_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55ae9ccf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29edf1ad_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ee04fbc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e645105_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14481e5a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d10e0dc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37fc3c9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@430f3b3c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51d7b919_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bb885cf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ea3d50d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@377706b8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24ae28d9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56d9bfbf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bf4a6bd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37bfa0af_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@130a9bf8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59cfeba2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fa9a9fc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33b4439d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fd48f53_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18b73cd8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47a48ef0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@655678ff_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5245c84e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3dae0d11_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e179f85_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@454439d2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ff947d7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61df3d74_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d896ca2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7422e1c8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e5ef8cf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f343c51_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a5eb849_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e343a5e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a07bec8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72f217ee_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40f22f0f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e18959_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@475eca93_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57f7e0c1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b910147_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d1ba971_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b15e9cf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fd2f329_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c39a388_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2685417c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@495e0c12_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d6e031e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@79f572d7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75c9837_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e816263_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@418acd61_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2608702a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21a98ab6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60735d14_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35b117c3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a85e99d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f3a0702_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@427d9140_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6461f7bf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@228721f0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1064a6cd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d0ca561_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ee58f00_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72105f0a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6dc0c06d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10355750_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e3164b6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47079057_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10481062_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f49ad0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7aa8d983_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18bfb20_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6171ad4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53dc5af5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@605b8c05_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@319f3d50_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6224f5fc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a936030_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45b4f32e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d09b776_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@387de1fb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@531c37e5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ba08e0d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f7261f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48371124_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@646d6a9a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37e85d3a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dea5e82_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c4e5856_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6408517_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@228b989_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b779614_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f8f94d8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a34a6a4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36cadfbb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fa6fc23_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dd8be9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e829d0d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45290d8f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7609c517_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70d00ca9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e7b7f00_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f17ccab_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a4cc4f8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3434c1d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f550b5c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37d87005_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49540add_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fc9d674_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e99c1f3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54801f4e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b68cf62_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@580aa7c3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f14bc5b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@700f0202_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f50e538_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e0704fb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a2a7cf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1267d1c6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bacbe9f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a67e02b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51f4cf4e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46ac0086_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42129625_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5dce385f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4584726a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b8fad52_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@415390d2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@719c3a52_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63fa060_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cc20d9d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56ad1d05_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f26dfaa_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@725b3f49_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3035641e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cf77560_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@522da2f5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54444030_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55cb69ad_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f8f4439_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e73108_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c41bcb9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c04fa0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19415ff7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e59b45_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a476080_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f6b4a1d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@81e433d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3cd78af4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57569baa_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a465a55_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47dfa5e9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d773c5d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f24136_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a009d30_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19b3b09b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a8615bf_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13a9187e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34d15f4d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d78d74b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70054316_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2658d02e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d62f51a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6aff1b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fe6780e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34600703_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bb5a6a5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c1c18c8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a81cb6e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2364f4e8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f5ee0cb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@74ba1a04_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78247f1f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5599fefd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65105cee_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42892e0a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e43657c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bca947d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7677c24_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@423e3de7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@758c1089_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2287ac12_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@755a838b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c132e60_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@752f5a67_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@680ecff0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c0a1a30_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7201fe54_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c0c9b72_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41cbf47b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@293aa1b1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c698726_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28364cb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d637b87_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@128f1a2e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6680267d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d895691_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72aeab10_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c2621ee_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d445684_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ee35fa8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45c86ca5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5105ab39_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24f3a53a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28264f13_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e6db55f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@209e7ec7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ba0b29b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7366496c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b1c35d0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@515c2a32_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a0da6ea_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6cd5bb08_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5950f25b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ad70456_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c86f7ef_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c1ddb4d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a7e98eb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26c71751_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25b6e1c8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3be4084b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58ca1a5e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fa361f1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@aee67bb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@641a7686_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f38bd20_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f3c9f1e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fa27b2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e6b51ab_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e7e7081_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@195b9f1f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f102c5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7211db57_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21960476_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@246a9113_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ad2554c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68d08c06_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fca140f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@213a1221_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@574c29f0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ec59621_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18f87252_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24ba3e0b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5370dc72_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@526b4c23_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75f3676f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fb00060_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6177e8fe_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1775fd22_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bc8deb1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6acc6aac_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c7ab061_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fbdfed5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@451ee5a3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33127bd7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@423e8f40_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b50b6a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69f73b8e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60591d78_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fc43b34_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@137624aa_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@300e557_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c003e38_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bea3976_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fdbf288_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@148f7538_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@593f2886_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ade7fe7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22a028f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@175e750d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b0a9c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a11d857_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15cd365b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28f7c4d3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c6eb636_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ecb6f97_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f10a0d8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7489b346_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bee6df9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c936f83_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@593df729_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48cf18c6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65b04c0d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@138319f2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76adc039_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13f18267_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75ed4a73_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5edf835a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c57dc2c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f9b68a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bfb3ec4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22276165_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27e5ee92_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2feb3901_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@507b4c24_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d186a2a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61311026_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@631b7e0c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@571239b9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d1644cd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dfa20ad_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43151ce0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3af90cd0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55da7675_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46fa9a4d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1678e5dc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1180c852_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d8186dc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f1b8671_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65ed1d46_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a7d2df4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d897612_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cca99dd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26458018_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@280fb3ac_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ccae5f0_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b4ff988_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bfb5f06_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15c343f8_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27d4f712_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ee08327_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@403d8606_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@603b1fc4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@586c984f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a1b098a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@560e4c97_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6975e399_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28775a70_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71e48a54_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ba50e06_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30780346_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c48c3e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1824c1b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2518ec1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24f75b19_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11d3c7ec_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c2e93f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ba8f7e6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6458c363_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a4a7e8d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5de5b800_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73abc1dd_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@271cbe4c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22bf22a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d176824_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f958584_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@346c2ff6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11152735_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c87447_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64363555_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@317664bc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d3c33ba_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f62028e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3783ae75_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@736e5003_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ff6e18f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e68169f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5823bf7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@567ea119_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35124fb2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2df38d48_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_1.0</xilinx:tag>
+      </xilinx:tags>
+      <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.HDMI_CLK.CLK_DOMAIN" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.AWUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.BUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.DATA_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_BRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_BURST" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_CACHE" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_LOCK" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_PROT" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_QOS" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_REGION" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_RRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_WSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ID_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.MAX_BURST_LENGTH" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_OUTSTANDING" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_THREADS" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_OUTSTANDING" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_THREADS" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.PROTOCOL" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.READ_WRITE_MODE" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.RUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
+      </xilinx:configElementInfos>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2a1aa84c"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d0fb7556"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="498d5831"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="45bb3a9b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="973f876d"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
