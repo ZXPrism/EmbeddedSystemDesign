@@ -453,7 +453,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>04bad63a</spirit:value>
+            <spirit:value>4ad5730b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -475,7 +475,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>04bad63a</spirit:value>
+            <spirit:value>4ad5730b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1733,8 +1733,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>hdmi_axi_full_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>14</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-07-08T06:58:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>19</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-07-08T08:16:10Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1f591d4c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@516e8501_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
@@ -1928,13 +1928,53 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@24ce9e1b_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@110610c1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@bed1926_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@344d26a7_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61cb87b5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17606b49_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f01221c_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b5672fa_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58727c9_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30592d8d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a835e4_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12941667_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30ce7e65_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fc27d64_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@131df008_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@520c22be_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2030d48e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f4628fb_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ff4af79_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ec0799_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30cc1b74_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ac8bc2e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8968c86_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43b8a7de_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fe8a9c2_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@203555db_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e0ce192_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@667e97_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@424f0f79_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bb25ef5_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a864a61_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2996d3f3_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c3e80fc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b60421e_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@bbe77b1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3532c3d6_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d1f9dc_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5550723a_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@379d637d_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a65fba1_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b34fc40_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5731c119_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fdff03f_ARCHIVE_LOCATION">c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/ip_repo/hdmi_axi_full_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6c87336f"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="55bfeea0"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e694a394"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="686493bf"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="eb8b48eb"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="929b2e09"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="22702d50"/>

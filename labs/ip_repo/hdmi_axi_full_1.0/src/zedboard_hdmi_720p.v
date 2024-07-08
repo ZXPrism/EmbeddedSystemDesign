@@ -11,8 +11,7 @@ module zedboard_hdmi (
 
     input wire wea,
     input wire [15:0] addra,
-    input wire [15:0] dina,
-    output wire [15:0] douta
+    input wire [31:0] dina
 );
 
     wire clk_150_d0;
@@ -99,8 +98,7 @@ module zedboard_hdmi (
 
         .wea  (wea),
         .addra(addra),
-        .dina (dina),
-        .douta(douta)
+        .dina (dina)
     );
 
 endmodule

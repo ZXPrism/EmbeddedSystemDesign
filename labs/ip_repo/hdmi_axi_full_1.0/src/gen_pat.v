@@ -17,8 +17,7 @@ module gen_pat (
 
     input wire wea,
     input wire [15:0] addra,
-    input wire [15:0] dina,
-    output wire [15:0] douta
+    input wire [31:0] dina
 );
 
     reg  [15:0] color_reg;
@@ -26,24 +25,20 @@ module gen_pat (
     wire [15:0] color_out_ram;
 
     assign color_out = color_reg;
-
-
-    // always @(posedge clk_in) begin
-    //     if (reset == 1'd1) begin
-    //         color_reg <= 0;
-    //     end else begin
-    //         color_reg <= color_out_ram;
-    //     end
-    // end
+    assign addrb = locx;
 
     always @(posedge clk_in) begin
-        color_reg <= {locx[7:0], locx[11:4]};
+        if (reset == 1'd1) begin
+            color_reg <= 0;
+        end else begin
+            color_reg <= color_out_ram;
+        end
     end
 
     blk_mem_gen_0 image_ram (
         .clka (clk_in),  // input wire clka
         .addra(addra),   // input wire [15 : 0] addra
-        .dina (dina),    // input wire [15 : 0] dina
+        .dina (dina),    // input wire [31 : 0] dina
         .douta(),        // output wire [15 : 0] douta
         .wea  (wea),     // input wire [0 : 0] wea
 

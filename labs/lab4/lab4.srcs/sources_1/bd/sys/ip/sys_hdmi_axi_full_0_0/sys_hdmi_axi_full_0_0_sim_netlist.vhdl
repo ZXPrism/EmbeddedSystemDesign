@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Mon Jul  8 14:59:43 2024
+-- Date        : Mon Jul  8 16:18:18 2024
 -- Host        : ZXPRISM running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_hdmi_axi_full_0_0/sys_hdmi_axi_full_0_0_sim_netlist.vhdl
@@ -150,13 +150,11 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_i2c_sender is
   signal \^hdmi_sda\ : STD_LOGIC;
   signal \i2c_cmd[10]_i_1_n_0\ : STD_LOGIC;
   signal \i2c_cmd[10]_i_2_n_0\ : STD_LOGIC;
+  signal \i2c_cmd[10]_i_3_n_0\ : STD_LOGIC;
   signal \i2c_cmd[12]_i_1_n_0\ : STD_LOGIC;
-  signal \i2c_cmd[12]_i_2_n_0\ : STD_LOGIC;
   signal \i2c_cmd[13]_i_1_n_0\ : STD_LOGIC;
   signal \i2c_cmd[14]_i_1_n_0\ : STD_LOGIC;
   signal \i2c_cmd[15]_i_1_n_0\ : STD_LOGIC;
-  signal \i2c_cmd[15]_i_2_n_0\ : STD_LOGIC;
-  signal \i2c_cmd[15]_i_3_n_0\ : STD_LOGIC;
   signal \i2c_cmd[16]_i_1_n_0\ : STD_LOGIC;
   signal \i2c_cmd[17]_i_1_n_0\ : STD_LOGIC;
   signal \i2c_cmd[17]_i_2_n_0\ : STD_LOGIC;
@@ -206,6 +204,7 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_i2c_sender is
   signal i2c_init_finish_i_2_n_0 : STD_LOGIC;
   signal i2c_init_finish_i_3_n_0 : STD_LOGIC;
   signal i2c_init_finish_i_4_n_0 : STD_LOGIC;
+  signal i2c_init_finish_i_5_n_0 : STD_LOGIC;
   signal i2c_init_finish_reg_n_0 : STD_LOGIC;
   signal i2c_sda_i_10_n_0 : STD_LOGIC;
   signal i2c_sda_i_11_n_0 : STD_LOGIC;
@@ -224,56 +223,61 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_i2c_sender is
   signal p_0_in : STD_LOGIC;
   signal \p_0_in__1\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \p_0_in__2\ : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal \word_counter[3]_i_1_n_0\ : STD_LOGIC;
+  signal \word_counter[2]_i_1_n_0\ : STD_LOGIC;
+  signal \word_counter[4]_i_1_n_0\ : STD_LOGIC;
   signal \word_counter[7]_i_1_n_0\ : STD_LOGIC;
   signal \word_counter[7]_i_2_n_0\ : STD_LOGIC;
   signal \word_counter[7]_i_4_n_0\ : STD_LOGIC;
   signal word_counter_reg : STD_LOGIC_VECTOR ( 7 downto 0 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \bit_counter[1]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \bit_counter[2]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \bit_counter[2]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \bit_counter[3]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \bit_counter[4]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \bit_counter[6]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \cmd_counter[1]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \bit_counter[6]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \cmd_counter[0]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \cmd_counter[1]_i_1\ : label is "soft_lutpair13";
   attribute SOFT_HLUTNM of \cmd_counter[2]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \cmd_counter[3]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \cmd_counter[4]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \cmd_counter[6]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_2 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_5 : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_6 : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \i2c_cmd[17]_i_2\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_2\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_3\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_5\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \i2c_cmd[22]_i_4\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \i2c_cmd[22]_i_6\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \cmd_counter[3]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \cmd_counter[4]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \cmd_counter[6]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_3 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_4 : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_6 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of hdmi_scl_INST_0_i_7 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \i2c_cmd[10]_i_3\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \i2c_cmd[17]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_2\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_3\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \i2c_cmd[18]_i_5\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \i2c_cmd[22]_i_4\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \i2c_cmd[22]_i_5\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \i2c_cmd[22]_i_6\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \i2c_cmd[24]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \i2c_cmd[4]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \i2c_cmd[4]_i_3\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of i2c_init_finish_i_4 : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of i2c_sda_i_9 : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \word_counter[1]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \word_counter[2]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \word_counter[3]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \word_counter[4]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \word_counter[6]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \word_counter[7]_i_3\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \i2c_cmd[4]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \i2c_cmd[4]_i_3\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of i2c_init_finish_i_5 : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of i2c_sda_i_10 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of i2c_sda_i_4 : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \word_counter[1]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \word_counter[2]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \word_counter[4]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \word_counter[6]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \word_counter[7]_i_3\ : label is "soft_lutpair9";
 begin
   D(0) <= \^d\(0);
   hdmi_sda <= \^hdmi_sda\;
 \bit_counter[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"8000FFFF0000FFFF"
+      INIT => X"80000000FFFFFFFF"
     )
         port map (
-      I0 => \bit_counter_reg_n_0_[7]\,
-      I1 => i2c_sda_i_4_n_0,
-      I2 => \bit_counter_reg_n_0_[2]\,
-      I3 => \bit_counter_reg_n_0_[1]\,
-      I4 => \bit_counter_reg_n_0_[0]\,
-      I5 => \bit_counter_reg_n_0_[6]\,
+      I0 => i2c_sda_i_4_n_0,
+      I1 => \bit_counter_reg_n_0_[2]\,
+      I2 => \bit_counter_reg_n_0_[1]\,
+      I3 => \bit_counter_reg_n_0_[6]\,
+      I4 => \bit_counter_reg_n_0_[7]\,
+      I5 => \bit_counter_reg_n_0_[0]\,
       O => bit_counter(0)
     );
 \bit_counter[1]_i_1\: unisim.vcomponents.LUT2
@@ -353,15 +357,15 @@ begin
     );
 \bit_counter[7]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"6AAAAAAAAAAAAAAA"
+      INIT => X"7FFFFFFF80000000"
     )
         port map (
-      I0 => \bit_counter_reg_n_0_[7]\,
-      I1 => i2c_sda_i_4_n_0,
-      I2 => \bit_counter_reg_n_0_[2]\,
-      I3 => \bit_counter_reg_n_0_[1]\,
-      I4 => \bit_counter_reg_n_0_[0]\,
-      I5 => \bit_counter_reg_n_0_[6]\,
+      I0 => i2c_sda_i_4_n_0,
+      I1 => \bit_counter_reg_n_0_[2]\,
+      I2 => \bit_counter_reg_n_0_[1]\,
+      I3 => \bit_counter_reg_n_0_[0]\,
+      I4 => \bit_counter_reg_n_0_[6]\,
+      I5 => \bit_counter_reg_n_0_[7]\,
       O => bit_counter(7)
     );
 \bit_counter_reg[0]\: unisim.vcomponents.FDSE
@@ -505,15 +509,15 @@ begin
     );
 \cmd_counter[7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000200000"
+      INIT => X"0000000000400000"
     )
         port map (
-      I0 => \bit_counter_reg_n_0_[6]\,
-      I1 => \word_counter[7]_i_4_n_0\,
-      I2 => \bit_counter_reg_n_0_[7]\,
-      I3 => i2c_init_finish_reg_n_0,
-      I4 => hdmi_scl_INST_0_i_2_n_0,
-      I5 => hdmi_scl_INST_0_i_7_n_0,
+      I0 => i2c_init_finish_reg_n_0,
+      I1 => \bit_counter_reg_n_0_[7]\,
+      I2 => \bit_counter_reg_n_0_[6]\,
+      I3 => \word_counter[7]_i_4_n_0\,
+      I4 => hdmi_scl_INST_0_i_7_n_0,
+      I5 => hdmi_scl_INST_0_i_6_n_0,
       O => cmd_counter
     );
 \cmd_counter[7]_i_2\: unisim.vcomponents.LUT6
@@ -595,15 +599,15 @@ begin
     );
 hdmi_scl_INST_0: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFEEEFEEEE"
+      INIT => X"EEEEEEEEEEFEFEFE"
     )
         port map (
       I0 => hdmi_scl_INST_0_i_1_n_0,
       I1 => hdmi_scl_INST_0_i_2_n_0,
-      I2 => \bit_counter_reg_n_0_[7]\,
-      I3 => \bit_counter_reg_n_0_[6]\,
-      I4 => hdmi_scl_INST_0_i_3_n_0,
-      I5 => hdmi_scl_INST_0_i_4_n_0,
+      I2 => hdmi_scl_INST_0_i_3_n_0,
+      I3 => word_counter_reg(1),
+      I4 => word_counter_reg(0),
+      I5 => word_counter_reg(2),
       O => hdmi_scl
     );
 hdmi_scl_INST_0_i_1: unisim.vcomponents.LUT6
@@ -616,22 +620,45 @@ hdmi_scl_INST_0_i_1: unisim.vcomponents.LUT6
       I2 => \bit_counter_reg_n_0_[4]\,
       I3 => \bit_counter_reg_n_0_[5]\,
       I4 => \bit_counter_reg_n_0_[3]\,
-      I5 => hdmi_scl_INST_0_i_5_n_0,
+      I5 => hdmi_scl_INST_0_i_4_n_0,
       O => hdmi_scl_INST_0_i_1_n_0
     );
-hdmi_scl_INST_0_i_2: unisim.vcomponents.LUT5
+hdmi_scl_INST_0_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"80000000"
+      INIT => X"FFFFFFFFFFFFFF10"
     )
         port map (
-      I0 => word_counter_reg(4),
-      I1 => word_counter_reg(3),
-      I2 => word_counter_reg(2),
-      I3 => word_counter_reg(0),
-      I4 => word_counter_reg(1),
+      I0 => \bit_counter_reg_n_0_[7]\,
+      I1 => \bit_counter_reg_n_0_[6]\,
+      I2 => hdmi_scl_INST_0_i_5_n_0,
+      I3 => i2c_init_finish_reg_n_0,
+      I4 => hdmi_scl_INST_0_i_6_n_0,
+      I5 => hdmi_scl_INST_0_i_7_n_0,
       O => hdmi_scl_INST_0_i_2_n_0
     );
-hdmi_scl_INST_0_i_3: unisim.vcomponents.LUT6
+hdmi_scl_INST_0_i_3: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000001"
+    )
+        port map (
+      I0 => word_counter_reg(5),
+      I1 => word_counter_reg(7),
+      I2 => word_counter_reg(6),
+      I3 => word_counter_reg(4),
+      I4 => word_counter_reg(3),
+      O => hdmi_scl_INST_0_i_3_n_0
+    );
+hdmi_scl_INST_0_i_4: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"1F"
+    )
+        port map (
+      I0 => \bit_counter_reg_n_0_[1]\,
+      I1 => \bit_counter_reg_n_0_[0]\,
+      I2 => \bit_counter_reg_n_0_[2]\,
+      O => hdmi_scl_INST_0_i_4_n_0
+    );
+hdmi_scl_INST_0_i_5: unisim.vcomponents.LUT6
     generic map(
       INIT => X"57FFFFFFFFFFFFFF"
     )
@@ -642,41 +669,9 @@ hdmi_scl_INST_0_i_3: unisim.vcomponents.LUT6
       I3 => \bit_counter_reg_n_0_[4]\,
       I4 => \bit_counter_reg_n_0_[5]\,
       I5 => \bit_counter_reg_n_0_[3]\,
-      O => hdmi_scl_INST_0_i_3_n_0
-    );
-hdmi_scl_INST_0_i_4: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFF0001"
-    )
-        port map (
-      I0 => word_counter_reg(2),
-      I1 => hdmi_scl_INST_0_i_6_n_0,
-      I2 => word_counter_reg(4),
-      I3 => word_counter_reg(3),
-      I4 => hdmi_scl_INST_0_i_7_n_0,
-      I5 => i2c_init_finish_reg_n_0,
-      O => hdmi_scl_INST_0_i_4_n_0
-    );
-hdmi_scl_INST_0_i_5: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"1F"
-    )
-        port map (
-      I0 => \bit_counter_reg_n_0_[1]\,
-      I1 => \bit_counter_reg_n_0_[0]\,
-      I2 => \bit_counter_reg_n_0_[2]\,
       O => hdmi_scl_INST_0_i_5_n_0
     );
-hdmi_scl_INST_0_i_6: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => word_counter_reg(1),
-      I1 => word_counter_reg(0),
-      O => hdmi_scl_INST_0_i_6_n_0
-    );
-hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
+hdmi_scl_INST_0_i_6: unisim.vcomponents.LUT3
     generic map(
       INIT => X"FE"
     )
@@ -684,6 +679,18 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       I0 => word_counter_reg(6),
       I1 => word_counter_reg(7),
       I2 => word_counter_reg(5),
+      O => hdmi_scl_INST_0_i_6_n_0
+    );
+hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"80000000"
+    )
+        port map (
+      I0 => word_counter_reg(4),
+      I1 => word_counter_reg(1),
+      I2 => word_counter_reg(0),
+      I3 => word_counter_reg(2),
+      I4 => word_counter_reg(3),
       O => hdmi_scl_INST_0_i_7_n_0
     );
 \i2c_cmd[10]_i_1\: unisim.vcomponents.LUT6
@@ -693,7 +700,7 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
         port map (
       I0 => \i2c_cmd[10]_i_2_n_0\,
       I1 => m00_axi_aresetn,
-      I2 => \i2c_cmd[15]_i_3_n_0\,
+      I2 => \i2c_cmd[10]_i_3_n_0\,
       I3 => cmd_counter_reg(2),
       I4 => cmd_counter_reg(1),
       I5 => cmd_counter_reg(0),
@@ -701,42 +708,38 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[10]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000002404538"
+      INIT => X"0000000014030684"
     )
         port map (
       I0 => cmd_counter_reg(0),
-      I1 => cmd_counter_reg(4),
-      I2 => cmd_counter_reg(3),
-      I3 => cmd_counter_reg(2),
-      I4 => cmd_counter_reg(1),
+      I1 => cmd_counter_reg(2),
+      I2 => cmd_counter_reg(1),
+      I3 => cmd_counter_reg(4),
+      I4 => cmd_counter_reg(3),
       I5 => cmd_counter_reg(5),
       O => \i2c_cmd[10]_i_2_n_0\
     );
+\i2c_cmd[10]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => cmd_counter_reg(5),
+      I1 => cmd_counter_reg(3),
+      O => \i2c_cmd[10]_i_3_n_0\
+    );
 \i2c_cmd[12]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BBBFBBBFBBBBBBBF"
+      INIT => X"BBBBEBFB33333232"
     )
         port map (
-      I0 => \i2c_cmd[12]_i_2_n_0\,
-      I1 => m00_axi_aresetn,
-      I2 => \i2c_cmd[18]_i_2_n_0\,
-      I3 => cmd_counter_reg(0),
-      I4 => \i2c_cmd[18]_i_3_n_0\,
-      I5 => cmd_counter_reg(1),
+      I0 => cmd_counter_reg(5),
+      I1 => cmd_counter_reg(0),
+      I2 => cmd_counter_reg(1),
+      I3 => cmd_counter_reg(2),
+      I4 => cmd_counter_reg(4),
+      I5 => cmd_counter_reg(3),
       O => \i2c_cmd[12]_i_1_n_0\
-    );
-\i2c_cmd[12]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AAFFAAFF22020022"
-    )
-        port map (
-      I0 => cmd_counter_reg(3),
-      I1 => cmd_counter_reg(4),
-      I2 => cmd_counter_reg(2),
-      I3 => cmd_counter_reg(0),
-      I4 => cmd_counter_reg(1),
-      I5 => cmd_counter_reg(5),
-      O => \i2c_cmd[12]_i_2_n_0\
     );
 \i2c_cmd[13]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -753,51 +756,29 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[14]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FEFCEFBCAB03AE02"
+      INIT => X"FEFEF1F1EED61140"
     )
         port map (
-      I0 => cmd_counter_reg(5),
+      I0 => cmd_counter_reg(0),
       I1 => cmd_counter_reg(1),
-      I2 => cmd_counter_reg(0),
-      I3 => cmd_counter_reg(3),
-      I4 => cmd_counter_reg(4),
-      I5 => cmd_counter_reg(2),
+      I2 => cmd_counter_reg(3),
+      I3 => cmd_counter_reg(4),
+      I4 => cmd_counter_reg(2),
+      I5 => cmd_counter_reg(5),
       O => \i2c_cmd[14]_i_1_n_0\
     );
 \i2c_cmd[15]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFEAAAAFFFFFFFF"
+      INIT => X"CEDFCFCEDFCECFE2"
     )
         port map (
-      I0 => \i2c_cmd[15]_i_2_n_0\,
-      I1 => cmd_counter_reg(1),
-      I2 => cmd_counter_reg(0),
+      I0 => cmd_counter_reg(4),
+      I1 => cmd_counter_reg(5),
+      I2 => cmd_counter_reg(3),
       I3 => cmd_counter_reg(2),
-      I4 => \i2c_cmd[15]_i_3_n_0\,
-      I5 => m00_axi_aresetn,
+      I4 => cmd_counter_reg(0),
+      I5 => cmd_counter_reg(1),
       O => \i2c_cmd[15]_i_1_n_0\
-    );
-\i2c_cmd[15]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AA55BE14AB55AA44"
-    )
-        port map (
-      I0 => cmd_counter_reg(5),
-      I1 => cmd_counter_reg(2),
-      I2 => cmd_counter_reg(1),
-      I3 => cmd_counter_reg(3),
-      I4 => cmd_counter_reg(4),
-      I5 => cmd_counter_reg(0),
-      O => \i2c_cmd[15]_i_2_n_0\
-    );
-\i2c_cmd[15]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => cmd_counter_reg(5),
-      I1 => cmd_counter_reg(3),
-      O => \i2c_cmd[15]_i_3_n_0\
     );
 \i2c_cmd[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -814,14 +795,14 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[17]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FBFAFBEBAEAAAABA"
+      INIT => X"FBFBFAEBAEAAAABA"
     )
         port map (
       I0 => \i2c_cmd[17]_i_2_n_0\,
       I1 => cmd_counter_reg(2),
       I2 => cmd_counter_reg(4),
-      I3 => cmd_counter_reg(0),
-      I4 => cmd_counter_reg(1),
+      I3 => cmd_counter_reg(1),
+      I4 => cmd_counter_reg(0),
       I5 => cmd_counter_reg(3),
       O => \i2c_cmd[17]_i_1_n_0\
     );
@@ -836,12 +817,12 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[18]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFF54001000"
+      INIT => X"FFFFFFFF54000400"
     )
         port map (
       I0 => cmd_counter_reg(5),
-      I1 => cmd_counter_reg(1),
-      I2 => cmd_counter_reg(0),
+      I1 => cmd_counter_reg(0),
+      I2 => cmd_counter_reg(1),
       I3 => \i2c_cmd[18]_i_2_n_0\,
       I4 => \i2c_cmd[18]_i_3_n_0\,
       I5 => \i2c_cmd[18]_i_4_n_0\,
@@ -868,11 +849,11 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[18]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000001FFFFFFFF"
+      INIT => X"00000002FFFFFFFF"
     )
         port map (
-      I0 => cmd_counter_reg(2),
-      I1 => \i2c_cmd[18]_i_5_n_0\,
+      I0 => \i2c_cmd[18]_i_5_n_0\,
+      I1 => cmd_counter_reg(2),
       I2 => cmd_counter_reg(5),
       I3 => cmd_counter_reg(4),
       I4 => cmd_counter_reg(3),
@@ -881,11 +862,11 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[18]_i_5\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"B"
+      INIT => X"2"
     )
         port map (
-      I0 => cmd_counter_reg(0),
-      I1 => cmd_counter_reg(1),
+      I0 => cmd_counter_reg(1),
+      I1 => cmd_counter_reg(0),
       O => \i2c_cmd[18]_i_5_n_0\
     );
 \i2c_cmd[19]_i_1\: unisim.vcomponents.LUT6
@@ -907,7 +888,7 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     )
         port map (
       I0 => \i2c_cmd[22]_i_3_n_0\,
-      I1 => hdmi_scl_INST_0_i_7_n_0,
+      I1 => hdmi_scl_INST_0_i_6_n_0,
       I2 => word_counter_reg(4),
       I3 => word_counter_reg(3),
       I4 => m00_axi_aresetn,
@@ -919,10 +900,10 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     )
         port map (
       I0 => m00_axi_aresetn,
-      I1 => cmd_counter_reg(7),
-      I2 => cmd_counter_reg(6),
-      I3 => cmd_counter_reg(2),
-      I4 => cmd_counter_reg(1),
+      I1 => cmd_counter_reg(2),
+      I2 => cmd_counter_reg(1),
+      I3 => cmd_counter_reg(7),
+      I4 => cmd_counter_reg(6),
       I5 => \i2c_cmd[22]_i_4_n_0\,
       O => \i2c_cmd[22]_i_2_n_0\
     );
@@ -931,10 +912,10 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       INIT => X"FFFFFFFFFFFFFFFB"
     )
         port map (
-      I0 => \bit_counter_reg_n_0_[3]\,
+      I0 => \bit_counter_reg_n_0_[1]\,
       I1 => \bit_counter_reg_n_0_[0]\,
-      I2 => \bit_counter_reg_n_0_[4]\,
-      I3 => \bit_counter_reg_n_0_[5]\,
+      I2 => word_counter_reg(2),
+      I3 => \bit_counter_reg_n_0_[4]\,
       I4 => \i2c_cmd[22]_i_5_n_0\,
       I5 => \i2c_cmd[22]_i_6_n_0\,
       O => \i2c_cmd[22]_i_3_n_0\
@@ -956,8 +937,8 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
         port map (
       I0 => \bit_counter_reg_n_0_[2]\,
       I1 => i2c_init_finish_reg_n_0,
-      I2 => \bit_counter_reg_n_0_[6]\,
-      I3 => \bit_counter_reg_n_0_[7]\,
+      I2 => \bit_counter_reg_n_0_[5]\,
+      I3 => \bit_counter_reg_n_0_[3]\,
       O => \i2c_cmd[22]_i_5_n_0\
     );
 \i2c_cmd[22]_i_6\: unisim.vcomponents.LUT4
@@ -967,30 +948,30 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
         port map (
       I0 => word_counter_reg(0),
       I1 => word_counter_reg(1),
-      I2 => \bit_counter_reg_n_0_[1]\,
-      I3 => word_counter_reg(2),
+      I2 => \bit_counter_reg_n_0_[6]\,
+      I3 => \bit_counter_reg_n_0_[7]\,
       O => \i2c_cmd[22]_i_6_n_0\
     );
 \i2c_cmd[24]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000000100"
+      INIT => X"0000000000000001"
     )
         port map (
-      I0 => cmd_counter_reg(3),
-      I1 => cmd_counter_reg(4),
-      I2 => cmd_counter_reg(5),
-      I3 => \i2c_cmd[24]_i_2_n_0\,
-      I4 => cmd_counter_reg(6),
-      I5 => cmd_counter_reg(7),
+      I0 => \i2c_cmd[24]_i_2_n_0\,
+      I1 => cmd_counter_reg(5),
+      I2 => cmd_counter_reg(6),
+      I3 => cmd_counter_reg(7),
+      I4 => cmd_counter_reg(1),
+      I5 => cmd_counter_reg(2),
       O => \i2c_cmd[24]_i_1_n_0\
     );
 \i2c_cmd[24]_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"1"
+      INIT => X"E"
     )
         port map (
-      I0 => cmd_counter_reg(1),
-      I1 => cmd_counter_reg(2),
+      I0 => cmd_counter_reg(3),
+      I1 => cmd_counter_reg(4),
       O => \i2c_cmd[24]_i_2_n_0\
     );
 \i2c_cmd[3]_i_1\: unisim.vcomponents.LUT6
@@ -1020,14 +1001,14 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[4]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000001830409"
+      INIT => X"0000000000801439"
     )
         port map (
       I0 => cmd_counter_reg(4),
       I1 => cmd_counter_reg(3),
-      I2 => cmd_counter_reg(2),
+      I2 => cmd_counter_reg(0),
       I3 => cmd_counter_reg(1),
-      I4 => cmd_counter_reg(0),
+      I4 => cmd_counter_reg(2),
       I5 => cmd_counter_reg(5),
       O => \i2c_cmd[4]_i_2_n_0\
     );
@@ -1069,20 +1050,33 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
     );
 \i2c_cmd[7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"ABBBE1A1EFAE0242"
+      INIT => X"AEBAE1A0A0F5F0EA"
     )
         port map (
       I0 => cmd_counter_reg(5),
-      I1 => cmd_counter_reg(0),
-      I2 => cmd_counter_reg(2),
-      I3 => cmd_counter_reg(4),
-      I4 => cmd_counter_reg(3),
-      I5 => cmd_counter_reg(1),
+      I1 => cmd_counter_reg(4),
+      I2 => cmd_counter_reg(3),
+      I3 => cmd_counter_reg(0),
+      I4 => cmd_counter_reg(1),
+      I5 => cmd_counter_reg(2),
       O => \i2c_cmd[7]_i_1_n_0\
     );
 \i2c_cmd[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"8988EF988998FBAE"
+      INIT => X"89888998EF98FBAE"
+    )
+        port map (
+      I0 => cmd_counter_reg(5),
+      I1 => cmd_counter_reg(3),
+      I2 => cmd_counter_reg(4),
+      I3 => cmd_counter_reg(2),
+      I4 => cmd_counter_reg(1),
+      I5 => cmd_counter_reg(0),
+      O => \i2c_cmd[8]_i_1_n_0\
+    );
+\i2c_cmd[9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8888ABC8889C8988"
     )
         port map (
       I0 => cmd_counter_reg(5),
@@ -1091,19 +1085,6 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       I3 => cmd_counter_reg(2),
       I4 => cmd_counter_reg(0),
       I5 => cmd_counter_reg(1),
-      O => \i2c_cmd[8]_i_1_n_0\
-    );
-\i2c_cmd[9]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AA23AA01BA00AE40"
-    )
-        port map (
-      I0 => cmd_counter_reg(5),
-      I1 => cmd_counter_reg(0),
-      I2 => cmd_counter_reg(4),
-      I3 => cmd_counter_reg(3),
-      I4 => cmd_counter_reg(1),
-      I5 => cmd_counter_reg(2),
       O => \i2c_cmd[9]_i_1_n_0\
     );
 \i2c_cmd_reg[10]\: unisim.vcomponents.FDRE
@@ -1114,13 +1095,13 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       Q => \i2c_cmd_reg_n_0_[10]\,
       R => '0'
     );
-\i2c_cmd_reg[12]\: unisim.vcomponents.FDRE
+\i2c_cmd_reg[12]\: unisim.vcomponents.FDSE
      port map (
       C => clk_out1,
       CE => \i2c_cmd[22]_i_1_n_0\,
       D => \i2c_cmd[12]_i_1_n_0\,
       Q => \i2c_cmd_reg_n_0_[12]\,
-      R => '0'
+      S => \^d\(0)
     );
 \i2c_cmd_reg[13]\: unisim.vcomponents.FDSE
      port map (
@@ -1138,13 +1119,13 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       Q => \i2c_cmd_reg_n_0_[14]\,
       S => \^d\(0)
     );
-\i2c_cmd_reg[15]\: unisim.vcomponents.FDRE
+\i2c_cmd_reg[15]\: unisim.vcomponents.FDSE
      port map (
       C => clk_out1,
       CE => \i2c_cmd[22]_i_1_n_0\,
       D => \i2c_cmd[15]_i_1_n_0\,
       Q => \i2c_cmd_reg_n_0_[15]\,
-      R => '0'
+      S => \^d\(0)
     );
 \i2c_cmd_reg[16]\: unisim.vcomponents.FDSE
      port map (
@@ -1258,42 +1239,40 @@ hdmi_scl_INST_0_i_7: unisim.vcomponents.LUT3
       Q => \i2c_cmd_reg_n_0_[9]\,
       S => \^d\(0)
     );
-i2c_init_finish_i_1: unisim.vcomponents.LUT5
+i2c_init_finish_i_1: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FFFF0100"
+      INIT => X"AE"
     )
         port map (
-      I0 => i2c_init_finish_i_2_n_0,
-      I1 => i2c_init_finish_i_3_n_0,
-      I2 => hdmi_scl_INST_0_i_7_n_0,
-      I3 => hdmi_scl_INST_0_i_2_n_0,
-      I4 => i2c_init_finish_reg_n_0,
+      I0 => i2c_init_finish_reg_n_0,
+      I1 => i2c_init_finish_i_2_n_0,
+      I2 => i2c_init_finish_i_3_n_0,
       O => i2c_init_finish_i_1_n_0
     );
 i2c_init_finish_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"7FFFFFFFFFFFFFFF"
+      INIT => X"8000000000000000"
     )
         port map (
-      I0 => \bit_counter_reg_n_0_[6]\,
-      I1 => \bit_counter_reg_n_0_[0]\,
-      I2 => \bit_counter_reg_n_0_[1]\,
-      I3 => \bit_counter_reg_n_0_[2]\,
-      I4 => i2c_sda_i_4_n_0,
-      I5 => \bit_counter_reg_n_0_[7]\,
+      I0 => \bit_counter_reg_n_0_[7]\,
+      I1 => \bit_counter_reg_n_0_[6]\,
+      I2 => \bit_counter_reg_n_0_[0]\,
+      I3 => \bit_counter_reg_n_0_[1]\,
+      I4 => \bit_counter_reg_n_0_[2]\,
+      I5 => i2c_sda_i_4_n_0,
       O => i2c_init_finish_i_2_n_0
     );
 i2c_init_finish_i_3: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFEFFFFFFFFFFFF"
+      INIT => X"FDFFFFFFFFFFFFFF"
     )
         port map (
-      I0 => i2c_init_finish_i_4_n_0,
-      I1 => cmd_counter_reg(2),
-      I2 => cmd_counter_reg(7),
-      I3 => cmd_counter_reg(6),
+      I0 => hdmi_scl_INST_0_i_7_n_0,
+      I1 => hdmi_scl_INST_0_i_6_n_0,
+      I2 => i2c_init_finish_i_4_n_0,
+      I3 => \i2c_cmd[18]_i_2_n_0\,
       I4 => cmd_counter_reg(5),
-      I5 => \i2c_cmd[18]_i_2_n_0\,
+      I5 => i2c_init_finish_i_5_n_0,
       O => i2c_init_finish_i_3_n_0
     );
 i2c_init_finish_i_4: unisim.vcomponents.LUT2
@@ -1301,9 +1280,19 @@ i2c_init_finish_i_4: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => cmd_counter_reg(1),
-      I1 => cmd_counter_reg(0),
+      I0 => cmd_counter_reg(6),
+      I1 => cmd_counter_reg(7),
       O => i2c_init_finish_i_4_n_0
+    );
+i2c_init_finish_i_5: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => cmd_counter_reg(2),
+      I1 => cmd_counter_reg(0),
+      I2 => cmd_counter_reg(1),
+      O => i2c_init_finish_i_5_n_0
     );
 i2c_init_finish_reg: unisim.vcomponents.FDRE
      port map (
@@ -1326,17 +1315,16 @@ i2c_sda_i_1: unisim.vcomponents.LUT6
       I5 => \^hdmi_sda\,
       O => i2c_sda_i_1_n_0
     );
-i2c_sda_i_10: unisim.vcomponents.LUT6
+i2c_sda_i_10: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BBBBBBBBFFF333F3"
+      INIT => X"54545410"
     )
         port map (
-      I0 => \i2c_cmd_reg_n_0_[24]\,
-      I1 => word_counter_reg(1),
+      I0 => word_counter_reg(2),
+      I1 => word_counter_reg(0),
       I2 => \i2c_cmd_reg_n_0_[1]\,
-      I3 => word_counter_reg(2),
-      I4 => \i2c_cmd_reg_n_0_[22]\,
-      I5 => word_counter_reg(0),
+      I3 => \i2c_cmd_reg_n_0_[22]\,
+      I4 => word_counter_reg(1),
       O => i2c_sda_i_10_n_0
     );
 i2c_sda_i_11: unisim.vcomponents.LUT6
@@ -1379,22 +1367,22 @@ i2c_sda_i_13: unisim.vcomponents.LUT6
     );
 i2c_sda_i_14: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FBF8"
+      INIT => X"FEF2"
     )
         port map (
-      I0 => \i2c_cmd_reg_n_0_[1]\,
+      I0 => \i2c_cmd_reg_n_0_[3]\,
       I1 => word_counter_reg(1),
       I2 => word_counter_reg(0),
-      I3 => \i2c_cmd_reg_n_0_[3]\,
+      I3 => \i2c_cmd_reg_n_0_[1]\,
       O => i2c_sda_i_14_n_0
     );
 i2c_sda_i_3: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"B8FFB800"
+      INIT => X"FFF088F0"
     )
         port map (
-      I0 => i2c_sda_i_8_n_0,
-      I1 => word_counter_reg(2),
+      I0 => word_counter_reg(2),
+      I1 => i2c_sda_i_8_n_0,
       I2 => i2c_sda_i_9_n_0,
       I3 => word_counter_reg(3),
       I4 => i2c_sda_i_10_n_0,
@@ -1436,15 +1424,17 @@ i2c_sda_i_8: unisim.vcomponents.LUT6
       I5 => \i2c_cmd_reg_n_0_[19]\,
       O => i2c_sda_i_8_n_0
     );
-i2c_sda_i_9: unisim.vcomponents.LUT4
+i2c_sda_i_9: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FACA"
+      INIT => X"DFD5DFDFDFD5D5D5"
     )
         port map (
-      I0 => \i2c_cmd_reg_n_0_[1]\,
-      I1 => word_counter_reg(1),
+      I0 => word_counter_reg(1),
+      I1 => \i2c_cmd_reg_n_0_[24]\,
       I2 => word_counter_reg(0),
       I3 => \i2c_cmd_reg_n_0_[22]\,
+      I4 => word_counter_reg(2),
+      I5 => \i2c_cmd_reg_n_0_[1]\,
       O => i2c_sda_i_9_n_0
     );
 i2c_sda_reg: unisim.vcomponents.FDSE
@@ -1509,7 +1499,7 @@ pll_i_1: unisim.vcomponents.LUT1
       I0 => word_counter_reg(2),
       I1 => word_counter_reg(0),
       I2 => word_counter_reg(1),
-      O => \p_0_in__1\(2)
+      O => \word_counter[2]_i_1_n_0\
     );
 \word_counter[3]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -1520,19 +1510,19 @@ pll_i_1: unisim.vcomponents.LUT1
       I1 => word_counter_reg(1),
       I2 => word_counter_reg(0),
       I3 => word_counter_reg(2),
-      O => \word_counter[3]_i_1_n_0\
+      O => \p_0_in__1\(3)
     );
 \word_counter[4]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"7FFF8000"
+      INIT => X"6AAAAAAA"
     )
         port map (
-      I0 => word_counter_reg(1),
-      I1 => word_counter_reg(0),
-      I2 => word_counter_reg(2),
-      I3 => word_counter_reg(3),
-      I4 => word_counter_reg(4),
-      O => \p_0_in__1\(4)
+      I0 => word_counter_reg(4),
+      I1 => word_counter_reg(1),
+      I2 => word_counter_reg(0),
+      I3 => word_counter_reg(2),
+      I4 => word_counter_reg(3),
+      O => \word_counter[4]_i_1_n_0\
     );
 \word_counter[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1540,21 +1530,21 @@ pll_i_1: unisim.vcomponents.LUT1
     )
         port map (
       I0 => word_counter_reg(5),
-      I1 => word_counter_reg(1),
-      I2 => word_counter_reg(0),
-      I3 => word_counter_reg(2),
-      I4 => word_counter_reg(3),
+      I1 => word_counter_reg(3),
+      I2 => word_counter_reg(2),
+      I3 => word_counter_reg(0),
+      I4 => word_counter_reg(1),
       I5 => word_counter_reg(4),
       O => \p_0_in__1\(5)
     );
 \word_counter[6]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"6A"
+      INIT => X"78"
     )
         port map (
-      I0 => word_counter_reg(6),
-      I1 => hdmi_scl_INST_0_i_2_n_0,
-      I2 => word_counter_reg(5),
+      I0 => word_counter_reg(5),
+      I1 => hdmi_scl_INST_0_i_7_n_0,
+      I2 => word_counter_reg(6),
       O => \p_0_in__1\(6)
     );
 \word_counter[7]_i_1\: unisim.vcomponents.LUT2
@@ -1568,13 +1558,13 @@ pll_i_1: unisim.vcomponents.LUT1
     );
 \word_counter[7]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0400"
+      INIT => X"0040"
     )
         port map (
-      I0 => i2c_init_finish_reg_n_0,
-      I1 => \bit_counter_reg_n_0_[7]\,
-      I2 => \word_counter[7]_i_4_n_0\,
-      I3 => \bit_counter_reg_n_0_[6]\,
+      I0 => \word_counter[7]_i_4_n_0\,
+      I1 => \bit_counter_reg_n_0_[6]\,
+      I2 => \bit_counter_reg_n_0_[7]\,
+      I3 => i2c_init_finish_reg_n_0,
       O => \word_counter[7]_i_2_n_0\
     );
 \word_counter[7]_i_3\: unisim.vcomponents.LUT4
@@ -1584,7 +1574,7 @@ pll_i_1: unisim.vcomponents.LUT1
         port map (
       I0 => word_counter_reg(7),
       I1 => word_counter_reg(5),
-      I2 => hdmi_scl_INST_0_i_2_n_0,
+      I2 => hdmi_scl_INST_0_i_7_n_0,
       I3 => word_counter_reg(6),
       O => \p_0_in__1\(7)
     );
@@ -1621,7 +1611,7 @@ pll_i_1: unisim.vcomponents.LUT1
      port map (
       C => clk_out1,
       CE => \word_counter[7]_i_2_n_0\,
-      D => \p_0_in__1\(2),
+      D => \word_counter[2]_i_1_n_0\,
       Q => word_counter_reg(2),
       R => \word_counter[7]_i_1_n_0\
     );
@@ -1629,7 +1619,7 @@ pll_i_1: unisim.vcomponents.LUT1
      port map (
       C => clk_out1,
       CE => \word_counter[7]_i_2_n_0\,
-      D => \word_counter[3]_i_1_n_0\,
+      D => \p_0_in__1\(3),
       Q => word_counter_reg(3),
       R => \word_counter[7]_i_1_n_0\
     );
@@ -1637,7 +1627,7 @@ pll_i_1: unisim.vcomponents.LUT1
      port map (
       C => clk_out1,
       CE => \word_counter[7]_i_2_n_0\,
-      D => \p_0_in__1\(4),
+      D => \word_counter[4]_i_1_n_0\,
       Q => word_counter_reg(4),
       R => \word_counter[7]_i_1_n_0\
     );
@@ -2716,13 +2706,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity sys_hdmi_axi_full_0_0_gen_pat is
   port (
-    S : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    \hsync_cnt_reg[11]\ : out STD_LOGIC_VECTOR ( 2 downto 0 );
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
-    hdmi_d : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    hdmi_d : out STD_LOGIC_VECTOR ( 15 downto 0 );
     clk_out1 : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    \color_reg_reg[15]_0\ : in STD_LOGIC_VECTOR ( 9 downto 0 )
+    Q : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \color_reg_reg[15]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of sys_hdmi_axi_full_0_0_gen_pat : entity is "gen_pat";
@@ -2730,12 +2718,16 @@ end sys_hdmi_axi_full_0_0_gen_pat;
 
 architecture STRUCTURE of sys_hdmi_axi_full_0_0_gen_pat is
   signal \^d\ : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal loc_x : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal color_out_ram : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal image_ram_i_12_n_0 : STD_LOGIC;
+  signal image_ram_i_13_n_0 : STD_LOGIC;
+  signal image_ram_i_3_n_0 : STD_LOGIC;
+  signal image_ram_i_5_n_0 : STD_LOGIC;
+  signal image_ram_i_6_n_0 : STD_LOGIC;
+  signal image_ram_i_7_n_0 : STD_LOGIC;
+  signal image_ram_i_8_n_0 : STD_LOGIC;
+  signal loc_x : STD_LOGIC_VECTOR ( 10 downto 1 );
   signal NLW_image_ram_douta_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal NLW_image_ram_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \color_reg[8]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \color_reg[9]_i_1\ : label is "soft_lutpair0";
   attribute CHECK_LICENSE_TYPE : string;
   attribute CHECK_LICENSE_TYPE of image_ram : label is "blk_mem_gen_0,blk_mem_gen_v8_4_3,{}";
   attribute downgradeipidentifiedwarnings : string;
@@ -2744,15 +2736,170 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_gen_pat is
   attribute x_core_info of image_ram : label is "blk_mem_gen_v8_4_3,Vivado 2019.1";
 begin
   D(0) <= \^d\(0);
-\color_reg[8]_i_1\: unisim.vcomponents.LUT1
+\color_reg_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(0),
+      Q => hdmi_d(0),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(10),
+      Q => hdmi_d(10),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(11),
+      Q => hdmi_d(11),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(12),
+      Q => hdmi_d(12),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(13),
+      Q => hdmi_d(13),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(14),
+      Q => hdmi_d(14),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(15),
+      Q => hdmi_d(15),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(1),
+      Q => hdmi_d(1),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(2),
+      Q => hdmi_d(2),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(3),
+      Q => hdmi_d(3),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(4),
+      Q => hdmi_d(4),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(5),
+      Q => hdmi_d(5),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(6),
+      Q => hdmi_d(6),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(7),
+      Q => hdmi_d(7),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(8),
+      Q => hdmi_d(8),
+      R => \color_reg_reg[15]_0\(0)
+    );
+\color_reg_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_out1,
+      CE => '1',
+      D => color_out_ram(9),
+      Q => hdmi_d(9),
+      R => \color_reg_reg[15]_0\(0)
+    );
+image_ram: entity work.sys_hdmi_axi_full_0_0_blk_mem_gen_0
+     port map (
+      addra(9 downto 0) => B"0000000000",
+      addrb(10 downto 9) => loc_x(10 downto 9),
+      addrb(8) => image_ram_i_3_n_0,
+      addrb(7) => loc_x(7),
+      addrb(6) => image_ram_i_5_n_0,
+      addrb(5) => image_ram_i_6_n_0,
+      addrb(4) => image_ram_i_7_n_0,
+      addrb(3) => image_ram_i_8_n_0,
+      addrb(2 downto 1) => loc_x(2 downto 1),
+      addrb(0) => \^d\(0),
+      clka => clk_out1,
+      clkb => clk_out1,
+      dina(31 downto 0) => B"00000000000000000000000000000000",
+      dinb(15 downto 0) => B"0000000000000000",
+      douta(31 downto 0) => NLW_image_ram_douta_UNCONNECTED(31 downto 0),
+      doutb(15 downto 0) => color_out_ram(15 downto 0),
+      enb => '0',
+      wea(0) => '0',
+      web(0) => '0'
+    );
+image_ram_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"1"
+      INIT => X"FF00FF00FF00A857"
     )
         port map (
-      I0 => Q(0),
-      O => \^d\(0)
+      I0 => Q(7),
+      I1 => image_ram_i_12_n_0,
+      I2 => Q(6),
+      I3 => Q(10),
+      I4 => Q(8),
+      I5 => Q(9),
+      O => loc_x(10)
     );
-\color_reg[9]_i_1\: unisim.vcomponents.LUT2
+image_ram_i_10: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
@@ -2761,155 +2908,127 @@ begin
       I1 => Q(1),
       O => loc_x(1)
     );
-\color_reg_reg[10]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(4),
-      Q => hdmi_d(6),
-      R => '0'
-    );
-\color_reg_reg[11]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(5),
-      Q => hdmi_d(7),
-      R => '0'
-    );
-\color_reg_reg[12]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(6),
-      Q => hdmi_d(8),
-      R => '0'
-    );
-\color_reg_reg[13]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(7),
-      Q => hdmi_d(9),
-      R => '0'
-    );
-\color_reg_reg[14]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(8),
-      Q => hdmi_d(10),
-      R => '0'
-    );
-\color_reg_reg[15]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(9),
-      Q => hdmi_d(11),
-      R => '0'
-    );
-\color_reg_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(0),
-      Q => hdmi_d(0),
-      R => '0'
-    );
-\color_reg_reg[5]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(1),
-      Q => hdmi_d(1),
-      R => '0'
-    );
-\color_reg_reg[6]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(2),
-      Q => hdmi_d(2),
-      R => '0'
-    );
-\color_reg_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \color_reg_reg[15]_0\(3),
-      Q => hdmi_d(3),
-      R => '0'
-    );
-\color_reg_reg[8]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => \^d\(0),
-      Q => hdmi_d(4),
-      R => '0'
-    );
-\color_reg_reg[9]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk_out1,
-      CE => '1',
-      D => loc_x(1),
-      Q => hdmi_d(5),
-      R => '0'
-    );
-image_ram: entity work.sys_hdmi_axi_full_0_0_blk_mem_gen_0
-     port map (
-      addra(9 downto 0) => B"0000000000",
-      addrb(10 downto 0) => B"00000000000",
-      clka => clk_out1,
-      clkb => clk_out1,
-      dina(31 downto 0) => B"00000000000000000000000000000000",
-      dinb(15 downto 0) => B"0000000000000000",
-      douta(31 downto 0) => NLW_image_ram_douta_UNCONNECTED(31 downto 0),
-      doutb(15 downto 0) => NLW_image_ram_doutb_UNCONNECTED(15 downto 0),
-      enb => '0',
-      wea(0) => '0',
-      web(0) => '0'
-    );
-\loc_x_carry__0_i_1\: unisim.vcomponents.LUT1
+image_ram_i_11: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => Q(3),
-      O => S(1)
+      I0 => Q(0),
+      O => \^d\(0)
     );
-\loc_x_carry__0_i_2\: unisim.vcomponents.LUT1
+image_ram_i_12: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => Q(2),
-      O => S(0)
-    );
-\loc_x_carry__1_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => Q(6),
-      O => \hsync_cnt_reg[11]\(2)
-    );
-\loc_x_carry__1_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
+      INIT => X"8000000000000000"
     )
         port map (
       I0 => Q(5),
-      O => \hsync_cnt_reg[11]\(1)
+      I1 => Q(4),
+      I2 => Q(1),
+      I3 => Q(0),
+      I4 => Q(3),
+      I5 => Q(2),
+      O => image_ram_i_12_n_0
     );
-\loc_x_carry__1_i_3\: unisim.vcomponents.LUT1
+image_ram_i_13: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"1"
+      INIT => X"7"
+    )
+        port map (
+      I0 => Q(0),
+      I1 => Q(1),
+      O => image_ram_i_13_n_0
+    );
+image_ram_i_2: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FF00A857"
+    )
+        port map (
+      I0 => Q(7),
+      I1 => image_ram_i_12_n_0,
+      I2 => Q(6),
+      I3 => Q(9),
+      I4 => Q(8),
+      O => loc_x(9)
+    );
+image_ram_i_3: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"A857"
+    )
+        port map (
+      I0 => Q(7),
+      I1 => image_ram_i_12_n_0,
+      I2 => Q(6),
+      I3 => Q(8),
+      O => image_ram_i_3_n_0
+    );
+image_ram_i_4: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"56"
+    )
+        port map (
+      I0 => Q(7),
+      I1 => Q(6),
+      I2 => image_ram_i_12_n_0,
+      O => loc_x(7)
+    );
+image_ram_i_5: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5595555555555555"
+    )
+        port map (
+      I0 => Q(6),
+      I1 => Q(2),
+      I2 => Q(3),
+      I3 => image_ram_i_13_n_0,
+      I4 => Q(4),
+      I5 => Q(5),
+      O => image_ram_i_5_n_0
+    );
+image_ram_i_6: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6AAAAAAAAAAAAAAA"
+    )
+        port map (
+      I0 => Q(5),
+      I1 => Q(4),
+      I2 => Q(1),
+      I3 => Q(0),
+      I4 => Q(3),
+      I5 => Q(2),
+      O => image_ram_i_6_n_0
+    );
+image_ram_i_7: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"6AAAAAAA"
     )
         port map (
       I0 => Q(4),
-      O => \hsync_cnt_reg[11]\(0)
+      I1 => Q(2),
+      I2 => Q(3),
+      I3 => Q(0),
+      I4 => Q(1),
+      O => image_ram_i_7_n_0
+    );
+image_ram_i_8: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6AAA"
+    )
+        port map (
+      I0 => Q(3),
+      I1 => Q(2),
+      I2 => Q(0),
+      I3 => Q(1),
+      O => image_ram_i_8_n_0
+    );
+image_ram_i_9: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"6A"
+    )
+        port map (
+      I0 => Q(2),
+      I1 => Q(0),
+      I2 => Q(1),
+      O => loc_x(2)
     );
 end STRUCTURE;
 library IEEE;
@@ -2922,10 +3041,10 @@ entity sys_hdmi_axi_full_0_0_zedboard_hdmi is
     p_1_in0 : out STD_LOGIC;
     hdmi_sda : out STD_LOGIC;
     hdmi_scl : out STD_LOGIC;
-    hdmi_de : out STD_LOGIC;
     hdmi_vsync : out STD_LOGIC;
+    hdmi_de : out STD_LOGIC;
     hdmi_hsync : out STD_LOGIC;
-    hdmi_d : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    hdmi_d : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m00_axi_aclk : in STD_LOGIC;
     m00_axi_aresetn : in STD_LOGIC
   );
@@ -2941,7 +3060,6 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_zedboard_hdmi is
   signal hdmi_de_INST_0_i_4_n_0 : STD_LOGIC;
   signal hdmi_de_INST_0_i_5_n_0 : STD_LOGIC;
   signal hdmi_de_INST_0_i_6_n_0 : STD_LOGIC;
-  signal hdmi_de_INST_0_i_7_n_0 : STD_LOGIC;
   signal hdmi_hsync_INST_0_i_1_n_0 : STD_LOGIC;
   signal hdmi_hsync_INST_0_i_2_n_0 : STD_LOGIC;
   signal hdmi_vsync_INST_0_i_1_n_0 : STD_LOGIC;
@@ -2969,7 +3087,6 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_zedboard_hdmi is
   signal hsync_cnt0_carry_n_7 : STD_LOGIC;
   signal \hsync_cnt[11]_i_2_n_0\ : STD_LOGIC;
   signal \hsync_cnt[11]_i_3_n_0\ : STD_LOGIC;
-  signal \hsync_cnt[11]_i_4_n_0\ : STD_LOGIC;
   signal \hsync_cnt_reg_n_0_[0]\ : STD_LOGIC;
   signal \hsync_cnt_reg_n_0_[10]\ : STD_LOGIC;
   signal \hsync_cnt_reg_n_0_[11]\ : STD_LOGIC;
@@ -2982,32 +3099,14 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_zedboard_hdmi is
   signal \hsync_cnt_reg_n_0_[7]\ : STD_LOGIC;
   signal \hsync_cnt_reg_n_0_[8]\ : STD_LOGIC;
   signal \hsync_cnt_reg_n_0_[9]\ : STD_LOGIC;
-  signal loc_x : STD_LOGIC_VECTOR ( 11 downto 2 );
-  signal \loc_x_carry__0_n_0\ : STD_LOGIC;
-  signal \loc_x_carry__0_n_1\ : STD_LOGIC;
-  signal \loc_x_carry__0_n_2\ : STD_LOGIC;
-  signal \loc_x_carry__0_n_3\ : STD_LOGIC;
-  signal \loc_x_carry__1_n_2\ : STD_LOGIC;
-  signal \loc_x_carry__1_n_3\ : STD_LOGIC;
-  signal loc_x_carry_n_0 : STD_LOGIC;
-  signal loc_x_carry_n_1 : STD_LOGIC;
-  signal loc_x_carry_n_2 : STD_LOGIC;
-  signal loc_x_carry_n_3 : STD_LOGIC;
   signal \^p_1_in0\ : STD_LOGIC;
-  signal pat_hdmi_n_0 : STD_LOGIC;
-  signal pat_hdmi_n_1 : STD_LOGIC;
-  signal pat_hdmi_n_2 : STD_LOGIC;
-  signal pat_hdmi_n_3 : STD_LOGIC;
-  signal pat_hdmi_n_4 : STD_LOGIC;
-  signal vsync_cnt : STD_LOGIC;
-  signal \vsync_cnt[0]_i_10_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_1_n_0\ : STD_LOGIC;
+  signal \vsync_cnt[0]_i_2_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_4_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_5_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_6_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_7_n_0\ : STD_LOGIC;
   signal \vsync_cnt[0]_i_8_n_0\ : STD_LOGIC;
-  signal \vsync_cnt[0]_i_9_n_0\ : STD_LOGIC;
   signal vsync_cnt_reg : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \vsync_cnt_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \vsync_cnt_reg[0]_i_3_n_1\ : STD_LOGIC;
@@ -3034,93 +3133,74 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0_zedboard_hdmi is
   signal \vsync_cnt_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal \NLW_hsync_cnt0_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_hsync_cnt0_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal NLW_loc_x_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal \NLW_loc_x_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
-  signal \NLW_loc_x_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_pll_locked_UNCONNECTED : STD_LOGIC;
   signal \NLW_vsync_cnt_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of hdmi_de_INST_0_i_6 : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of hdmi_hsync_INST_0_i_2 : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \hsync_cnt[10]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \hsync_cnt[10]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \hsync_cnt[11]_i_1\ : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of \hsync_cnt[11]_i_3\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \hsync_cnt[1]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \hsync_cnt[2]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \hsync_cnt[3]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \hsync_cnt[1]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \hsync_cnt[3]_i_1\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of \hsync_cnt[4]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \hsync_cnt[5]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \hsync_cnt[6]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \hsync_cnt[7]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \hsync_cnt[8]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \hsync_cnt[9]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \vsync_cnt[0]_i_8\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \hsync_cnt[5]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \hsync_cnt[6]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \hsync_cnt[7]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \hsync_cnt[8]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \hsync_cnt[9]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \vsync_cnt[0]_i_7\ : label is "soft_lutpair17";
 begin
   clk_out1 <= \^clk_out1\;
   p_1_in0 <= \^p_1_in0\;
-hdmi_de_INST_0: unisim.vcomponents.LUT4
+hdmi_de_INST_0: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000D"
+      INIT => X"0000110155550040"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[11]\,
-      I1 => hdmi_de_INST_0_i_1_n_0,
-      I2 => hdmi_de_INST_0_i_2_n_0,
-      I3 => hdmi_de_INST_0_i_3_n_0,
+      I0 => hdmi_de_INST_0_i_1_n_0,
+      I1 => \hsync_cnt_reg_n_0_[7]\,
+      I2 => \hsync_cnt_reg_n_0_[6]\,
+      I3 => hdmi_de_INST_0_i_2_n_0,
+      I4 => hdmi_de_INST_0_i_3_n_0,
+      I5 => \hsync_cnt_reg_n_0_[11]\,
       O => hdmi_de
     );
 hdmi_de_INST_0_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000000000000000D"
+      INIT => X"FFFFAA0CFFFFFF00"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[6]\,
-      I1 => hdmi_de_INST_0_i_4_n_0,
-      I2 => \hsync_cnt_reg_n_0_[7]\,
-      I3 => \hsync_cnt_reg_n_0_[10]\,
-      I4 => \hsync_cnt_reg_n_0_[9]\,
-      I5 => \hsync_cnt_reg_n_0_[8]\,
+      I0 => hdmi_de_INST_0_i_4_n_0,
+      I1 => hdmi_de_INST_0_i_5_n_0,
+      I2 => vsync_cnt_reg(6),
+      I3 => vsync_cnt_reg(10),
+      I4 => vsync_cnt_reg(11),
+      I5 => hdmi_de_INST_0_i_6_n_0,
       O => hdmi_de_INST_0_i_1_n_0
     );
 hdmi_de_INST_0_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFAF00AFC0"
-    )
-        port map (
-      I0 => hdmi_de_INST_0_i_5_n_0,
-      I1 => hdmi_de_INST_0_i_6_n_0,
-      I2 => hdmi_de_INST_0_i_7_n_0,
-      I3 => vsync_cnt_reg(10),
-      I4 => vsync_cnt_reg(6),
-      I5 => vsync_cnt_reg(11),
-      O => hdmi_de_INST_0_i_2_n_0
-    );
-hdmi_de_INST_0_i_3: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"00000000000000F7"
-    )
-        port map (
-      I0 => \hsync_cnt_reg_n_0_[6]\,
-      I1 => \hsync_cnt_reg_n_0_[7]\,
-      I2 => hdmi_de_INST_0_i_4_n_0,
-      I3 => \hsync_cnt_reg_n_0_[11]\,
-      I4 => hdmi_hsync_INST_0_i_2_n_0,
-      I5 => \hsync_cnt_reg_n_0_[10]\,
-      O => hdmi_de_INST_0_i_3_n_0
-    );
-hdmi_de_INST_0_i_4: unisim.vcomponents.LUT6
-    generic map(
       INIT => X"0000000000000001"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[1]\,
-      I1 => \hsync_cnt_reg_n_0_[2]\,
-      I2 => \hsync_cnt_reg_n_0_[4]\,
+      I0 => \hsync_cnt_reg_n_0_[5]\,
+      I1 => \hsync_cnt_reg_n_0_[4]\,
+      I2 => \hsync_cnt_reg_n_0_[2]\,
       I3 => \hsync_cnt_reg_n_0_[3]\,
       I4 => \hsync_cnt_reg_n_0_[0]\,
-      I5 => \hsync_cnt_reg_n_0_[5]\,
-      O => hdmi_de_INST_0_i_4_n_0
+      I5 => \hsync_cnt_reg_n_0_[1]\,
+      O => hdmi_de_INST_0_i_2_n_0
     );
-hdmi_de_INST_0_i_5: unisim.vcomponents.LUT6
+hdmi_de_INST_0_i_3: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"FE"
+    )
+        port map (
+      I0 => \hsync_cnt_reg_n_0_[10]\,
+      I1 => \hsync_cnt_reg_n_0_[9]\,
+      I2 => \hsync_cnt_reg_n_0_[8]\,
+      O => hdmi_de_INST_0_i_3_n_0
+    );
+hdmi_de_INST_0_i_4: unisim.vcomponents.LUT6
     generic map(
       INIT => X"8888888888888880"
     )
@@ -3131,9 +3211,9 @@ hdmi_de_INST_0_i_5: unisim.vcomponents.LUT6
       I3 => vsync_cnt_reg(2),
       I4 => vsync_cnt_reg(4),
       I5 => vsync_cnt_reg(3),
-      O => hdmi_de_INST_0_i_5_n_0
+      O => hdmi_de_INST_0_i_4_n_0
     );
-hdmi_de_INST_0_i_6: unisim.vcomponents.LUT5
+hdmi_de_INST_0_i_5: unisim.vcomponents.LUT5
     generic map(
       INIT => X"0F1F0FFF"
     )
@@ -3143,9 +3223,9 @@ hdmi_de_INST_0_i_6: unisim.vcomponents.LUT5
       I2 => vsync_cnt_reg(5),
       I3 => vsync_cnt_reg(4),
       I4 => vsync_cnt_reg(3),
-      O => hdmi_de_INST_0_i_6_n_0
+      O => hdmi_de_INST_0_i_5_n_0
     );
-hdmi_de_INST_0_i_7: unisim.vcomponents.LUT3
+hdmi_de_INST_0_i_6: unisim.vcomponents.LUT3
     generic map(
       INIT => X"01"
     )
@@ -3153,41 +3233,41 @@ hdmi_de_INST_0_i_7: unisim.vcomponents.LUT3
       I0 => vsync_cnt_reg(7),
       I1 => vsync_cnt_reg(8),
       I2 => vsync_cnt_reg(9),
-      O => hdmi_de_INST_0_i_7_n_0
+      O => hdmi_de_INST_0_i_6_n_0
     );
 hdmi_hsync_INST_0: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000000002"
-    )
-        port map (
-      I0 => hdmi_hsync_INST_0_i_1_n_0,
-      I1 => \hsync_cnt_reg_n_0_[7]\,
-      I2 => \hsync_cnt_reg_n_0_[10]\,
-      I3 => \hsync_cnt_reg_n_0_[6]\,
-      I4 => \hsync_cnt_reg_n_0_[11]\,
-      I5 => hdmi_hsync_INST_0_i_2_n_0,
-      O => hdmi_hsync
-    );
-hdmi_hsync_INST_0_i_1: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"5555555557FFFFFF"
+      INIT => X"0000000057777777"
     )
         port map (
       I0 => \hsync_cnt_reg_n_0_[5]\,
-      I1 => \hsync_cnt_reg_n_0_[1]\,
-      I2 => \hsync_cnt_reg_n_0_[0]\,
+      I1 => \hsync_cnt_reg_n_0_[4]\,
+      I2 => \hsync_cnt_reg_n_0_[2]\,
       I3 => \hsync_cnt_reg_n_0_[3]\,
-      I4 => \hsync_cnt_reg_n_0_[2]\,
-      I5 => \hsync_cnt_reg_n_0_[4]\,
-      O => hdmi_hsync_INST_0_i_1_n_0
+      I4 => hdmi_hsync_INST_0_i_1_n_0,
+      I5 => hdmi_hsync_INST_0_i_2_n_0,
+      O => hdmi_hsync
     );
-hdmi_hsync_INST_0_i_2: unisim.vcomponents.LUT2
+hdmi_hsync_INST_0_i_1: unisim.vcomponents.LUT2
     generic map(
       INIT => X"E"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[9]\,
-      I1 => \hsync_cnt_reg_n_0_[8]\,
+      I0 => \hsync_cnt_reg_n_0_[0]\,
+      I1 => \hsync_cnt_reg_n_0_[1]\,
+      O => hdmi_hsync_INST_0_i_1_n_0
+    );
+hdmi_hsync_INST_0_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => \hsync_cnt_reg_n_0_[10]\,
+      I1 => \hsync_cnt_reg_n_0_[9]\,
+      I2 => \hsync_cnt_reg_n_0_[8]\,
+      I3 => \hsync_cnt_reg_n_0_[11]\,
+      I4 => \hsync_cnt_reg_n_0_[6]\,
+      I5 => \hsync_cnt_reg_n_0_[7]\,
       O => hdmi_hsync_INST_0_i_2_n_0
     );
 hdmi_vsync_INST_0: unisim.vcomponents.LUT6
@@ -3208,12 +3288,12 @@ hdmi_vsync_INST_0_i_1: unisim.vcomponents.LUT6
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => vsync_cnt_reg(11),
-      I1 => vsync_cnt_reg(6),
-      I2 => vsync_cnt_reg(10),
-      I3 => vsync_cnt_reg(9),
-      I4 => vsync_cnt_reg(8),
-      I5 => vsync_cnt_reg(7),
+      I0 => vsync_cnt_reg(9),
+      I1 => vsync_cnt_reg(8),
+      I2 => vsync_cnt_reg(7),
+      I3 => vsync_cnt_reg(11),
+      I4 => vsync_cnt_reg(10),
+      I5 => vsync_cnt_reg(6),
       O => hdmi_vsync_INST_0_i_1_n_0
     );
 hsync_cnt0_carry: unisim.vcomponents.CARRY4
@@ -3289,38 +3369,25 @@ hsync_cnt0_carry: unisim.vcomponents.CARRY4
     );
 \hsync_cnt[11]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000008000"
+      INIT => X"0000000000100000"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[11]\,
-      I1 => \hsync_cnt_reg_n_0_[7]\,
-      I2 => \hsync_cnt_reg_n_0_[4]\,
-      I3 => \hsync_cnt_reg_n_0_[3]\,
-      I4 => \hsync_cnt[11]_i_3_n_0\,
-      I5 => \hsync_cnt[11]_i_4_n_0\,
+      I0 => \vsync_cnt[0]_i_6_n_0\,
+      I1 => \hsync_cnt[11]_i_3_n_0\,
+      I2 => \hsync_cnt_reg_n_0_[3]\,
+      I3 => \hsync_cnt_reg_n_0_[2]\,
+      I4 => \hsync_cnt_reg_n_0_[4]\,
+      I5 => \hsync_cnt_reg_n_0_[6]\,
       O => \hsync_cnt[11]_i_2_n_0\
     );
-\hsync_cnt[11]_i_3\: unisim.vcomponents.LUT4
+\hsync_cnt[11]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"FFFE"
+      INIT => X"E"
     )
         port map (
       I0 => \hsync_cnt_reg_n_0_[8]\,
       I1 => \hsync_cnt_reg_n_0_[9]\,
-      I2 => \hsync_cnt_reg_n_0_[10]\,
-      I3 => \hsync_cnt_reg_n_0_[6]\,
       O => \hsync_cnt[11]_i_3_n_0\
-    );
-\hsync_cnt[11]_i_4\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => \hsync_cnt_reg_n_0_[5]\,
-      I1 => \hsync_cnt_reg_n_0_[0]\,
-      I2 => \hsync_cnt_reg_n_0_[1]\,
-      I3 => \hsync_cnt_reg_n_0_[2]\,
-      O => \hsync_cnt[11]_i_4_n_0\
     );
 \hsync_cnt[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -3535,76 +3602,23 @@ hsync_cnt0_carry: unisim.vcomponents.CARRY4
       Q => \hsync_cnt_reg_n_0_[9]\,
       R => \^p_1_in0\
     );
-loc_x_carry: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => loc_x_carry_n_0,
-      CO(2) => loc_x_carry_n_1,
-      CO(1) => loc_x_carry_n_2,
-      CO(0) => loc_x_carry_n_3,
-      CYINIT => \hsync_cnt_reg_n_0_[0]\,
-      DI(3 downto 0) => B"0000",
-      O(3 downto 1) => loc_x(4 downto 2),
-      O(0) => NLW_loc_x_carry_O_UNCONNECTED(0),
-      S(3) => \hsync_cnt_reg_n_0_[4]\,
-      S(2) => \hsync_cnt_reg_n_0_[3]\,
-      S(1) => \hsync_cnt_reg_n_0_[2]\,
-      S(0) => \hsync_cnt_reg_n_0_[1]\
-    );
-\loc_x_carry__0\: unisim.vcomponents.CARRY4
-     port map (
-      CI => loc_x_carry_n_0,
-      CO(3) => \loc_x_carry__0_n_0\,
-      CO(2) => \loc_x_carry__0_n_1\,
-      CO(1) => \loc_x_carry__0_n_2\,
-      CO(0) => \loc_x_carry__0_n_3\,
-      CYINIT => '0',
-      DI(3) => \hsync_cnt_reg_n_0_[8]\,
-      DI(2) => '0',
-      DI(1) => \hsync_cnt_reg_n_0_[6]\,
-      DI(0) => '0',
-      O(3 downto 0) => loc_x(8 downto 5),
-      S(3) => pat_hdmi_n_0,
-      S(2) => \hsync_cnt_reg_n_0_[7]\,
-      S(1) => pat_hdmi_n_1,
-      S(0) => \hsync_cnt_reg_n_0_[5]\
-    );
-\loc_x_carry__1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \loc_x_carry__0_n_0\,
-      CO(3 downto 2) => \NLW_loc_x_carry__1_CO_UNCONNECTED\(3 downto 2),
-      CO(1) => \loc_x_carry__1_n_2\,
-      CO(0) => \loc_x_carry__1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 2) => B"00",
-      DI(1) => \hsync_cnt_reg_n_0_[10]\,
-      DI(0) => \hsync_cnt_reg_n_0_[9]\,
-      O(3) => \NLW_loc_x_carry__1_O_UNCONNECTED\(3),
-      O(2 downto 0) => loc_x(11 downto 9),
-      S(3) => '0',
-      S(2) => pat_hdmi_n_2,
-      S(1) => pat_hdmi_n_3,
-      S(0) => pat_hdmi_n_4
-    );
 pat_hdmi: entity work.sys_hdmi_axi_full_0_0_gen_pat
      port map (
       D(0) => hsync_cnt(0),
-      Q(6) => \hsync_cnt_reg_n_0_[11]\,
-      Q(5) => \hsync_cnt_reg_n_0_[10]\,
-      Q(4) => \hsync_cnt_reg_n_0_[9]\,
-      Q(3) => \hsync_cnt_reg_n_0_[8]\,
-      Q(2) => \hsync_cnt_reg_n_0_[6]\,
+      Q(10) => \hsync_cnt_reg_n_0_[10]\,
+      Q(9) => \hsync_cnt_reg_n_0_[9]\,
+      Q(8) => \hsync_cnt_reg_n_0_[8]\,
+      Q(7) => \hsync_cnt_reg_n_0_[7]\,
+      Q(6) => \hsync_cnt_reg_n_0_[6]\,
+      Q(5) => \hsync_cnt_reg_n_0_[5]\,
+      Q(4) => \hsync_cnt_reg_n_0_[4]\,
+      Q(3) => \hsync_cnt_reg_n_0_[3]\,
+      Q(2) => \hsync_cnt_reg_n_0_[2]\,
       Q(1) => \hsync_cnt_reg_n_0_[1]\,
       Q(0) => \hsync_cnt_reg_n_0_[0]\,
-      S(1) => pat_hdmi_n_0,
-      S(0) => pat_hdmi_n_1,
       clk_out1 => \^clk_out1\,
-      \color_reg_reg[15]_0\(9 downto 4) => loc_x(7 downto 2),
-      \color_reg_reg[15]_0\(3 downto 0) => loc_x(11 downto 8),
-      hdmi_d(11 downto 0) => hdmi_d(11 downto 0),
-      \hsync_cnt_reg[11]\(2) => pat_hdmi_n_2,
-      \hsync_cnt_reg[11]\(1) => pat_hdmi_n_3,
-      \hsync_cnt_reg[11]\(0) => pat_hdmi_n_4
+      \color_reg_reg[15]_0\(0) => \^p_1_in0\,
+      hdmi_d(15 downto 0) => hdmi_d(15 downto 0)
     );
 pll: entity work.sys_hdmi_axi_full_0_0_clk_wiz_0
      port map (
@@ -3623,7 +3637,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     );
 \vsync_cnt[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"10FF"
+      INIT => X"40FF"
     )
         port map (
       I0 => \vsync_cnt[0]_i_4_n_0\,
@@ -3632,90 +3646,75 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
       I3 => m00_axi_aresetn,
       O => \vsync_cnt[0]_i_1_n_0\
     );
-\vsync_cnt[0]_i_10\: unisim.vcomponents.LUT2
+\vsync_cnt[0]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"8"
+      INIT => X"0015"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[4]\,
-      I1 => \hsync_cnt_reg_n_0_[3]\,
-      O => \vsync_cnt[0]_i_10_n_0\
+      I0 => \vsync_cnt[0]_i_6_n_0\,
+      I1 => \hsync_cnt_reg_n_0_[7]\,
+      I2 => \hsync_cnt_reg_n_0_[6]\,
+      I3 => \vsync_cnt[0]_i_7_n_0\,
+      O => \vsync_cnt[0]_i_2_n_0\
     );
-\vsync_cnt[0]_i_2\: unisim.vcomponents.LUT6
+\vsync_cnt[0]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000010101"
+      INIT => X"FFFFFFFFFFFEFFFF"
     )
         port map (
-      I0 => hdmi_hsync_INST_0_i_2_n_0,
-      I1 => \hsync_cnt_reg_n_0_[1]\,
-      I2 => \hsync_cnt_reg_n_0_[0]\,
-      I3 => \hsync_cnt_reg_n_0_[6]\,
-      I4 => \hsync_cnt_reg_n_0_[7]\,
-      I5 => \vsync_cnt[0]_i_6_n_0\,
-      O => vsync_cnt
-    );
-\vsync_cnt[0]_i_4\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => vsync_cnt_reg(2),
-      I1 => vsync_cnt_reg(7),
-      I2 => vsync_cnt_reg(0),
+      I0 => vsync_cnt_reg(9),
+      I1 => vsync_cnt_reg(8),
+      I2 => vsync_cnt_reg(7),
       I3 => vsync_cnt_reg(11),
+      I4 => vsync_cnt_reg(10),
+      I5 => vsync_cnt_reg(1),
       O => \vsync_cnt[0]_i_4_n_0\
     );
 \vsync_cnt[0]_i_5\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFDFFFFFFFFFF"
+      INIT => X"0000000000008000"
     )
         port map (
-      I0 => \vsync_cnt[0]_i_8_n_0\,
-      I1 => vsync_cnt_reg(9),
-      I2 => vsync_cnt_reg(8),
-      I3 => vsync_cnt_reg(10),
-      I4 => vsync_cnt_reg(1),
-      I5 => \vsync_cnt[0]_i_9_n_0\,
+      I0 => vsync_cnt_reg(6),
+      I1 => vsync_cnt_reg(5),
+      I2 => vsync_cnt_reg(0),
+      I3 => vsync_cnt_reg(2),
+      I4 => vsync_cnt_reg(4),
+      I5 => vsync_cnt_reg(3),
       O => \vsync_cnt[0]_i_5_n_0\
     );
 \vsync_cnt[0]_i_6\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFDFFFFFFFFFF"
+      INIT => X"FFFFFEFFFFFFFFFF"
     )
         port map (
-      I0 => \hsync_cnt_reg_n_0_[11]\,
-      I1 => \hsync_cnt_reg_n_0_[2]\,
+      I0 => \hsync_cnt_reg_n_0_[1]\,
+      I1 => \hsync_cnt_reg_n_0_[0]\,
       I2 => \hsync_cnt_reg_n_0_[10]\,
       I3 => \hsync_cnt_reg_n_0_[7]\,
       I4 => \hsync_cnt_reg_n_0_[5]\,
-      I5 => \vsync_cnt[0]_i_10_n_0\,
+      I5 => \hsync_cnt_reg_n_0_[11]\,
       O => \vsync_cnt[0]_i_6_n_0\
     );
-\vsync_cnt[0]_i_7\: unisim.vcomponents.LUT1
+\vsync_cnt[0]_i_7\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFEFFFFF"
+    )
+        port map (
+      I0 => \hsync_cnt_reg_n_0_[9]\,
+      I1 => \hsync_cnt_reg_n_0_[8]\,
+      I2 => \hsync_cnt_reg_n_0_[3]\,
+      I3 => \hsync_cnt_reg_n_0_[2]\,
+      I4 => \hsync_cnt_reg_n_0_[4]\,
+      O => \vsync_cnt[0]_i_7_n_0\
+    );
+\vsync_cnt[0]_i_8\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => vsync_cnt_reg(0),
-      O => \vsync_cnt[0]_i_7_n_0\
-    );
-\vsync_cnt[0]_i_8\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => vsync_cnt_reg(4),
-      I1 => vsync_cnt_reg(3),
       O => \vsync_cnt[0]_i_8_n_0\
-    );
-\vsync_cnt[0]_i_9\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => vsync_cnt_reg(5),
-      I1 => vsync_cnt_reg(6),
-      O => \vsync_cnt[0]_i_9_n_0\
     );
 \vsync_cnt_reg[0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3723,7 +3722,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[0]_i_3_n_7\,
       Q => vsync_cnt_reg(0),
       S => \vsync_cnt[0]_i_1_n_0\
@@ -3742,7 +3741,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
       O(1) => \vsync_cnt_reg[0]_i_3_n_6\,
       O(0) => \vsync_cnt_reg[0]_i_3_n_7\,
       S(3 downto 1) => vsync_cnt_reg(3 downto 1),
-      S(0) => \vsync_cnt[0]_i_7_n_0\
+      S(0) => \vsync_cnt[0]_i_8_n_0\
     );
 \vsync_cnt_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -3750,7 +3749,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[8]_i_1_n_5\,
       Q => vsync_cnt_reg(10),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3761,7 +3760,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[8]_i_1_n_4\,
       Q => vsync_cnt_reg(11),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3772,7 +3771,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[0]_i_3_n_6\,
       Q => vsync_cnt_reg(1),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3783,7 +3782,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[0]_i_3_n_5\,
       Q => vsync_cnt_reg(2),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3794,7 +3793,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[0]_i_3_n_4\,
       Q => vsync_cnt_reg(3),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3805,7 +3804,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[4]_i_1_n_7\,
       Q => vsync_cnt_reg(4),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3831,7 +3830,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[4]_i_1_n_6\,
       Q => vsync_cnt_reg(5),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3842,7 +3841,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[4]_i_1_n_5\,
       Q => vsync_cnt_reg(6),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3853,7 +3852,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[4]_i_1_n_4\,
       Q => vsync_cnt_reg(7),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3864,7 +3863,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[8]_i_1_n_7\,
       Q => vsync_cnt_reg(8),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3890,7 +3889,7 @@ sender: entity work.sys_hdmi_axi_full_0_0_i2c_sender
     )
         port map (
       C => \^clk_out1\,
-      CE => vsync_cnt,
+      CE => \vsync_cnt[0]_i_2_n_0\,
       D => \vsync_cnt_reg[8]_i_1_n_6\,
       Q => vsync_cnt_reg(9),
       R => \vsync_cnt[0]_i_1_n_0\
@@ -3903,14 +3902,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI is
   port (
     hdmi_clk : out STD_LOGIC;
-    hdmi_d : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    hdmi_d : out STD_LOGIC_VECTOR ( 15 downto 0 );
     M_AXI_BREADY : out STD_LOGIC;
     m00_axi_awaddr : out STD_LOGIC_VECTOR ( 25 downto 0 );
     m00_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m00_axi_araddr : out STD_LOGIC_VECTOR ( 25 downto 0 );
     hdmi_scl : out STD_LOGIC;
-    hdmi_de : out STD_LOGIC;
     hdmi_vsync : out STD_LOGIC;
+    hdmi_de : out STD_LOGIC;
     hdmi_hsync : out STD_LOGIC;
     axi_rready_reg_0 : out STD_LOGIC;
     axi_awvalid_reg_0 : out STD_LOGIC;
@@ -6115,7 +6114,7 @@ error_reg_reg: unisim.vcomponents.FDRE
 hdmi_inst: entity work.sys_hdmi_axi_full_0_0_zedboard_hdmi
      port map (
       clk_out1 => hdmi_clk,
-      hdmi_d(11 downto 0) => hdmi_d(11 downto 0),
+      hdmi_d(15 downto 0) => hdmi_d(15 downto 0),
       hdmi_de => hdmi_de,
       hdmi_hsync => hdmi_hsync,
       hdmi_scl => hdmi_scl,
@@ -6432,12 +6431,12 @@ read_mismatch1_carry: unisim.vcomponents.CARRY4
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => m00_axi_rdata(23),
-      I1 => expected_rdata_reg(23),
-      I2 => m00_axi_rdata(21),
-      I3 => expected_rdata_reg(21),
-      I4 => expected_rdata_reg(22),
-      I5 => m00_axi_rdata(22),
+      I0 => m00_axi_rdata(21),
+      I1 => expected_rdata_reg(21),
+      I2 => m00_axi_rdata(22),
+      I3 => expected_rdata_reg(22),
+      I4 => expected_rdata_reg(23),
+      I5 => m00_axi_rdata(23),
       O => \read_mismatch1_carry__0_i_1_n_0\
     );
 \read_mismatch1_carry__0_i_2\: unisim.vcomponents.LUT6
@@ -6458,12 +6457,12 @@ read_mismatch1_carry: unisim.vcomponents.CARRY4
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => m00_axi_rdata(15),
-      I1 => expected_rdata_reg(15),
-      I2 => m00_axi_rdata(16),
-      I3 => expected_rdata_reg(16),
-      I4 => expected_rdata_reg(17),
-      I5 => m00_axi_rdata(17),
+      I0 => m00_axi_rdata(17),
+      I1 => expected_rdata_reg(17),
+      I2 => m00_axi_rdata(15),
+      I3 => expected_rdata_reg(15),
+      I4 => expected_rdata_reg(16),
+      I5 => m00_axi_rdata(16),
       O => \read_mismatch1_carry__0_i_3_n_0\
     );
 \read_mismatch1_carry__0_i_4\: unisim.vcomponents.LUT6
@@ -6536,10 +6535,10 @@ read_mismatch1_carry_i_1: unisim.vcomponents.LUT6
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => m00_axi_rdata(9),
-      I1 => expected_rdata_reg(9),
-      I2 => m00_axi_rdata(10),
-      I3 => expected_rdata_reg(10),
+      I0 => m00_axi_rdata(10),
+      I1 => expected_rdata_reg(10),
+      I2 => m00_axi_rdata(9),
+      I3 => expected_rdata_reg(9),
       I4 => expected_rdata_reg(11),
       I5 => m00_axi_rdata(11),
       O => read_mismatch1_carry_i_1_n_0
@@ -6549,12 +6548,12 @@ read_mismatch1_carry_i_2: unisim.vcomponents.LUT6
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => m00_axi_rdata(8),
-      I1 => expected_rdata_reg(8),
-      I2 => m00_axi_rdata(6),
-      I3 => expected_rdata_reg(6),
-      I4 => expected_rdata_reg(7),
-      I5 => m00_axi_rdata(7),
+      I0 => m00_axi_rdata(6),
+      I1 => expected_rdata_reg(6),
+      I2 => m00_axi_rdata(7),
+      I3 => expected_rdata_reg(7),
+      I4 => expected_rdata_reg(8),
+      I5 => m00_axi_rdata(8),
       O => read_mismatch1_carry_i_2_n_0
     );
 read_mismatch1_carry_i_3: unisim.vcomponents.LUT6
@@ -6562,12 +6561,12 @@ read_mismatch1_carry_i_3: unisim.vcomponents.LUT6
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => m00_axi_rdata(5),
-      I1 => expected_rdata_reg(5),
-      I2 => m00_axi_rdata(3),
-      I3 => expected_rdata_reg(3),
-      I4 => expected_rdata_reg(4),
-      I5 => m00_axi_rdata(4),
+      I0 => m00_axi_rdata(3),
+      I1 => expected_rdata_reg(3),
+      I2 => m00_axi_rdata(4),
+      I3 => expected_rdata_reg(4),
+      I4 => expected_rdata_reg(5),
+      I5 => m00_axi_rdata(5),
       O => read_mismatch1_carry_i_3_n_0
     );
 read_mismatch1_carry_i_4: unisim.vcomponents.LUT6
@@ -6958,14 +6957,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0 is
   port (
     hdmi_clk : out STD_LOGIC;
-    hdmi_d : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    hdmi_d : out STD_LOGIC_VECTOR ( 15 downto 0 );
     M_AXI_BREADY : out STD_LOGIC;
     m00_axi_awaddr : out STD_LOGIC_VECTOR ( 25 downto 0 );
     m00_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m00_axi_araddr : out STD_LOGIC_VECTOR ( 25 downto 0 );
     hdmi_scl : out STD_LOGIC;
-    hdmi_de : out STD_LOGIC;
     hdmi_vsync : out STD_LOGIC;
+    hdmi_de : out STD_LOGIC;
     hdmi_hsync : out STD_LOGIC;
     axi_rready_reg : out STD_LOGIC;
     axi_awvalid_reg : out STD_LOGIC;
@@ -7002,7 +7001,7 @@ hdmi_axi_full_v1_0_M00_AXI_inst: entity work.sys_hdmi_axi_full_0_0_hdmi_axi_full
       axi_rready_reg_0 => axi_rready_reg,
       axi_wvalid_reg_0 => axi_wvalid_reg,
       hdmi_clk => hdmi_clk,
-      hdmi_d(11 downto 0) => hdmi_d(11 downto 0),
+      hdmi_d(15 downto 0) => hdmi_d(15 downto 0),
       hdmi_de => hdmi_de,
       hdmi_hsync => hdmi_hsync,
       hdmi_scl => hdmi_scl,
@@ -7103,10 +7102,9 @@ end sys_hdmi_axi_full_0_0;
 architecture STRUCTURE of sys_hdmi_axi_full_0_0 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
-  signal \^hdmi_d\ : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \^m00_axi_araddr\ : STD_LOGIC_VECTOR ( 31 downto 6 );
   signal \^m00_axi_awaddr\ : STD_LOGIC_VECTOR ( 31 downto 6 );
-  signal n_0_238 : STD_LOGIC;
+  signal n_0_236 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of hdmi_clk : signal is "xilinx.com:signal:clock:1.0 hdmi_clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -7159,8 +7157,6 @@ architecture STRUCTURE of sys_hdmi_axi_full_0_0 is
   attribute X_INTERFACE_INFO of m00_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WSTRB";
   attribute X_INTERFACE_INFO of m00_axi_wuser : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WUSER";
 begin
-  hdmi_d(15 downto 12) <= \^hdmi_d\(3 downto 0);
-  hdmi_d(11 downto 0) <= \^hdmi_d\(11 downto 0);
   m00_axi_araddr(31 downto 6) <= \^m00_axi_araddr\(31 downto 6);
   m00_axi_araddr(5) <= \<const0>\;
   m00_axi_araddr(4) <= \<const0>\;
@@ -7243,13 +7239,13 @@ VCC: unisim.vcomponents.VCC
      port map (
       P => \<const1>\
     );
-i_238: unisim.vcomponents.LUT1
+i_236: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => m00_axi_aresetn,
-      O => n_0_238
+      O => n_0_236
     );
 inst: entity work.sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0
      port map (
@@ -7259,8 +7255,7 @@ inst: entity work.sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0
       axi_rready_reg => m00_axi_rready,
       axi_wvalid_reg => m00_axi_wvalid,
       hdmi_clk => hdmi_clk,
-      hdmi_d(11 downto 8) => \^hdmi_d\(3 downto 0),
-      hdmi_d(7 downto 0) => \^hdmi_d\(11 downto 4),
+      hdmi_d(15 downto 0) => hdmi_d(15 downto 0),
       hdmi_de => hdmi_de,
       hdmi_hsync => hdmi_hsync,
       hdmi_scl => hdmi_scl,

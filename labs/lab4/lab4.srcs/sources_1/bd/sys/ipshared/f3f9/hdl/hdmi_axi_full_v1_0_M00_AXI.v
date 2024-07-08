@@ -923,8 +923,7 @@
 
         .wea(1'd0),  // write only; for test
         .addra(),  // write only; for test
-        .dina(),
-        .douta()
+        .dina()
     );
 
 	// User logic ends
