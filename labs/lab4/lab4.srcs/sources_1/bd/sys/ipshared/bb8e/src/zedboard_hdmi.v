@@ -11,7 +11,10 @@ module zedboard_hdmi (
 
     input wire wea,
     input wire [31:0] addra,
-    input wire [31:0] dina
+    input wire [31:0] dina,
+
+    output wire v_valid_out,
+    output wire [31:0] locy
 );
 
     wire clk_150_d0;
@@ -43,6 +46,8 @@ module zedboard_hdmi (
     assign loc_x = hsync_cnt - h_sync - h_bp + 1;
     assign loc_y = vsync_cnt - v_sync - v_bp - 1;
 
+    assign locy = loc_y;
+
     assign hdmi_hsync = hsync_cnt <= h_sync;
     assign hdmi_vsync = vsync_cnt <= v_sync;
     assign hdmi_clk = clk_150_d0;
@@ -50,6 +55,8 @@ module zedboard_hdmi (
     assign h_valid = hsync_cnt > (h_sync + h_bp) && hsync_cnt <= (h_total - h_fp);
     assign v_valid = vsync_cnt > (v_sync + v_bp) && vsync_cnt <= (v_total - v_fp);
     assign hdmi_de = h_valid & v_valid;
+
+    assign v_valid_out = v_valid;
 
     always @(posedge clk_150_d0 or negedge pll_resetn) begin
         if (~pll_resetn) begin

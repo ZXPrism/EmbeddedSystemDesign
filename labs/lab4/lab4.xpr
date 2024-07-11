@@ -67,9 +67,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="sys.bd" FileRelPathName="ip/sys_hdmi_axi_full_0_0/sys_hdmi_axi_full_0_0.xci">
-          <Proxy FileSetName="sys_hdmi_axi_full_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="sys.bd" FileRelPathName="ip/sys_processing_system7_0_0/sys_processing_system7_0_0.xci">
           <Proxy FileSetName="sys_processing_system7_0_0"/>
         </CompFileExtendedInfo>
@@ -78,6 +75,9 @@
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="sys.bd" FileRelPathName="ip/sys_axi_smc_0/sys_axi_smc_0.xci">
           <Proxy FileSetName="sys_axi_smc_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sys.bd" FileRelPathName="ip/sys_hdmi_axi_full_0_0/sys_hdmi_axi_full_0_0.xci">
+          <Proxy FileSetName="sys_hdmi_axi_full_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/sys/hdl/sys_wrapper.v">
@@ -104,6 +104,7 @@
         </FileInfo>
       </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/rtl/zedboard.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
