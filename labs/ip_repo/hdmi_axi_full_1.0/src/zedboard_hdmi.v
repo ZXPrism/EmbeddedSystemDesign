@@ -96,6 +96,7 @@ module zedboard_hdmi (
     );
 
     gen_pat pat_hdmi (
+        .clk_ram_write(clk_100),
         .clk_in(clk_150_d0),
         .resetn(pll_resetn),
         .loc_x(loc_x),

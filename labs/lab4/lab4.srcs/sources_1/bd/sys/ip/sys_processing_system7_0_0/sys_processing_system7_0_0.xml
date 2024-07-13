@@ -9107,7 +9107,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.FCLK_CLK0.FREQ_HZ" spirit:dependency="(spirit:decode(id(PARAM_VALUE.PCW_CLK0_FREQ)))" spirit:minimum="100000" spirit:maximum="333000000">100000000</spirit:value>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.FCLK_CLK0.FREQ_HZ" spirit:dependency="(spirit:decode(id(PARAM_VALUE.PCW_CLK0_FREQ)))" spirit:minimum="100000" spirit:maximum="333000000">1e+08</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
@@ -14402,11 +14402,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:48:13 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:41:12 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7fa7cbac</spirit:value>
+            <spirit:value>9:a5f7ede1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -14417,7 +14417,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7fa7cbac</spirit:value>
+            <spirit:value>9:a5f7ede1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -14433,11 +14433,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:48:13 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:41:12 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7fa7cbac</spirit:value>
+            <spirit:value>9:a5f7ede1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -14458,7 +14458,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34e052f7</spirit:value>
+            <spirit:value>9:489d1128</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -14473,11 +14473,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:48:13 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:41:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34e052f7</spirit:value>
+            <spirit:value>9:489d1128</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -14500,11 +14500,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:48:13 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:41:13 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34e052f7</spirit:value>
+            <spirit:value>9:489d1128</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -14519,11 +14519,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:48:15 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:41:15 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34e052f7</spirit:value>
+            <spirit:value>9:489d1128</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -14541,11 +14541,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jul 10 12:49:04 UTC 2024</spirit:value>
+            <spirit:value>Fri Jul 12 09:42:05 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7fa7cbac</spirit:value>
+            <spirit:value>9:a5f7ede1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31376,6 +31376,12 @@
       <spirit:enumeration>MIO 53</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_list_d88af9c3</spirit:name>
+      <spirit:enumeration>&lt;Select></spirit:enumeration>
+      <spirit:enumeration>Share reset pin</spirit:enumeration>
+      <spirit:enumeration>Separate reset pins</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_list_da0dabdb</spirit:name>
       <spirit:enumeration>0xE0001000</spirit:enumeration>
     </spirit:choice>
@@ -32704,7 +32710,7 @@
     <spirit:parameter>
       <spirit:name>PCW_QSPI_PERIPHERAL_FREQMHZ</spirit:name>
       <spirit:displayName>PCW QSPI PERIPHERAL FREQMHZ</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_QSPI_PERIPHERAL_FREQMHZ" spirit:order="23700" spirit:minimum="10.000000" spirit:maximum="200.000000">200.000000</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_QSPI_PERIPHERAL_FREQMHZ" spirit:order="23700" spirit:minimum="10.000000" spirit:maximum="200.000000">200</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_SMC_PERIPHERAL_FREQMHZ</spirit:name>
@@ -32746,6 +32752,13 @@
       <spirit:name>PCW_SDIO_PERIPHERAL_FREQMHZ</spirit:name>
       <spirit:displayName>PCW SDIO PERIPHERAL FREQMHZ</spirit:displayName>
       <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_SDIO_PERIPHERAL_FREQMHZ" spirit:order="24300" spirit:minimum="10.000000" spirit:maximum="125.000000">50</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PCW_SDIO_PERIPHERAL_FREQMHZ">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_UART_PERIPHERAL_FREQMHZ</spirit:name>
@@ -32828,6 +32841,13 @@
       <spirit:name>PCW_TTC_PERIPHERAL_FREQMHZ</spirit:name>
       <spirit:displayName>PCW TTC PERIPHERAL FREQMHZ</spirit:displayName>
       <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_TTC_PERIPHERAL_FREQMHZ" spirit:order="25100" spirit:minimum="0.100000" spirit:maximum="100.000000">50</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PCW_TTC_PERIPHERAL_FREQMHZ">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_TTC0_CLK0_PERIPHERAL_FREQMHZ</spirit:name>
@@ -32931,7 +32951,7 @@
     <spirit:parameter>
       <spirit:name>PCW_FPGA2_PERIPHERAL_FREQMHZ</spirit:name>
       <spirit:displayName>PCW FPGA2 PERIPHERAL FREQMHZ</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FPGA2_PERIPHERAL_FREQMHZ" spirit:order="26200" spirit:minimum="0.100000" spirit:maximum="250.000000">50.000000</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_FPGA2_PERIPHERAL_FREQMHZ" spirit:order="26200" spirit:minimum="0.100000" spirit:maximum="250.000000">50</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_FPGA3_PERIPHERAL_FREQMHZ</spirit:name>
@@ -35818,7 +35838,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PCW_ENET_RESET_SELECT</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_ENET_RESET_SELECT" spirit:choiceRef="choice_list_fe5d5471" spirit:order="6103">&lt;Select></spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PCW_ENET_RESET_SELECT" spirit:choiceRef="choice_list_d88af9c3" spirit:order="6103">&lt;Select></spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Thu Jul 11 16:58:33 2024
+// Date        : Fri Jul 12 17:28:16 2024
 // Host        : ZXPRISM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_hdmi_axi_full_0_0/sys_hdmi_axi_full_0_0_sim_netlist.v
@@ -317,7 +317,7 @@ module sys_hdmi_axi_full_0_0_blk_mem_gen_0
   (* C_EN_SAFETY_CKT = "0" *) 
   (* C_EN_SHUTDOWN_PIN = "0" *) 
   (* C_EN_SLEEP_PIN = "0" *) 
-  (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     5.560575 mW" *) 
+  (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     5.393875 mW" *) 
   (* C_FAMILY = "zynq" *) 
   (* C_HAS_AXI_ID = "0" *) 
   (* C_HAS_ENA = "0" *) 
@@ -364,7 +364,7 @@ module sys_hdmi_axi_full_0_0_blk_mem_gen_0
   (* C_WEB_WIDTH = "1" *) 
   (* C_WRITE_DEPTH_A = "960" *) 
   (* C_WRITE_DEPTH_B = "1920" *) 
-  (* C_WRITE_MODE_A = "READ_FIRST" *) 
+  (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
   (* C_WRITE_MODE_B = "READ_FIRST" *) 
   (* C_WRITE_WIDTH_A = "32" *) 
   (* C_WRITE_WIDTH_B = "16" *) 
@@ -555,19 +555,21 @@ module sys_hdmi_axi_full_0_0_gen_pat
    (D,
     m00_axi_aclk,
     hdmi_d,
-    CLK,
+    clk_100,
     wea,
     addra,
     dina,
+    CLK,
     Q,
     locked);
   output [0:0]D;
   output m00_axi_aclk;
   output [15:0]hdmi_d;
-  input CLK;
+  input clk_100;
   input wea;
   input [9:0]addra;
   input [31:0]dina;
+  input CLK;
   input [10:0]Q;
   input locked;
 
@@ -575,6 +577,7 @@ module sys_hdmi_axi_full_0_0_gen_pat
   wire [0:0]D;
   wire [10:0]Q;
   wire [9:0]addra;
+  wire clk_100;
   wire [15:0]color_out_ram;
   wire [31:0]dina;
   wire [15:0]hdmi_d;
@@ -696,7 +699,7 @@ module sys_hdmi_axi_full_0_0_gen_pat
   sys_hdmi_axi_full_0_0_blk_mem_gen_0 image_ram
        (.addra(addra),
         .addrb({loc_x[10:9],image_ram_i_3_n_0,image_ram_i_4_n_0,image_ram_i_5_n_0,loc_x[5:1],D}),
-        .clka(CLK),
+        .clka(clk_100),
         .clkb(CLK),
         .dina(dina),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -1198,12 +1201,12 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire \FSM_onehot_arvalid_state_reg_n_0_[2] ;
   wire \FSM_onehot_txn_state[0]_i_1_n_0 ;
   wire \FSM_onehot_txn_state[1]_i_1_n_0 ;
+  wire \FSM_onehot_txn_state[1]_i_3_n_0 ;
   wire \FSM_onehot_txn_state[2]_i_1_n_0 ;
   wire \FSM_onehot_txn_state[2]_i_2_n_0 ;
   wire \FSM_onehot_txn_state_reg_n_0_[0] ;
   wire \FSM_onehot_txn_state_reg_n_0_[1] ;
   wire \FSM_onehot_txn_state_reg_n_0_[2] ;
-  wire INIT_AXI_TXN;
   wire M_AXI_ACLK;
   (* MARK_DEBUG *) wire [31:0]M_AXI_ARADDR;
   wire M_AXI_ARADDR_inferred_i_2_n_0;
@@ -1214,8 +1217,6 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire M_AXI_ARESETN;
   (* MARK_DEBUG *) wire M_AXI_ARREADY;
   (* MARK_DEBUG *) wire M_AXI_ARVALID;
-  wire M_AXI_BREADY;
-  wire M_AXI_BVALID;
   (* MARK_DEBUG *) wire [31:0]M_AXI_RDATA;
   (* MARK_DEBUG *) wire M_AXI_RLAST;
   (* MARK_DEBUG *) wire M_AXI_RREADY;
@@ -1256,7 +1257,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire \arvalid_wait_cnt_reg_n_0_[0] ;
   wire \arvalid_wait_cnt_reg_n_0_[1] ;
   wire \arvalid_wait_cnt_reg_n_0_[2] ;
-  (* MARK_DEBUG *) wire [31:27]axi_araddr;
+  wire axi_araddr;
   wire \axi_araddr[0]_i_1_n_0 ;
   wire \axi_araddr[10]_i_1_n_0 ;
   wire \axi_araddr[11]_i_1_n_0 ;
@@ -1316,13 +1317,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire \axi_araddr[29]_i_1_n_0 ;
   wire \axi_araddr[2]_i_1_n_0 ;
   wire \axi_araddr[30]_i_1_n_0 ;
-  wire \axi_araddr[31]_i_10_n_0 ;
   wire \axi_araddr[31]_i_11_n_0 ;
-  wire \axi_araddr[31]_i_1_n_0 ;
+  wire \axi_araddr[31]_i_12_n_0 ;
+  wire \axi_araddr[31]_i_13_n_0 ;
   wire \axi_araddr[31]_i_2_n_0 ;
-  wire \axi_araddr[31]_i_5_n_0 ;
-  wire \axi_araddr[31]_i_6_n_0 ;
+  wire \axi_araddr[31]_i_3_n_0 ;
+  wire \axi_araddr[31]_i_4_n_0 ;
   wire \axi_araddr[31]_i_7_n_0 ;
+  wire \axi_araddr[31]_i_8_n_0 ;
   wire \axi_araddr[31]_i_9_n_0 ;
   wire \axi_araddr[3]_i_1_n_0 ;
   wire \axi_araddr[4]_i_1_n_0 ;
@@ -1407,15 +1409,15 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire \axi_araddr_reg[28]_i_8_n_5 ;
   wire \axi_araddr_reg[28]_i_8_n_6 ;
   wire \axi_araddr_reg[28]_i_8_n_7 ;
-  wire \axi_araddr_reg[31]_i_3_n_2 ;
-  wire \axi_araddr_reg[31]_i_3_n_3 ;
-  wire \axi_araddr_reg[31]_i_4_n_2 ;
-  wire \axi_araddr_reg[31]_i_4_n_3 ;
-  wire \axi_araddr_reg[31]_i_8_n_2 ;
-  wire \axi_araddr_reg[31]_i_8_n_3 ;
-  wire \axi_araddr_reg[31]_i_8_n_5 ;
-  wire \axi_araddr_reg[31]_i_8_n_6 ;
-  wire \axi_araddr_reg[31]_i_8_n_7 ;
+  wire \axi_araddr_reg[31]_i_10_n_2 ;
+  wire \axi_araddr_reg[31]_i_10_n_3 ;
+  wire \axi_araddr_reg[31]_i_10_n_5 ;
+  wire \axi_araddr_reg[31]_i_10_n_6 ;
+  wire \axi_araddr_reg[31]_i_10_n_7 ;
+  wire \axi_araddr_reg[31]_i_5_n_2 ;
+  wire \axi_araddr_reg[31]_i_5_n_3 ;
+  wire \axi_araddr_reg[31]_i_6_n_2 ;
+  wire \axi_araddr_reg[31]_i_6_n_3 ;
   wire \axi_araddr_reg[8]_i_2_n_0 ;
   wire \axi_araddr_reg[8]_i_2_n_1 ;
   wire \axi_araddr_reg[8]_i_2_n_2 ;
@@ -1428,9 +1430,12 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   wire \axi_araddr_reg[9]_i_2_n_5 ;
   wire \axi_araddr_reg[9]_i_2_n_6 ;
   wire \axi_araddr_reg[9]_i_2_n_7 ;
+  wire \axi_araddr_reg_n_0_[27] ;
+  wire \axi_araddr_reg_n_0_[28] ;
+  wire \axi_araddr_reg_n_0_[29] ;
+  wire \axi_araddr_reg_n_0_[30] ;
+  wire \axi_araddr_reg_n_0_[31] ;
   wire axi_arvalid_i_1_n_0;
-  wire axi_bready_i_1_n_0;
-  wire axi_rready_i_1_n_0;
   (* MARK_DEBUG *) wire hdmi_clk;
   (* MARK_DEBUG *) wire [15:0]hdmi_d;
   (* MARK_DEBUG *) wire hdmi_de;
@@ -1440,40 +1445,36 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   (* MARK_DEBUG *) wire hdmi_scl;
   (* MARK_DEBUG *) wire hdmi_sda;
   (* MARK_DEBUG *) wire hdmi_vsync;
-  wire [31:9]in5;
-  wire [31:5]in6;
-  wire init_txn_ff;
-  wire init_txn_ff2;
+  wire [31:9]in4;
+  wire [31:5]in5;
   wire [31:0]locy;
-  wire [15:0]p_1_in;
+  wire [15:0]p_1_in__0;
   (* MARK_DEBUG *) wire [5:0]txn_cnt;
   wire \txn_cnt[0]_i_1_n_0 ;
+  wire \txn_cnt[0]_i_2_n_0 ;
   wire \txn_cnt[1]_i_1_n_0 ;
   wire \txn_cnt[2]_i_1_n_0 ;
   wire \txn_cnt[3]_i_1_n_0 ;
-  wire \txn_cnt[3]_i_2_n_0 ;
   wire \txn_cnt[4]_i_1_n_0 ;
   wire \txn_cnt[4]_i_2_n_0 ;
-  wire \txn_cnt[4]_i_3_n_0 ;
   wire \txn_cnt[5]_i_1_n_0 ;
   wire \txn_cnt[5]_i_2_n_0 ;
+  wire \txn_cnt[5]_i_3_n_0 ;
   (* MARK_DEBUG *) wire txn_request;
   wire txn_request_reg0;
   wire txn_request_reg_i_1_n_0;
-  wire [1:0]txn_state;
-  wire \txn_state[0]_i_1_n_0 ;
   wire wea;
   wire [3:0]NLW_M_AXI_ARADDR_inferred_i_1_CO_UNCONNECTED;
   wire [3:1]NLW_M_AXI_ARADDR_inferred_i_1_O_UNCONNECTED;
   wire [3:2]\NLW_addra_reg_reg[15]_i_2_CO_UNCONNECTED ;
   wire [3:3]\NLW_addra_reg_reg[15]_i_2_O_UNCONNECTED ;
   wire [0:0]\NLW_axi_araddr_reg[12]_i_2_O_UNCONNECTED ;
-  wire [3:2]\NLW_axi_araddr_reg[31]_i_3_CO_UNCONNECTED ;
-  wire [3:3]\NLW_axi_araddr_reg[31]_i_3_O_UNCONNECTED ;
-  wire [3:2]\NLW_axi_araddr_reg[31]_i_4_CO_UNCONNECTED ;
-  wire [3:3]\NLW_axi_araddr_reg[31]_i_4_O_UNCONNECTED ;
-  wire [3:2]\NLW_axi_araddr_reg[31]_i_8_CO_UNCONNECTED ;
-  wire [3:3]\NLW_axi_araddr_reg[31]_i_8_O_UNCONNECTED ;
+  wire [3:2]\NLW_axi_araddr_reg[31]_i_10_CO_UNCONNECTED ;
+  wire [3:3]\NLW_axi_araddr_reg[31]_i_10_O_UNCONNECTED ;
+  wire [3:2]\NLW_axi_araddr_reg[31]_i_5_CO_UNCONNECTED ;
+  wire [3:3]\NLW_axi_araddr_reg[31]_i_5_O_UNCONNECTED ;
+  wire [3:2]\NLW_axi_araddr_reg[31]_i_6_CO_UNCONNECTED ;
+  wire [3:3]\NLW_axi_araddr_reg[31]_i_6_O_UNCONNECTED ;
 
   assign ERROR = \<const0> ;
   assign M_AXI_ARBURST[1] = \<const0> ;
@@ -1563,6 +1564,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   assign M_AXI_AWSIZE[0] = \<const0> ;
   assign M_AXI_AWUSER[0] = \<const1> ;
   assign M_AXI_AWVALID = \<const0> ;
+  assign M_AXI_BREADY = \<const0> ;
   assign M_AXI_WDATA[31] = \<const0> ;
   assign M_AXI_WDATA[30] = \<const0> ;
   assign M_AXI_WDATA[29] = \<const0> ;
@@ -1594,7 +1596,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   assign M_AXI_WDATA[3] = \<const0> ;
   assign M_AXI_WDATA[2] = \<const0> ;
   assign M_AXI_WDATA[1] = \<const0> ;
-  assign M_AXI_WDATA[0] = \<const1> ;
+  assign M_AXI_WDATA[0] = \<const0> ;
   assign M_AXI_WLAST = \<const0> ;
   assign M_AXI_WSTRB[3] = \<const1> ;
   assign M_AXI_WSTRB[2] = \<const1> ;
@@ -1665,55 +1667,70 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CLR(hdmi_inst_i_1_n_0),
         .D(\FSM_onehot_arvalid_state[2]_i_1_n_0 ),
         .Q(\FSM_onehot_arvalid_state_reg_n_0_[2] ));
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT6 #(
+    .INIT(64'h2222222F22222220)) 
     \FSM_onehot_txn_state[0]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I1(txn_request_reg0),
+        .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
+        .I3(\FSM_onehot_txn_state[1]_i_3_n_0 ),
+        .I4(axi_araddr),
+        .I5(\FSM_onehot_txn_state_reg_n_0_[0] ),
         .O(\FSM_onehot_txn_state[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT3 #(
-    .INIT(8'hF8)) 
+  LUT6 #(
+    .INIT(64'hF8F8F8F8F8F8F800)) 
     \FSM_onehot_txn_state[1]_i_1 
        (.I0(txn_request_reg0),
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[0] ),
+        .I3(\FSM_onehot_txn_state_reg_n_0_[1] ),
+        .I4(\FSM_onehot_txn_state[1]_i_3_n_0 ),
+        .I5(axi_araddr),
         .O(\FSM_onehot_txn_state[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0888888888888888)) 
+    .INIT(64'h8080808080888888)) 
     \FSM_onehot_txn_state[1]_i_2 
        (.I0(M_AXI_ARREADY),
         .I1(M_AXI_ARVALID),
-        .I2(txn_cnt[4]),
-        .I3(txn_cnt[3]),
-        .I4(txn_cnt[5]),
+        .I2(\txn_cnt[0]_i_2_n_0 ),
+        .I3(txn_cnt[0]),
+        .I4(txn_cnt[1]),
         .I5(txn_cnt[2]),
         .O(txn_request_reg0));
-  LUT5 #(
-    .INIT(32'hAFAEAEAE)) 
-    \FSM_onehot_txn_state[2]_i_1 
-       (.I0(\FSM_onehot_txn_state[2]_i_2_n_0 ),
-        .I1(txn_state[0]),
-        .I2(txn_state[1]),
-        .I3(hdmi_inst_n_22),
-        .I4(hdmi_hsync),
-        .O(\FSM_onehot_txn_state[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00000000FF010000)) 
-    \FSM_onehot_txn_state[2]_i_2 
-       (.I0(\txn_cnt[3]_i_2_n_0 ),
+    .INIT(64'h0400000000000000)) 
+    \FSM_onehot_txn_state[1]_i_3 
+       (.I0(\txn_cnt[4]_i_2_n_0 ),
+        .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
+        .I2(txn_cnt[2]),
+        .I3(txn_cnt[5]),
+        .I4(txn_cnt[4]),
+        .I5(txn_cnt[3]),
+        .O(\FSM_onehot_txn_state[1]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAFFAABFAA)) 
+    \FSM_onehot_txn_state[2]_i_1 
+       (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(txn_cnt[1]),
         .I2(txn_cnt[0]),
-        .I3(txn_request_reg0),
-        .I4(txn_state[1]),
-        .I5(txn_state[0]),
+        .I3(\FSM_onehot_txn_state_reg_n_0_[2] ),
+        .I4(\FSM_onehot_txn_state[2]_i_2_n_0 ),
+        .I5(axi_araddr),
+        .O(\FSM_onehot_txn_state[2]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFF7F)) 
+    \FSM_onehot_txn_state[2]_i_2 
+       (.I0(txn_cnt[3]),
+        .I1(txn_cnt[4]),
+        .I2(txn_cnt[5]),
+        .I3(txn_cnt[2]),
         .O(\FSM_onehot_txn_state[2]_i_2_n_0 ));
   (* FSM_ENCODED_STATES = "TXN_STATE_ACTIVE:100,TXN_STATE_INITIAL:001,TXN_STATE_WAIT:010" *) 
   FDPE #(
     .INIT(1'b1)) 
     \FSM_onehot_txn_state_reg[0] 
        (.C(M_AXI_ACLK),
-        .CE(\FSM_onehot_txn_state[2]_i_1_n_0 ),
+        .CE(1'b1),
         .D(\FSM_onehot_txn_state[0]_i_1_n_0 ),
         .PRE(hdmi_inst_i_1_n_0),
         .Q(\FSM_onehot_txn_state_reg_n_0_[0] ));
@@ -1722,7 +1739,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     .INIT(1'b0)) 
     \FSM_onehot_txn_state_reg[1] 
        (.C(M_AXI_ACLK),
-        .CE(\FSM_onehot_txn_state[2]_i_1_n_0 ),
+        .CE(1'b1),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\FSM_onehot_txn_state[1]_i_1_n_0 ),
         .Q(\FSM_onehot_txn_state_reg_n_0_[1] ));
@@ -1731,9 +1748,9 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     .INIT(1'b0)) 
     \FSM_onehot_txn_state_reg[2] 
        (.C(M_AXI_ACLK),
-        .CE(\FSM_onehot_txn_state[2]_i_1_n_0 ),
+        .CE(1'b1),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(\FSM_onehot_txn_state_reg_n_0_[1] ),
+        .D(\FSM_onehot_txn_state[2]_i_1_n_0 ),
         .Q(\FSM_onehot_txn_state_reg_n_0_[2] ));
   GND GND
        (.G(\<const0> ));
@@ -1743,18 +1760,18 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_M_AXI_ARADDR_inferred_i_1_O_UNCONNECTED[3:1],M_AXI_ARADDR[31]}),
-        .S({1'b0,1'b0,1'b0,axi_araddr[31]}));
+        .S({1'b0,1'b0,1'b0,\axi_araddr_reg_n_0_[31] }));
   CARRY4 M_AXI_ARADDR_inferred_i_2
        (.CI(1'b0),
         .CO({M_AXI_ARADDR_inferred_i_2_n_0,M_AXI_ARADDR_inferred_i_2_n_1,M_AXI_ARADDR_inferred_i_2_n_2,M_AXI_ARADDR_inferred_i_2_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,axi_araddr[28],1'b0}),
+        .DI({1'b0,1'b0,\axi_araddr_reg_n_0_[28] ,1'b0}),
         .O(M_AXI_ARADDR[30:27]),
-        .S({axi_araddr[30:29],M_AXI_ARADDR_inferred_i_3_n_0,axi_araddr[27]}));
+        .S({\axi_araddr_reg_n_0_[30] ,\axi_araddr_reg_n_0_[29] ,M_AXI_ARADDR_inferred_i_3_n_0,\axi_araddr_reg_n_0_[27] }));
   LUT1 #(
     .INIT(2'h1)) 
     M_AXI_ARADDR_inferred_i_3
-       (.I0(axi_araddr[28]),
+       (.I0(\axi_araddr_reg_n_0_[28] ),
         .O(M_AXI_ARADDR_inferred_i_3_n_0));
   VCC VCC
        (.P(\<const1> ));
@@ -1767,7 +1784,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg[0]),
         .I5(addra_reg1),
-        .O(p_1_in[0]));
+        .O(p_1_in__0[0]));
   LUT2 #(
     .INIT(4'h1)) 
     \addra_reg[0]_i_2 
@@ -1783,7 +1800,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[10]),
-        .O(p_1_in[10]));
+        .O(p_1_in__0[10]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[11]_i_1 
@@ -1793,7 +1810,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[11]),
-        .O(p_1_in[11]));
+        .O(p_1_in__0[11]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[12]_i_1 
@@ -1803,7 +1820,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[12]),
-        .O(p_1_in[12]));
+        .O(p_1_in__0[12]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[13]_i_1 
@@ -1813,7 +1830,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[13]),
-        .O(p_1_in[13]));
+        .O(p_1_in__0[13]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[14]_i_1 
@@ -1823,7 +1840,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[14]),
-        .O(p_1_in[14]));
+        .O(p_1_in__0[14]));
   LUT3 #(
     .INIT(8'hFE)) 
     \addra_reg[14]_i_2 
@@ -1874,7 +1891,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.I0(addra_reg0[15]),
         .I1(addra_reg1),
         .I2(addra_reg[15]),
-        .O(p_1_in[15]));
+        .O(p_1_in__0[15]));
   LUT6 #(
     .INIT(64'h0100010001000000)) 
     \addra_reg[15]_i_3 
@@ -1889,7 +1906,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     .INIT(16'h0004)) 
     \addra_reg[15]_i_4 
        (.I0(addra_reg[15]),
-        .I1(M_AXI_RREADY),
+        .I1(M_AXI_RVALID),
         .I2(addra_reg[11]),
         .I3(addra_reg[10]),
         .O(\addra_reg[15]_i_4_n_0 ));
@@ -1921,7 +1938,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[1]),
-        .O(p_1_in[1]));
+        .O(p_1_in__0[1]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[2]_i_1 
@@ -1931,7 +1948,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[2]),
-        .O(p_1_in[2]));
+        .O(p_1_in__0[2]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[3]_i_1 
@@ -1941,7 +1958,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[3]),
-        .O(p_1_in[3]));
+        .O(p_1_in__0[3]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[4]_i_1 
@@ -1951,7 +1968,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[4]),
-        .O(p_1_in[4]));
+        .O(p_1_in__0[4]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[5]_i_1 
@@ -1961,7 +1978,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[5]),
-        .O(p_1_in[5]));
+        .O(p_1_in__0[5]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[6]_i_1 
@@ -1971,7 +1988,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[6]),
-        .O(p_1_in[6]));
+        .O(p_1_in__0[6]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[7]_i_1 
@@ -1981,7 +1998,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[7]),
-        .O(p_1_in[7]));
+        .O(p_1_in__0[7]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[8]_i_1 
@@ -1991,7 +2008,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[8]),
-        .O(p_1_in[8]));
+        .O(p_1_in__0[8]));
   LUT6 #(
     .INIT(64'hFFFFCCC80000CCC8)) 
     \addra_reg[9]_i_1 
@@ -2001,14 +2018,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I3(\addra_reg[14]_i_4_n_0 ),
         .I4(addra_reg1),
         .I5(addra_reg0[9]),
-        .O(p_1_in[9]));
+        .O(p_1_in__0[9]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
   FDCE \addra_reg_reg[0] 
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[0]),
+        .D(p_1_in__0[0]),
         .Q(addra_reg[0]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2016,7 +2033,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[10]),
+        .D(p_1_in__0[10]),
         .Q(addra_reg[10]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2024,7 +2041,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[11]),
+        .D(p_1_in__0[11]),
         .Q(addra_reg[11]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2032,7 +2049,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[12]),
+        .D(p_1_in__0[12]),
         .Q(addra_reg[12]));
   CARRY4 \addra_reg_reg[12]_i_2 
        (.CI(\addra_reg_reg[8]_i_2_n_0 ),
@@ -2047,7 +2064,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[13]),
+        .D(p_1_in__0[13]),
         .Q(addra_reg[13]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2055,7 +2072,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[14]),
+        .D(p_1_in__0[14]),
         .Q(addra_reg[14]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2063,7 +2080,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[15]),
+        .D(p_1_in__0[15]),
         .Q(addra_reg[15]));
   CARRY4 \addra_reg_reg[15]_i_2 
        (.CI(\addra_reg_reg[12]_i_2_n_0 ),
@@ -2078,7 +2095,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[1]),
+        .D(p_1_in__0[1]),
         .Q(addra_reg[1]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2086,7 +2103,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[2]),
+        .D(p_1_in__0[2]),
         .Q(addra_reg[2]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2094,7 +2111,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[3]),
+        .D(p_1_in__0[3]),
         .Q(addra_reg[3]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2102,7 +2119,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[4]),
+        .D(p_1_in__0[4]),
         .Q(addra_reg[4]));
   CARRY4 \addra_reg_reg[4]_i_2 
        (.CI(1'b0),
@@ -2117,7 +2134,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[5]),
+        .D(p_1_in__0[5]),
         .Q(addra_reg[5]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2125,7 +2142,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[6]),
+        .D(p_1_in__0[6]),
         .Q(addra_reg[6]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2133,7 +2150,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[7]),
+        .D(p_1_in__0[7]),
         .Q(addra_reg[7]));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
@@ -2141,7 +2158,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[8]),
+        .D(p_1_in__0[8]),
         .Q(addra_reg[8]));
   CARRY4 \addra_reg_reg[8]_i_2 
        (.CI(\addra_reg_reg[4]_i_2_n_0 ),
@@ -2156,7 +2173,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.C(M_AXI_ACLK),
         .CE(\addra_state_reg_n_0_[0] ),
         .CLR(hdmi_inst_i_1_n_0),
-        .D(p_1_in[9]),
+        .D(p_1_in__0[9]),
         .Q(addra_reg[9]));
   LUT6 #(
     .INIT(64'hFFF0FFFF88888888)) 
@@ -2184,7 +2201,6 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CLR(hdmi_inst_i_1_n_0),
         .D(\addra_state[0]_i_1_n_0 ),
         .Q(\addra_state_reg_n_0_[0] ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'h0FD0)) 
     \arvalid_wait_cnt[0]_i_1 
@@ -2193,6 +2209,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I2(arvalid_wait_cnt),
         .I3(\arvalid_wait_cnt_reg_n_0_[0] ),
         .O(\arvalid_wait_cnt[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT4 #(
     .INIT(16'h4FA0)) 
     \arvalid_wait_cnt[1]_i_1 
@@ -2201,7 +2218,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I2(arvalid_wait_cnt),
         .I3(\arvalid_wait_cnt_reg_n_0_[1] ),
         .O(\arvalid_wait_cnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \arvalid_wait_cnt[2]_i_1 
@@ -2228,7 +2245,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CLR(hdmi_inst_i_1_n_0),
         .D(\arvalid_wait_cnt[2]_i_1_n_0 ),
         .Q(\arvalid_wait_cnt_reg_n_0_[2] ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[0]_i_1 
@@ -2241,8 +2258,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[10]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[10]),
-        .I3(in6[10]),
+        .I2(in4[10]),
+        .I3(in5[10]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[10]_i_1_n_0 ));
   LUT5 #(
@@ -2250,8 +2267,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[11]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[11]),
-        .I3(in6[11]),
+        .I2(in4[11]),
+        .I3(in5[11]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[11]_i_1_n_0 ));
   LUT5 #(
@@ -2259,8 +2276,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[12]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[12]),
-        .I3(in6[12]),
+        .I2(in4[12]),
+        .I3(in5[12]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[12]_i_1_n_0 ));
   LUT2 #(
@@ -2286,14 +2303,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[12]_i_7 
        (.I0(locy[1]),
         .I1(\axi_araddr_reg[9]_i_2_n_7 ),
-        .O(in5[9]));
+        .O(in4[9]));
   LUT5 #(
     .INIT(32'hFFEAEAEA)) 
     \axi_araddr[13]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[13]),
-        .I3(in6[13]),
+        .I2(in4[13]),
+        .I3(in5[13]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[13]_i_1_n_0 ));
   LUT5 #(
@@ -2301,8 +2318,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[14]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[14]),
-        .I3(in6[14]),
+        .I2(in4[14]),
+        .I3(in5[14]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[14]_i_1_n_0 ));
   LUT5 #(
@@ -2310,8 +2327,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[15]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[15]),
-        .I3(in6[15]),
+        .I2(in4[15]),
+        .I3(in5[15]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[15]_i_1_n_0 ));
   LUT5 #(
@@ -2319,8 +2336,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[16]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[16]),
-        .I3(in6[16]),
+        .I2(in4[16]),
+        .I3(in5[16]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[16]_i_1_n_0 ));
   LUT2 #(
@@ -2376,8 +2393,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[17]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[17]),
-        .I3(in6[17]),
+        .I2(in4[17]),
+        .I3(in5[17]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[17]_i_1_n_0 ));
   LUT5 #(
@@ -2385,8 +2402,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[18]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[18]),
-        .I3(in6[18]),
+        .I2(in4[18]),
+        .I3(in5[18]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[18]_i_1_n_0 ));
   LUT5 #(
@@ -2394,11 +2411,11 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[19]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[19]),
-        .I3(in6[19]),
+        .I2(in4[19]),
+        .I3(in5[19]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[1]_i_1 
@@ -2411,8 +2428,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[20]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[20]),
-        .I3(in6[20]),
+        .I2(in4[20]),
+        .I3(in5[20]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[20]_i_1_n_0 ));
   LUT2 #(
@@ -2468,8 +2485,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[21]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[21]),
-        .I3(in6[21]),
+        .I2(in4[21]),
+        .I3(in5[21]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[21]_i_1_n_0 ));
   LUT5 #(
@@ -2477,8 +2494,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[22]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[22]),
-        .I3(in6[22]),
+        .I2(in4[22]),
+        .I3(in5[22]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[22]_i_1_n_0 ));
   LUT5 #(
@@ -2486,8 +2503,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[23]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[23]),
-        .I3(in6[23]),
+        .I2(in4[23]),
+        .I3(in5[23]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[23]_i_1_n_0 ));
   LUT5 #(
@@ -2495,8 +2512,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[24]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[24]),
-        .I3(in6[24]),
+        .I2(in4[24]),
+        .I3(in5[24]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[24]_i_1_n_0 ));
   LUT2 #(
@@ -2552,8 +2569,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[25]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[25]),
-        .I3(in6[25]),
+        .I2(in4[25]),
+        .I3(in5[25]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[25]_i_1_n_0 ));
   LUT5 #(
@@ -2561,8 +2578,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[26]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[26]),
-        .I3(in6[26]),
+        .I2(in4[26]),
+        .I3(in5[26]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[26]_i_1_n_0 ));
   LUT5 #(
@@ -2570,8 +2587,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[27]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[27]),
-        .I3(in6[27]),
+        .I2(in4[27]),
+        .I3(in5[27]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[27]_i_1_n_0 ));
   LUT5 #(
@@ -2579,8 +2596,8 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[28]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[28]),
-        .I3(in6[28]),
+        .I2(in4[28]),
+        .I3(in5[28]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[28]_i_1_n_0 ));
   LUT2 #(
@@ -2636,11 +2653,11 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[29]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[29]),
-        .I3(in6[29]),
+        .I2(in4[29]),
+        .I3(in5[29]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[29]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[2]_i_1 
@@ -2653,65 +2670,82 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
     \axi_araddr[30]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[30]),
-        .I3(in6[30]),
+        .I2(in4[30]),
+        .I3(in5[30]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[30]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hFF808080)) 
+  LUT6 #(
+    .INIT(64'hF888888888888888)) 
     \axi_araddr[31]_i_1 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I1(hdmi_hsync),
-        .I2(hdmi_inst_n_22),
-        .I3(txn_request_reg0),
-        .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
-        .O(\axi_araddr[31]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h9)) 
-    \axi_araddr[31]_i_10 
-       (.I0(locy[18]),
-        .I1(locy[21]),
-        .O(\axi_araddr[31]_i_10_n_0 ));
+        .I1(\axi_araddr[31]_i_3_n_0 ),
+        .I2(M_AXI_ARREADY),
+        .I3(M_AXI_ARVALID),
+        .I4(\axi_araddr[31]_i_4_n_0 ),
+        .I5(\FSM_onehot_txn_state_reg_n_0_[2] ),
+        .O(axi_araddr));
   LUT2 #(
     .INIT(4'h9)) 
     \axi_araddr[31]_i_11 
+       (.I0(locy[22]),
+        .I1(locy[19]),
+        .O(\axi_araddr[31]_i_11_n_0 ));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \axi_araddr[31]_i_12 
+       (.I0(locy[18]),
+        .I1(locy[21]),
+        .O(\axi_araddr[31]_i_12_n_0 ));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \axi_araddr[31]_i_13 
        (.I0(locy[17]),
         .I1(locy[20]),
-        .O(\axi_araddr[31]_i_11_n_0 ));
+        .O(\axi_araddr[31]_i_13_n_0 ));
   LUT5 #(
     .INIT(32'hFFEAEAEA)) 
     \axi_araddr[31]_i_2 
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
-        .I2(in5[31]),
-        .I3(in6[31]),
+        .I2(in4[31]),
+        .I3(in5[31]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[31]_i_2_n_0 ));
   LUT2 #(
-    .INIT(4'h6)) 
-    \axi_araddr[31]_i_5 
-       (.I0(locy[23]),
-        .I1(\axi_araddr_reg[31]_i_8_n_5 ),
-        .O(\axi_araddr[31]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \axi_araddr[31]_i_6 
-       (.I0(locy[22]),
-        .I1(\axi_araddr_reg[31]_i_8_n_6 ),
-        .O(\axi_araddr[31]_i_6_n_0 ));
+    .INIT(4'h8)) 
+    \axi_araddr[31]_i_3 
+       (.I0(hdmi_hsync),
+        .I1(hdmi_inst_n_22),
+        .O(\axi_araddr[31]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h15FFFFFFFFFFFFFF)) 
+    \axi_araddr[31]_i_4 
+       (.I0(txn_cnt[2]),
+        .I1(txn_cnt[1]),
+        .I2(txn_cnt[0]),
+        .I3(txn_cnt[3]),
+        .I4(txn_cnt[4]),
+        .I5(txn_cnt[5]),
+        .O(\axi_araddr[31]_i_4_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \axi_araddr[31]_i_7 
-       (.I0(locy[21]),
-        .I1(\axi_araddr_reg[31]_i_8_n_7 ),
+       (.I0(locy[23]),
+        .I1(\axi_araddr_reg[31]_i_10_n_5 ),
         .O(\axi_araddr[31]_i_7_n_0 ));
   LUT2 #(
-    .INIT(4'h9)) 
-    \axi_araddr[31]_i_9 
+    .INIT(4'h6)) 
+    \axi_araddr[31]_i_8 
        (.I0(locy[22]),
-        .I1(locy[19]),
+        .I1(\axi_araddr_reg[31]_i_10_n_6 ),
+        .O(\axi_araddr[31]_i_8_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \axi_araddr[31]_i_9 
+       (.I0(locy[21]),
+        .I1(\axi_araddr_reg[31]_i_10_n_7 ),
         .O(\axi_araddr[31]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[3]_i_1 
@@ -2719,7 +2753,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .O(\axi_araddr[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[4]_i_1 
@@ -2727,27 +2761,27 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .O(\axi_araddr[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[5]_i_1 
-       (.I0(in6[5]),
+       (.I0(in5[5]),
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .O(\axi_araddr[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[6]_i_1 
-       (.I0(in6[6]),
+       (.I0(in5[6]),
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .O(\axi_araddr[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \axi_araddr[7]_i_1 
-       (.I0(in6[7]),
+       (.I0(in5[7]),
         .I1(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .I2(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .O(\axi_araddr[7]_i_1_n_0 ));
@@ -2757,7 +2791,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.I0(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
         .I2(locy[0]),
-        .I3(in6[8]),
+        .I3(in5[8]),
         .I4(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[8]_i_1_n_0 ));
   LUT1 #(
@@ -2772,7 +2806,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .I1(\FSM_onehot_txn_state_reg_n_0_[0] ),
         .I2(\axi_araddr_reg[9]_i_2_n_7 ),
         .I3(locy[1]),
-        .I4(in6[9]),
+        .I4(in5[9]),
         .I5(\FSM_onehot_txn_state_reg_n_0_[2] ),
         .O(\axi_araddr[9]_i_1_n_0 ));
   LUT2 #(
@@ -2793,25 +2827,25 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .O(\axi_araddr[9]_i_5_n_0 ));
   FDCE \axi_araddr_reg[0] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[0]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[0]));
   FDCE \axi_araddr_reg[10] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[10]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[10]));
   FDCE \axi_araddr_reg[11] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[11]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[11]));
   FDCE \axi_araddr_reg[12] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[12]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[12]));
@@ -2820,36 +2854,36 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CO({\axi_araddr_reg[12]_i_2_n_0 ,\axi_araddr_reg[12]_i_2_n_1 ,\axi_araddr_reg[12]_i_2_n_2 ,\axi_araddr_reg[12]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI(locy[4:1]),
-        .O({in5[12:10],\NLW_axi_araddr_reg[12]_i_2_O_UNCONNECTED [0]}),
-        .S({\axi_araddr[12]_i_4_n_0 ,\axi_araddr[12]_i_5_n_0 ,\axi_araddr[12]_i_6_n_0 ,in5[9]}));
+        .O({in4[12:10],\NLW_axi_araddr_reg[12]_i_2_O_UNCONNECTED [0]}),
+        .S({\axi_araddr[12]_i_4_n_0 ,\axi_araddr[12]_i_5_n_0 ,\axi_araddr[12]_i_6_n_0 ,in4[9]}));
   CARRY4 \axi_araddr_reg[12]_i_3 
        (.CI(\axi_araddr_reg[8]_i_2_n_0 ),
         .CO({\axi_araddr_reg[12]_i_3_n_0 ,\axi_araddr_reg[12]_i_3_n_1 ,\axi_araddr_reg[12]_i_3_n_2 ,\axi_araddr_reg[12]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in6[12:9]),
+        .O(in5[12:9]),
         .S(M_AXI_ARADDR[12:9]));
   FDCE \axi_araddr_reg[13] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[13]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[13]));
   FDCE \axi_araddr_reg[14] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[14]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[14]));
   FDCE \axi_araddr_reg[15] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[15]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[15]));
   FDCE \axi_araddr_reg[16] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[16]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[16]));
@@ -2858,14 +2892,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CO({\axi_araddr_reg[16]_i_2_n_0 ,\axi_araddr_reg[16]_i_2_n_1 ,\axi_araddr_reg[16]_i_2_n_2 ,\axi_araddr_reg[16]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI(locy[8:5]),
-        .O(in5[16:13]),
+        .O(in4[16:13]),
         .S({\axi_araddr[16]_i_4_n_0 ,\axi_araddr[16]_i_5_n_0 ,\axi_araddr[16]_i_6_n_0 ,\axi_araddr[16]_i_7_n_0 }));
   CARRY4 \axi_araddr_reg[16]_i_3 
        (.CI(\axi_araddr_reg[12]_i_3_n_0 ),
         .CO({\axi_araddr_reg[16]_i_3_n_0 ,\axi_araddr_reg[16]_i_3_n_1 ,\axi_araddr_reg[16]_i_3_n_2 ,\axi_araddr_reg[16]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in6[16:13]),
+        .O(in5[16:13]),
         .S(M_AXI_ARADDR[16:13]));
   CARRY4 \axi_araddr_reg[16]_i_8 
        (.CI(\axi_araddr_reg[9]_i_2_n_0 ),
@@ -2876,31 +2910,31 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .S({\axi_araddr[16]_i_9_n_0 ,\axi_araddr[16]_i_10_n_0 ,\axi_araddr[16]_i_11_n_0 ,\axi_araddr[16]_i_12_n_0 }));
   FDCE \axi_araddr_reg[17] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[17]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[17]));
   FDCE \axi_araddr_reg[18] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[18]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[18]));
   FDCE \axi_araddr_reg[19] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[19]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[19]));
   FDCE \axi_araddr_reg[1] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[1]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[1]));
   FDCE \axi_araddr_reg[20] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[20]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[20]));
@@ -2909,14 +2943,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CO({\axi_araddr_reg[20]_i_2_n_0 ,\axi_araddr_reg[20]_i_2_n_1 ,\axi_araddr_reg[20]_i_2_n_2 ,\axi_araddr_reg[20]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI(locy[12:9]),
-        .O(in5[20:17]),
+        .O(in4[20:17]),
         .S({\axi_araddr[20]_i_4_n_0 ,\axi_araddr[20]_i_5_n_0 ,\axi_araddr[20]_i_6_n_0 ,\axi_araddr[20]_i_7_n_0 }));
   CARRY4 \axi_araddr_reg[20]_i_3 
        (.CI(\axi_araddr_reg[16]_i_3_n_0 ),
         .CO({\axi_araddr_reg[20]_i_3_n_0 ,\axi_araddr_reg[20]_i_3_n_1 ,\axi_araddr_reg[20]_i_3_n_2 ,\axi_araddr_reg[20]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in6[20:17]),
+        .O(in5[20:17]),
         .S(M_AXI_ARADDR[20:17]));
   CARRY4 \axi_araddr_reg[20]_i_8 
        (.CI(\axi_araddr_reg[16]_i_8_n_0 ),
@@ -2927,25 +2961,25 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .S({\axi_araddr[20]_i_9_n_0 ,\axi_araddr[20]_i_10_n_0 ,\axi_araddr[20]_i_11_n_0 ,\axi_araddr[20]_i_12_n_0 }));
   FDCE \axi_araddr_reg[21] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[21]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[21]));
   FDCE \axi_araddr_reg[22] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[22]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[22]));
   FDCE \axi_araddr_reg[23] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[23]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[23]));
   FDCE \axi_araddr_reg[24] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[24]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[24]));
@@ -2954,14 +2988,14 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CO({\axi_araddr_reg[24]_i_2_n_0 ,\axi_araddr_reg[24]_i_2_n_1 ,\axi_araddr_reg[24]_i_2_n_2 ,\axi_araddr_reg[24]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI(locy[16:13]),
-        .O(in5[24:21]),
+        .O(in4[24:21]),
         .S({\axi_araddr[24]_i_4_n_0 ,\axi_araddr[24]_i_5_n_0 ,\axi_araddr[24]_i_6_n_0 ,\axi_araddr[24]_i_7_n_0 }));
   CARRY4 \axi_araddr_reg[24]_i_3 
        (.CI(\axi_araddr_reg[20]_i_3_n_0 ),
         .CO({\axi_araddr_reg[24]_i_3_n_0 ,\axi_araddr_reg[24]_i_3_n_1 ,\axi_araddr_reg[24]_i_3_n_2 ,\axi_araddr_reg[24]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in6[24:21]),
+        .O(in5[24:21]),
         .S(M_AXI_ARADDR[24:21]));
   CARRY4 \axi_araddr_reg[24]_i_8 
        (.CI(\axi_araddr_reg[20]_i_8_n_0 ),
@@ -2972,42 +3006,42 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .S({\axi_araddr[24]_i_9_n_0 ,\axi_araddr[24]_i_10_n_0 ,\axi_araddr[24]_i_11_n_0 ,\axi_araddr[24]_i_12_n_0 }));
   FDCE \axi_araddr_reg[25] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[25]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[25]));
   FDCE \axi_araddr_reg[26] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[26]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[26]));
   FDCE \axi_araddr_reg[27] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[27]_i_1_n_0 ),
-        .Q(axi_araddr[27]));
+        .Q(\axi_araddr_reg_n_0_[27] ));
   FDCE \axi_araddr_reg[28] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[28]_i_1_n_0 ),
-        .Q(axi_araddr[28]));
+        .Q(\axi_araddr_reg_n_0_[28] ));
   CARRY4 \axi_araddr_reg[28]_i_2 
        (.CI(\axi_araddr_reg[24]_i_2_n_0 ),
         .CO({\axi_araddr_reg[28]_i_2_n_0 ,\axi_araddr_reg[28]_i_2_n_1 ,\axi_araddr_reg[28]_i_2_n_2 ,\axi_araddr_reg[28]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI(locy[20:17]),
-        .O(in5[28:25]),
+        .O(in4[28:25]),
         .S({\axi_araddr[28]_i_4_n_0 ,\axi_araddr[28]_i_5_n_0 ,\axi_araddr[28]_i_6_n_0 ,\axi_araddr[28]_i_7_n_0 }));
   CARRY4 \axi_araddr_reg[28]_i_3 
        (.CI(\axi_araddr_reg[24]_i_3_n_0 ),
         .CO({\axi_araddr_reg[28]_i_3_n_0 ,\axi_araddr_reg[28]_i_3_n_1 ,\axi_araddr_reg[28]_i_3_n_2 ,\axi_araddr_reg[28]_i_3_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(in6[28:25]),
-        .S({axi_araddr[28:27],M_AXI_ARADDR[26:25]}));
+        .O(in5[28:25]),
+        .S({\axi_araddr_reg_n_0_[28] ,\axi_araddr_reg_n_0_[27] ,M_AXI_ARADDR[26:25]}));
   CARRY4 \axi_araddr_reg[28]_i_8 
        (.CI(\axi_araddr_reg[24]_i_8_n_0 ),
         .CO({\axi_araddr_reg[28]_i_8_n_0 ,\axi_araddr_reg[28]_i_8_n_1 ,\axi_araddr_reg[28]_i_8_n_2 ,\axi_araddr_reg[28]_i_8_n_3 }),
@@ -3017,82 +3051,82 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .S({\axi_araddr[28]_i_9_n_0 ,\axi_araddr[28]_i_10_n_0 ,\axi_araddr[28]_i_11_n_0 ,\axi_araddr[28]_i_12_n_0 }));
   FDCE \axi_araddr_reg[29] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[29]_i_1_n_0 ),
-        .Q(axi_araddr[29]));
+        .Q(\axi_araddr_reg_n_0_[29] ));
   FDCE \axi_araddr_reg[2] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[2]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[2]));
   FDCE \axi_araddr_reg[30] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[30]_i_1_n_0 ),
-        .Q(axi_araddr[30]));
+        .Q(\axi_araddr_reg_n_0_[30] ));
   FDCE \axi_araddr_reg[31] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[31]_i_2_n_0 ),
-        .Q(axi_araddr[31]));
-  CARRY4 \axi_araddr_reg[31]_i_3 
-       (.CI(\axi_araddr_reg[28]_i_2_n_0 ),
-        .CO({\NLW_axi_araddr_reg[31]_i_3_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_3_n_2 ,\axi_araddr_reg[31]_i_3_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,locy[22:21]}),
-        .O({\NLW_axi_araddr_reg[31]_i_3_O_UNCONNECTED [3],in5[31:29]}),
-        .S({1'b0,\axi_araddr[31]_i_5_n_0 ,\axi_araddr[31]_i_6_n_0 ,\axi_araddr[31]_i_7_n_0 }));
-  CARRY4 \axi_araddr_reg[31]_i_4 
-       (.CI(\axi_araddr_reg[28]_i_3_n_0 ),
-        .CO({\NLW_axi_araddr_reg[31]_i_4_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_4_n_2 ,\axi_araddr_reg[31]_i_4_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_axi_araddr_reg[31]_i_4_O_UNCONNECTED [3],in6[31:29]}),
-        .S({1'b0,axi_araddr[31:29]}));
-  CARRY4 \axi_araddr_reg[31]_i_8 
+        .Q(\axi_araddr_reg_n_0_[31] ));
+  CARRY4 \axi_araddr_reg[31]_i_10 
        (.CI(\axi_araddr_reg[28]_i_8_n_0 ),
-        .CO({\NLW_axi_araddr_reg[31]_i_8_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_8_n_2 ,\axi_araddr_reg[31]_i_8_n_3 }),
+        .CO({\NLW_axi_araddr_reg[31]_i_10_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_10_n_2 ,\axi_araddr_reg[31]_i_10_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,locy[18:17]}),
-        .O({\NLW_axi_araddr_reg[31]_i_8_O_UNCONNECTED [3],\axi_araddr_reg[31]_i_8_n_5 ,\axi_araddr_reg[31]_i_8_n_6 ,\axi_araddr_reg[31]_i_8_n_7 }),
-        .S({1'b0,\axi_araddr[31]_i_9_n_0 ,\axi_araddr[31]_i_10_n_0 ,\axi_araddr[31]_i_11_n_0 }));
+        .O({\NLW_axi_araddr_reg[31]_i_10_O_UNCONNECTED [3],\axi_araddr_reg[31]_i_10_n_5 ,\axi_araddr_reg[31]_i_10_n_6 ,\axi_araddr_reg[31]_i_10_n_7 }),
+        .S({1'b0,\axi_araddr[31]_i_11_n_0 ,\axi_araddr[31]_i_12_n_0 ,\axi_araddr[31]_i_13_n_0 }));
+  CARRY4 \axi_araddr_reg[31]_i_5 
+       (.CI(\axi_araddr_reg[28]_i_2_n_0 ),
+        .CO({\NLW_axi_araddr_reg[31]_i_5_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_5_n_2 ,\axi_araddr_reg[31]_i_5_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,locy[22:21]}),
+        .O({\NLW_axi_araddr_reg[31]_i_5_O_UNCONNECTED [3],in4[31:29]}),
+        .S({1'b0,\axi_araddr[31]_i_7_n_0 ,\axi_araddr[31]_i_8_n_0 ,\axi_araddr[31]_i_9_n_0 }));
+  CARRY4 \axi_araddr_reg[31]_i_6 
+       (.CI(\axi_araddr_reg[28]_i_3_n_0 ),
+        .CO({\NLW_axi_araddr_reg[31]_i_6_CO_UNCONNECTED [3:2],\axi_araddr_reg[31]_i_6_n_2 ,\axi_araddr_reg[31]_i_6_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({\NLW_axi_araddr_reg[31]_i_6_O_UNCONNECTED [3],in5[31:29]}),
+        .S({1'b0,\axi_araddr_reg_n_0_[31] ,\axi_araddr_reg_n_0_[30] ,\axi_araddr_reg_n_0_[29] }));
   FDCE \axi_araddr_reg[3] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[3]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[3]));
   FDCE \axi_araddr_reg[4] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[4]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[4]));
   FDCE \axi_araddr_reg[5] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[5]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[5]));
   FDCE \axi_araddr_reg[6] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[6]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[6]));
   FDCE \axi_araddr_reg[7] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[7]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[7]));
   FDCE \axi_araddr_reg[8] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[8]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[8]));
@@ -3101,11 +3135,11 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CO({\axi_araddr_reg[8]_i_2_n_0 ,\axi_araddr_reg[8]_i_2_n_1 ,\axi_araddr_reg[8]_i_2_n_2 ,\axi_araddr_reg[8]_i_2_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,M_AXI_ARADDR[6],1'b0}),
-        .O(in6[8:5]),
+        .O(in5[8:5]),
         .S({M_AXI_ARADDR[8:7],\axi_araddr[8]_i_3_n_0 ,M_AXI_ARADDR[5]}));
   FDCE \axi_araddr_reg[9] 
        (.C(M_AXI_ACLK),
-        .CE(\axi_araddr[31]_i_1_n_0 ),
+        .CE(axi_araddr),
         .CLR(hdmi_inst_i_1_n_0),
         .D(\axi_araddr[9]_i_1_n_0 ),
         .Q(M_AXI_ARADDR[9]));
@@ -3129,36 +3163,6 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .CLR(hdmi_inst_i_1_n_0),
         .D(axi_arvalid_i_1_n_0),
         .Q(M_AXI_ARVALID));
-  LUT5 #(
-    .INIT(32'h40400040)) 
-    axi_bready_i_1
-       (.I0(M_AXI_BREADY),
-        .I1(M_AXI_BVALID),
-        .I2(M_AXI_ARESETN),
-        .I3(init_txn_ff),
-        .I4(init_txn_ff2),
-        .O(axi_bready_i_1_n_0));
-  FDRE axi_bready_reg
-       (.C(M_AXI_ACLK),
-        .CE(1'b1),
-        .D(axi_bready_i_1_n_0),
-        .Q(M_AXI_BREADY),
-        .R(1'b0));
-  LUT5 #(
-    .INIT(32'h0000EA00)) 
-    axi_rready_i_1
-       (.I0(M_AXI_RREADY),
-        .I1(M_AXI_ARVALID),
-        .I2(M_AXI_ARREADY),
-        .I3(M_AXI_ARESETN),
-        .I4(M_AXI_RLAST),
-        .O(axi_rready_i_1_n_0));
-  FDRE axi_rready_reg
-       (.C(M_AXI_ACLK),
-        .CE(1'b1),
-        .D(axi_rready_i_1_n_0),
-        .Q(M_AXI_RREADY),
-        .R(1'b0));
   (* h_bp = "12'b000010010100" *) 
   (* h_fp = "12'b000001011000" *) 
   (* h_sync = "12'b000000101100" *) 
@@ -3195,103 +3199,98 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
        (.I0(M_AXI_RREADY),
         .I1(M_AXI_RVALID),
         .O(wea));
-  FDRE init_txn_ff2_reg
-       (.C(M_AXI_ACLK),
-        .CE(1'b1),
-        .D(init_txn_ff),
-        .Q(init_txn_ff2),
-        .R(hdmi_inst_i_1_n_0));
-  FDRE init_txn_ff_reg
-       (.C(M_AXI_ACLK),
-        .CE(1'b1),
-        .D(INIT_AXI_TXN),
-        .Q(init_txn_ff),
-        .R(hdmi_inst_i_1_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \txn_cnt[0]_i_1 
-       (.I0(txn_request_reg0),
-        .I1(txn_cnt[0]),
-        .O(\txn_cnt[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h7FFF8000)) 
-    \txn_cnt[1]_i_1 
-       (.I0(M_AXI_ARREADY),
-        .I1(M_AXI_ARVALID),
-        .I2(\txn_cnt[3]_i_2_n_0 ),
-        .I3(txn_cnt[0]),
-        .I4(txn_cnt[1]),
-        .O(\txn_cnt[1]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h2)) 
+    i_0
+       (.I0(1'b1),
+        .O(M_AXI_RREADY));
   LUT6 #(
-    .INIT(64'h6AAAAAAAAAAAAA00)) 
-    \txn_cnt[2]_i_1 
-       (.I0(txn_cnt[2]),
+    .INIT(64'h6AAA6AAA6A406A6A)) 
+    \txn_cnt[0]_i_1 
+       (.I0(txn_cnt[0]),
         .I1(M_AXI_ARREADY),
         .I2(M_AXI_ARVALID),
-        .I3(\txn_cnt[3]_i_2_n_0 ),
+        .I3(\txn_cnt[0]_i_2_n_0 ),
         .I4(txn_cnt[1]),
-        .I5(txn_cnt[0]),
-        .O(\txn_cnt[2]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h3FFEFFFEC0000000)) 
-    \txn_cnt[3]_i_1 
-       (.I0(\txn_cnt[3]_i_2_n_0 ),
+        .I5(txn_cnt[2]),
+        .O(\txn_cnt[0]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h7F)) 
+    \txn_cnt[0]_i_2 
+       (.I0(txn_cnt[5]),
+        .I1(txn_cnt[4]),
+        .I2(txn_cnt[3]),
+        .O(\txn_cnt[0]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'h5AC0)) 
+    \txn_cnt[1]_i_1 
+       (.I0(txn_cnt[0]),
+        .I1(\txn_cnt[5]_i_3_n_0 ),
+        .I2(txn_cnt[1]),
+        .I3(txn_request_reg0),
+        .O(\txn_cnt[1]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h2EEEC000)) 
+    \txn_cnt[2]_i_1 
+       (.I0(\txn_cnt[5]_i_3_n_0 ),
         .I1(txn_request_reg0),
         .I2(txn_cnt[0]),
         .I3(txn_cnt[1]),
         .I4(txn_cnt[2]),
-        .I5(txn_cnt[3]),
-        .O(\txn_cnt[3]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \txn_cnt[3]_i_2 
+        .O(\txn_cnt[2]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h6CCCCCCC6CCC0000)) 
+    \txn_cnt[3]_i_1 
        (.I0(txn_cnt[2]),
-        .I1(txn_cnt[5]),
-        .I2(txn_cnt[3]),
-        .I3(txn_cnt[4]),
-        .O(\txn_cnt[3]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFF803080)) 
-    \txn_cnt[4]_i_1 
-       (.I0(\txn_cnt[4]_i_2_n_0 ),
         .I1(txn_cnt[3]),
-        .I2(txn_request_reg0),
-        .I3(txn_cnt[4]),
-        .I4(\txn_cnt[4]_i_3_n_0 ),
-        .O(\txn_cnt[4]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'h80)) 
-    \txn_cnt[4]_i_2 
-       (.I0(txn_cnt[2]),
-        .I1(txn_cnt[1]),
-        .I2(txn_cnt[0]),
-        .O(\txn_cnt[4]_i_2_n_0 ));
+        .I2(txn_cnt[1]),
+        .I3(txn_cnt[0]),
+        .I4(txn_request_reg0),
+        .I5(\txn_cnt[5]_i_3_n_0 ),
+        .O(\txn_cnt[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFF00)) 
-    \txn_cnt[4]_i_3 
-       (.I0(txn_cnt[2]),
-        .I1(M_AXI_ARREADY),
-        .I2(M_AXI_ARVALID),
-        .I3(\txn_cnt[3]_i_2_n_0 ),
-        .I4(txn_cnt[1]),
-        .I5(txn_cnt[0]),
-        .O(\txn_cnt[4]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hAA6AAAAAAAAAAA8A)) 
-    \txn_cnt[5]_i_1 
-       (.I0(txn_cnt[5]),
+    .INIT(64'hE2EEEEEE0C000000)) 
+    \txn_cnt[4]_i_1 
+       (.I0(\txn_cnt[5]_i_3_n_0 ),
         .I1(txn_request_reg0),
-        .I2(txn_cnt[2]),
-        .I3(\txn_cnt[5]_i_2_n_0 ),
-        .I4(txn_cnt[1]),
-        .I5(txn_cnt[0]),
-        .O(\txn_cnt[5]_i_1_n_0 ));
+        .I2(\txn_cnt[4]_i_2_n_0 ),
+        .I3(txn_cnt[2]),
+        .I4(txn_cnt[3]),
+        .I5(txn_cnt[4]),
+        .O(\txn_cnt[4]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h7)) 
-    \txn_cnt[5]_i_2 
+    \txn_cnt[4]_i_2 
+       (.I0(txn_cnt[1]),
+        .I1(txn_cnt[0]),
+        .O(\txn_cnt[4]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'h6CCC6C00)) 
+    \txn_cnt[5]_i_1 
        (.I0(txn_cnt[4]),
-        .I1(txn_cnt[3]),
+        .I1(txn_cnt[5]),
+        .I2(\txn_cnt[5]_i_2_n_0 ),
+        .I3(txn_request_reg0),
+        .I4(\txn_cnt[5]_i_3_n_0 ),
+        .O(\txn_cnt[5]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \txn_cnt[5]_i_2 
+       (.I0(txn_cnt[3]),
+        .I1(txn_cnt[2]),
+        .I2(txn_cnt[0]),
+        .I3(txn_cnt[1]),
         .O(\txn_cnt[5]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFF7FFFFFFFFFFF)) 
+    \txn_cnt[5]_i_3 
+       (.I0(txn_cnt[1]),
+        .I1(txn_cnt[3]),
+        .I2(txn_cnt[4]),
+        .I3(txn_cnt[5]),
+        .I4(txn_cnt[2]),
+        .I5(txn_cnt[0]),
+        .O(\txn_cnt[5]_i_3_n_0 ));
   (* KEEP = "yes" *) 
   (* mark_debug = "true" *) 
   FDCE \txn_cnt_reg[0] 
@@ -3343,7 +3342,7 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
   LUT3 #(
     .INIT(8'hDC)) 
     txn_request_reg_i_1
-       (.I0(\axi_araddr[31]_i_1_n_0 ),
+       (.I0(axi_araddr),
         .I1(\FSM_onehot_txn_state_reg_n_0_[1] ),
         .I2(txn_request),
         .O(txn_request_reg_i_1_n_0));
@@ -3353,38 +3352,18 @@ module sys_hdmi_axi_full_0_0_hdmi_axi_full_v1_0_M00_AXI
         .D(txn_request_reg_i_1_n_0),
         .PRE(hdmi_inst_i_1_n_0),
         .Q(txn_request));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
-  LUT3 #(
-    .INIT(8'h31)) 
-    \txn_state[0]_i_1 
-       (.I0(txn_state[1]),
-        .I1(txn_state[0]),
-        .I2(txn_request_reg0),
-        .O(\txn_state[0]_i_1_n_0 ));
-  FDCE \txn_state_reg[0] 
-       (.C(M_AXI_ACLK),
-        .CE(\FSM_onehot_txn_state[2]_i_1_n_0 ),
-        .CLR(hdmi_inst_i_1_n_0),
-        .D(\txn_state[0]_i_1_n_0 ),
-        .Q(txn_state[0]));
-  FDCE \txn_state_reg[1] 
-       (.C(M_AXI_ACLK),
-        .CE(\FSM_onehot_txn_state[2]_i_1_n_0 ),
-        .CLR(hdmi_inst_i_1_n_0),
-        .D(txn_state[0]),
-        .Q(txn_state[1]));
 endmodule
 
 (* ORIG_REF_NAME = "i2c_sender" *) 
 module sys_hdmi_axi_full_0_0_i2c_sender
    (hdmi_sda,
     hdmi_scl,
-    ext_reset,
-    clk_100);
+    clk_100,
+    ext_reset);
   output hdmi_sda;
   output hdmi_scl;
-  input ext_reset;
   input clk_100;
+  input ext_reset;
 
   wire [7:0]bit_counter;
   wire \bit_counter[2]_i_1_n_0 ;
@@ -3476,20 +3455,22 @@ module sys_hdmi_axi_full_0_0_i2c_sender
   wire i2c_init_finish_i_2_n_0;
   wire i2c_init_finish_i_3_n_0;
   wire i2c_init_finish_i_4_n_0;
+  wire i2c_init_finish_i_5_n_0;
   wire i2c_init_finish_reg_n_0;
-  wire i2c_sda_i_10_n_0;
+  wire i2c_sda1_out;
   wire i2c_sda_i_11_n_0;
   wire i2c_sda_i_12_n_0;
   wire i2c_sda_i_13_n_0;
+  wire i2c_sda_i_14_n_0;
   wire i2c_sda_i_1_n_0;
   wire i2c_sda_i_3_n_0;
-  wire i2c_sda_i_4_n_0;
+  wire i2c_sda_i_5_n_0;
+  wire i2c_sda_i_6_n_0;
   wire i2c_sda_i_7_n_0;
   wire i2c_sda_i_8_n_0;
-  wire i2c_sda_i_9_n_0;
-  wire i2c_sda_reg_i_2_n_0;
-  wire i2c_sda_reg_i_5_n_0;
-  wire i2c_sda_reg_i_6_n_0;
+  wire i2c_sda_reg_i_10_n_0;
+  wire i2c_sda_reg_i_4_n_0;
+  wire i2c_sda_reg_i_9_n_0;
   wire [7:0]p_0_in;
   wire p_0_in_0;
   wire [7:0]p_0_in__0;
@@ -3516,7 +3497,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
        (.I0(\bit_counter_reg_n_0_[0] ),
         .I1(\bit_counter_reg_n_0_[1] ),
         .O(bit_counter[1]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \bit_counter[2]_i_1 
@@ -3524,7 +3505,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(\bit_counter_reg_n_0_[1] ),
         .I2(\bit_counter_reg_n_0_[0] ),
         .O(\bit_counter[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \bit_counter[3]_i_1 
@@ -3533,7 +3514,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I2(\bit_counter_reg_n_0_[0] ),
         .I3(\bit_counter_reg_n_0_[1] ),
         .O(\bit_counter[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \bit_counter[4]_i_1 
@@ -3553,7 +3534,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(\bit_counter_reg_n_0_[1] ),
         .I5(\bit_counter_reg_n_0_[4] ),
         .O(bit_counter[5]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \bit_counter[6]_i_1 
@@ -3631,14 +3612,14 @@ module sys_hdmi_axi_full_0_0_i2c_sender
     \cmd_counter[0]_i_1 
        (.I0(cmd_counter_reg[0]),
         .O(p_0_in__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \cmd_counter[1]_i_1 
        (.I0(cmd_counter_reg[1]),
         .I1(cmd_counter_reg[0]),
         .O(p_0_in__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \cmd_counter[2]_i_1 
@@ -3646,7 +3627,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(cmd_counter_reg[0]),
         .I2(cmd_counter_reg[1]),
         .O(p_0_in__0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \cmd_counter[3]_i_1 
@@ -3655,7 +3636,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I2(cmd_counter_reg[1]),
         .I3(cmd_counter_reg[0]),
         .O(\cmd_counter[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \cmd_counter[4]_i_1 
@@ -3685,7 +3666,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(cmd_counter_reg[4]),
         .I5(cmd_counter_reg[5]),
         .O(p_0_in__0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \cmd_counter[6]_i_2 
@@ -3712,7 +3693,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(cmd_counter_reg[3]),
         .I5(cmd_counter_reg[6]),
         .O(p_0_in__0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h01)) 
     \cmd_counter[7]_i_3 
@@ -3720,7 +3701,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(word_counter_reg[7]),
         .I2(word_counter_reg[6]),
         .O(\cmd_counter[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \cmd_counter[7]_i_4 
@@ -3815,7 +3796,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(hdmi_scl_INST_0_i_8_n_0),
         .I5(i2c_init_finish_reg_n_0),
         .O(hdmi_scl_INST_0_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     hdmi_scl_INST_0_i_4
@@ -3825,6 +3806,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I3(word_counter_reg[0]),
         .I4(word_counter_reg[1]),
         .O(hdmi_scl_INST_0_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'h1F)) 
     hdmi_scl_INST_0_i_5
@@ -3839,6 +3821,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(\bit_counter_reg_n_0_[5] ),
         .I2(\bit_counter_reg_n_0_[4] ),
         .O(hdmi_scl_INST_0_i_6_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h01)) 
     hdmi_scl_INST_0_i_7
@@ -3846,7 +3829,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(word_counter_reg[4]),
         .I2(word_counter_reg[3]),
         .O(hdmi_scl_INST_0_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'hE)) 
     hdmi_scl_INST_0_i_8
@@ -4004,14 +3987,14 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(\i2c_cmd[18]_i_3_n_0 ),
         .I5(\i2c_cmd[18]_i_4_n_0 ),
         .O(\i2c_cmd[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \i2c_cmd[18]_i_2 
        (.I0(cmd_counter_reg[3]),
         .I1(cmd_counter_reg[4]),
         .O(\i2c_cmd[18]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h13)) 
     \i2c_cmd[18]_i_3 
@@ -4029,7 +4012,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(cmd_counter_reg[4]),
         .I5(cmd_counter_reg[3]),
         .O(\i2c_cmd[18]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \i2c_cmd[18]_i_5 
@@ -4085,7 +4068,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(word_counter_reg[7]),
         .I5(word_counter_reg[6]),
         .O(\i2c_cmd[22]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h01)) 
     \i2c_cmd[22]_i_5 
@@ -4112,7 +4095,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(cmd_counter_reg[1]),
         .I5(cmd_counter_reg[2]),
         .O(\i2c_cmd[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \i2c_cmd[24]_i_2 
@@ -4303,164 +4286,179 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .D(\i2c_cmd[9]_i_1_n_0 ),
         .Q(\i2c_cmd_reg_n_0_[9] ),
         .S(ext_reset));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF00000010)) 
+  LUT5 #(
+    .INIT(32'h0000AAAB)) 
     i2c_init_finish_i_1
-       (.I0(word_counter_reg[5]),
-        .I1(hdmi_scl_INST_0_i_8_n_0),
-        .I2(hdmi_scl_INST_0_i_4_n_0),
-        .I3(i2c_init_finish_i_2_n_0),
-        .I4(i2c_init_finish_i_3_n_0),
-        .I5(i2c_init_finish_reg_n_0),
+       (.I0(i2c_init_finish_reg_n_0),
+        .I1(i2c_init_finish_i_2_n_0),
+        .I2(i2c_init_finish_i_3_n_0),
+        .I3(i2c_init_finish_i_4_n_0),
+        .I4(ext_reset),
         .O(i2c_init_finish_i_1_n_0));
   LUT6 #(
-    .INIT(64'hFFFEFFFFFFFFFFFF)) 
-    i2c_init_finish_i_2
-       (.I0(i2c_init_finish_i_4_n_0),
-        .I1(cmd_counter_reg[2]),
-        .I2(cmd_counter_reg[7]),
-        .I3(cmd_counter_reg[6]),
-        .I4(cmd_counter_reg[5]),
-        .I5(\i2c_cmd[18]_i_2_n_0 ),
-        .O(i2c_init_finish_i_2_n_0));
-  LUT6 #(
     .INIT(64'h7FFFFFFFFFFFFFFF)) 
-    i2c_init_finish_i_3
+    i2c_init_finish_i_2
        (.I0(\bit_counter_reg_n_0_[6] ),
         .I1(\bit_counter_reg_n_0_[2] ),
         .I2(\bit_counter_reg_n_0_[0] ),
         .I3(\bit_counter_reg_n_0_[1] ),
         .I4(hdmi_scl_INST_0_i_6_n_0),
         .I5(\bit_counter_reg_n_0_[7] ),
+        .O(i2c_init_finish_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFEFFFFFFFFFFFF)) 
+    i2c_init_finish_i_3
+       (.I0(i2c_init_finish_i_5_n_0),
+        .I1(cmd_counter_reg[2]),
+        .I2(cmd_counter_reg[7]),
+        .I3(cmd_counter_reg[6]),
+        .I4(cmd_counter_reg[5]),
+        .I5(\i2c_cmd[18]_i_2_n_0 ),
         .O(i2c_init_finish_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'hFFFD)) 
+    i2c_init_finish_i_4
+       (.I0(hdmi_scl_INST_0_i_4_n_0),
+        .I1(word_counter_reg[6]),
+        .I2(word_counter_reg[7]),
+        .I3(word_counter_reg[5]),
+        .O(i2c_init_finish_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'hE)) 
-    i2c_init_finish_i_4
+    i2c_init_finish_i_5
        (.I0(cmd_counter_reg[1]),
         .I1(cmd_counter_reg[0]),
-        .O(i2c_init_finish_i_4_n_0));
+        .O(i2c_init_finish_i_5_n_0));
   FDRE i2c_init_finish_reg
        (.C(clk_100),
         .CE(1'b1),
         .D(i2c_init_finish_i_1_n_0),
         .Q(i2c_init_finish_reg_n_0),
-        .R(ext_reset));
+        .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFB8FF0000B800)) 
+    .INIT(64'hFFFFFFFFEEE222E2)) 
     i2c_sda_i_1
-       (.I0(i2c_sda_reg_i_2_n_0),
-        .I1(word_counter_reg[4]),
+       (.I0(hdmi_sda),
+        .I1(i2c_sda1_out),
         .I2(i2c_sda_i_3_n_0),
-        .I3(hdmi_scl_INST_0_i_6_n_0),
-        .I4(i2c_sda_i_4_n_0),
-        .I5(hdmi_sda),
+        .I3(word_counter_reg[4]),
+        .I4(i2c_sda_reg_i_4_n_0),
+        .I5(ext_reset),
         .O(i2c_sda_i_1_n_0));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    i2c_sda_i_10
+    i2c_sda_i_11
        (.I0(\i2c_cmd_reg_n_0_[12] ),
         .I1(\i2c_cmd_reg_n_0_[13] ),
         .I2(word_counter_reg[1]),
         .I3(\i2c_cmd_reg_n_0_[14] ),
         .I4(word_counter_reg[0]),
         .I5(\i2c_cmd_reg_n_0_[15] ),
-        .O(i2c_sda_i_10_n_0));
+        .O(i2c_sda_i_11_n_0));
   LUT5 #(
     .INIT(32'hAFA0CFCF)) 
-    i2c_sda_i_11
+    i2c_sda_i_12
        (.I0(\i2c_cmd_reg_n_0_[8] ),
         .I1(\i2c_cmd_reg_n_0_[9] ),
         .I2(word_counter_reg[1]),
         .I3(\i2c_cmd_reg_n_0_[10] ),
         .I4(word_counter_reg[0]),
-        .O(i2c_sda_i_11_n_0));
+        .O(i2c_sda_i_12_n_0));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    i2c_sda_i_12
+    i2c_sda_i_13
        (.I0(\i2c_cmd_reg_n_0_[4] ),
         .I1(\i2c_cmd_reg_n_0_[5] ),
         .I2(word_counter_reg[1]),
         .I3(\i2c_cmd_reg_n_0_[6] ),
         .I4(word_counter_reg[0]),
         .I5(\i2c_cmd_reg_n_0_[7] ),
-        .O(i2c_sda_i_12_n_0));
+        .O(i2c_sda_i_13_n_0));
   LUT4 #(
     .INIT(16'hFBF8)) 
-    i2c_sda_i_13
+    i2c_sda_i_14
        (.I0(\i2c_cmd_reg_n_0_[1] ),
         .I1(word_counter_reg[1]),
         .I2(word_counter_reg[0]),
         .I3(\i2c_cmd_reg_n_0_[3] ),
-        .O(i2c_sda_i_13_n_0));
+        .O(i2c_sda_i_14_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000000020)) 
+    i2c_sda_i_2
+       (.I0(hdmi_scl_INST_0_i_6_n_0),
+        .I1(i2c_sda_i_5_n_0),
+        .I2(\bit_counter_reg_n_0_[6] ),
+        .I3(\bit_counter_reg_n_0_[7] ),
+        .I4(\bit_counter_reg_n_0_[0] ),
+        .I5(\bit_counter_reg_n_0_[1] ),
+        .O(i2c_sda1_out));
   LUT5 #(
     .INIT(32'hB8FFB800)) 
     i2c_sda_i_3
-       (.I0(i2c_sda_i_7_n_0),
+       (.I0(i2c_sda_i_6_n_0),
         .I1(word_counter_reg[2]),
-        .I2(i2c_sda_i_8_n_0),
+        .I2(i2c_sda_i_7_n_0),
         .I3(word_counter_reg[3]),
-        .I4(i2c_sda_i_9_n_0),
+        .I4(i2c_sda_i_8_n_0),
         .O(i2c_sda_i_3_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFEFF)) 
-    i2c_sda_i_4
-       (.I0(\bit_counter_reg_n_0_[1] ),
-        .I1(\bit_counter_reg_n_0_[0] ),
-        .I2(\bit_counter_reg_n_0_[7] ),
-        .I3(\bit_counter_reg_n_0_[6] ),
-        .I4(i2c_init_finish_reg_n_0),
-        .I5(\bit_counter_reg_n_0_[2] ),
-        .O(i2c_sda_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    i2c_sda_i_5
+       (.I0(i2c_init_finish_reg_n_0),
+        .I1(\bit_counter_reg_n_0_[2] ),
+        .O(i2c_sda_i_5_n_0));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    i2c_sda_i_7
+    i2c_sda_i_6
        (.I0(\i2c_cmd_reg_n_0_[16] ),
         .I1(\i2c_cmd_reg_n_0_[17] ),
         .I2(word_counter_reg[1]),
         .I3(\i2c_cmd_reg_n_0_[18] ),
         .I4(word_counter_reg[0]),
         .I5(\i2c_cmd_reg_n_0_[19] ),
-        .O(i2c_sda_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+        .O(i2c_sda_i_6_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'hFACA)) 
-    i2c_sda_i_8
+    i2c_sda_i_7
        (.I0(\i2c_cmd_reg_n_0_[1] ),
         .I1(word_counter_reg[1]),
         .I2(word_counter_reg[0]),
         .I3(\i2c_cmd_reg_n_0_[22] ),
-        .O(i2c_sda_i_8_n_0));
+        .O(i2c_sda_i_7_n_0));
   LUT6 #(
     .INIT(64'hBBBBBBBBFFF333F3)) 
-    i2c_sda_i_9
+    i2c_sda_i_8
        (.I0(\i2c_cmd_reg_n_0_[24] ),
         .I1(word_counter_reg[1]),
         .I2(\i2c_cmd_reg_n_0_[1] ),
         .I3(word_counter_reg[2]),
         .I4(\i2c_cmd_reg_n_0_[22] ),
         .I5(word_counter_reg[0]),
-        .O(i2c_sda_i_9_n_0));
-  FDSE i2c_sda_reg
+        .O(i2c_sda_i_8_n_0));
+  FDRE i2c_sda_reg
        (.C(clk_100),
         .CE(1'b1),
         .D(i2c_sda_i_1_n_0),
         .Q(hdmi_sda),
-        .S(ext_reset));
-  MUXF8 i2c_sda_reg_i_2
-       (.I0(i2c_sda_reg_i_5_n_0),
-        .I1(i2c_sda_reg_i_6_n_0),
-        .O(i2c_sda_reg_i_2_n_0),
-        .S(word_counter_reg[3]));
-  MUXF7 i2c_sda_reg_i_5
-       (.I0(i2c_sda_i_10_n_0),
-        .I1(i2c_sda_i_11_n_0),
-        .O(i2c_sda_reg_i_5_n_0),
+        .R(1'b0));
+  MUXF7 i2c_sda_reg_i_10
+       (.I0(i2c_sda_i_13_n_0),
+        .I1(i2c_sda_i_14_n_0),
+        .O(i2c_sda_reg_i_10_n_0),
         .S(word_counter_reg[2]));
-  MUXF7 i2c_sda_reg_i_6
-       (.I0(i2c_sda_i_12_n_0),
-        .I1(i2c_sda_i_13_n_0),
-        .O(i2c_sda_reg_i_6_n_0),
+  MUXF8 i2c_sda_reg_i_4
+       (.I0(i2c_sda_reg_i_9_n_0),
+        .I1(i2c_sda_reg_i_10_n_0),
+        .O(i2c_sda_reg_i_4_n_0),
+        .S(word_counter_reg[3]));
+  MUXF7 i2c_sda_reg_i_9
+       (.I0(i2c_sda_i_11_n_0),
+        .I1(i2c_sda_i_12_n_0),
+        .O(i2c_sda_reg_i_9_n_0),
         .S(word_counter_reg[2]));
   LUT1 #(
     .INIT(2'h1)) 
@@ -4482,7 +4480,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I1(word_counter_reg[0]),
         .I2(word_counter_reg[1]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \word_counter[3]_i_1 
@@ -4491,7 +4489,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I2(word_counter_reg[0]),
         .I3(word_counter_reg[2]),
         .O(\word_counter[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \word_counter[4]_i_1 
@@ -4511,7 +4509,7 @@ module sys_hdmi_axi_full_0_0_i2c_sender
         .I4(word_counter_reg[3]),
         .I5(word_counter_reg[4]),
         .O(p_0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \word_counter[6]_i_1 
@@ -4849,28 +4847,28 @@ module sys_hdmi_axi_full_0_0_zedboard_hdmi
         .I4(vsync_cnt_reg[10]),
         .I5(vsync_cnt_reg[6]),
         .O(hdmi_vsync_INST_0_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[10]_i_1 
        (.I0(\hsync_cnt_reg[11]_i_2_n_6 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[10]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[11]_i_1 
        (.I0(\hsync_cnt_reg[11]_i_2_n_5 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[11]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[1]_i_1 
        (.I0(\hsync_cnt_reg[4]_i_2_n_7 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[1]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[2]_i_1 
@@ -4883,42 +4881,42 @@ module sys_hdmi_axi_full_0_0_zedboard_hdmi
        (.I0(\hsync_cnt_reg[4]_i_2_n_5 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[3]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[4]_i_1 
        (.I0(\hsync_cnt_reg[4]_i_2_n_4 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[4]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[5]_i_1 
        (.I0(\hsync_cnt_reg[8]_i_2_n_7 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[5]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[6]_i_1 
        (.I0(\hsync_cnt_reg[8]_i_2_n_6 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[6]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[7]_i_1 
        (.I0(\hsync_cnt_reg[8]_i_2_n_5 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[7]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[8]_i_1 
        (.I0(\hsync_cnt_reg[8]_i_2_n_4 ),
         .I1(vsync_cnt0),
         .O(hsync_cnt[8]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \hsync_cnt[9]_i_1 
@@ -5113,6 +5111,7 @@ module sys_hdmi_axi_full_0_0_zedboard_hdmi
         .D(hsync_cnt[0]),
         .Q({\hsync_cnt_reg_n_0_[10] ,\hsync_cnt_reg_n_0_[9] ,\hsync_cnt_reg_n_0_[8] ,\hsync_cnt_reg_n_0_[7] ,\hsync_cnt_reg_n_0_[6] ,\hsync_cnt_reg_n_0_[5] ,\hsync_cnt_reg_n_0_[4] ,\hsync_cnt_reg_n_0_[3] ,\hsync_cnt_reg_n_0_[2] ,\hsync_cnt_reg_n_0_[1] ,\hsync_cnt_reg_n_0_[0] }),
         .addra(addra[9:0]),
+        .clk_100(clk_100),
         .dina(dina),
         .hdmi_d(hdmi_d),
         .locked(pll_resetn),
@@ -5148,7 +5147,7 @@ module sys_hdmi_axi_full_0_0_zedboard_hdmi
         .I4(vsync_cnt_reg[4]),
         .I5(vsync_cnt_reg[3]),
         .O(v_valid_out_INST_0_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'h01)) 
     v_valid_out_INST_0_i_2
@@ -5214,7 +5213,7 @@ module sys_hdmi_axi_full_0_0_zedboard_hdmi
         .I2(vsync_cnt_reg[2]),
         .I3(vsync_cnt_reg[11]),
         .O(\vsync_cnt[0]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'hEFFF)) 
     \vsync_cnt[0]_i_8 
@@ -5683,7 +5682,7 @@ module sys_hdmi_axi_full_0_0_blk_mem_gen_prim_wrapper
     .SIM_DEVICE("7SERIES"),
     .SRVAL_A(36'h000000000),
     .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("READ_FIRST"),
+    .WRITE_MODE_A("WRITE_FIRST"),
     .WRITE_MODE_B("READ_FIRST"),
     .WRITE_WIDTH_A(36),
     .WRITE_WIDTH_B(18)) 
@@ -5776,7 +5775,7 @@ endmodule
 (* C_DISABLE_WARN_BHV_COLL = "1" *) (* C_DISABLE_WARN_BHV_RANGE = "1" *) (* C_ELABORATION_DIR = "./" *) 
 (* C_ENABLE_32BIT_ADDRESS = "0" *) (* C_EN_DEEPSLEEP_PIN = "0" *) (* C_EN_ECC_PIPE = "0" *) 
 (* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
-(* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     5.560575 mW" *) 
+(* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     5.393875 mW" *) 
 (* C_FAMILY = "zynq" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "0" *) 
 (* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
@@ -5792,7 +5791,7 @@ endmodule
 (* C_USE_BYTE_WEA = "0" *) (* C_USE_BYTE_WEB = "0" *) (* C_USE_DEFAULT_DATA = "0" *) 
 (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) (* C_USE_URAM = "0" *) 
 (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) (* C_WRITE_DEPTH_A = "960" *) 
-(* C_WRITE_DEPTH_B = "1920" *) (* C_WRITE_MODE_A = "READ_FIRST" *) (* C_WRITE_MODE_B = "READ_FIRST" *) 
+(* C_WRITE_DEPTH_B = "1920" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) (* C_WRITE_MODE_B = "READ_FIRST" *) 
 (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "16" *) (* C_XDEVICEFAMILY = "zynq" *) 
 (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_3" *) 
 module sys_hdmi_axi_full_0_0_blk_mem_gen_v8_4_3

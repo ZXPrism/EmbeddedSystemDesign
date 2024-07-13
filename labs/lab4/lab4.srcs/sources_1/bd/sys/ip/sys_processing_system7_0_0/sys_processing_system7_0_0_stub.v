@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Wed Jul 10 20:49:03 2024
+// Date        : Fri Jul 12 17:42:05 2024
 // Host        : ZXPRISM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_processing_system7_0_0/sys_processing_system7_0_0_stub.v
+//               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_processing_system7_0_0/sys_processing_system7_0_0_stub.v
 // Design      : sys_processing_system7_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

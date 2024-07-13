@@ -10,6 +10,7 @@
 
 module gen_pat (
     input wire clk_in,
+    input wire clk_ram_write,
     input wire resetn,
     input wire [11:0] loc_x,
     input wire [11:0] loc_y,
@@ -49,11 +50,11 @@ module gen_pat (
     // end
 
     blk_mem_gen_0 image_ram (
-        .clka (clk_in),  // input wire clka
-        .addra(addra),   // input wire [31 : 0] addra
-        .dina (dina),    // input wire [31 : 0] dina
-        .douta(),        // output wire [31 : 0] douta
-        .wea  (wea),     // input wire [0 : 0] wea
+        .clka (clk_ram_write),  // input wire clka
+        .addra(addra),          // input wire [31 : 0] addra
+        .dina (dina),           // input wire [31 : 0] dina
+        .douta(),               // output wire [31 : 0] douta
+        .wea  (wea),            // input wire [0 : 0] wea
 
         .clkb (clk_in),         // input wire clkb
         .addrb(addrb),          // input wire [15 : 0] addrb

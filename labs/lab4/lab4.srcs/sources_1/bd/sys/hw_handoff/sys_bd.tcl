@@ -602,7 +602,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_smc/aresetn] [get_bd_pins hdmi_axi_full_0/m00_axi_aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
 
   # Create address segments
-  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces hdmi_axi_full_0/M00_AXI] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
+  create_bd_addr_seg -range 0x10000000 -offset 0x10000000 [get_bd_addr_spaces hdmi_axi_full_0/M00_AXI] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
 
 
   # Restore current instance

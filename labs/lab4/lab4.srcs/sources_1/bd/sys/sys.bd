@@ -542,16 +542,16 @@
       }
     },
     "interface_nets": {
-      "hdmi_axi_full_0_M00_AXI": {
-        "interface_ports": [
-          "hdmi_axi_full_0/M00_AXI",
-          "axi_smc/S00_AXI"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "hdmi_axi_full_0_M00_AXI": {
+        "interface_ports": [
+          "hdmi_axi_full_0/M00_AXI",
+          "axi_smc/S00_AXI"
         ]
       },
       "processing_system7_0_DDR": {
@@ -648,8 +648,8 @@
             "segments": {
               "SEG_processing_system7_0_HP0_DDR_LOWOCM": {
                 "address_block": "/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM",
-                "offset": "0x00000000",
-                "range": "512M"
+                "offset": "0x10000000",
+                "range": "256M"
               }
             }
           }

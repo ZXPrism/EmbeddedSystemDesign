@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Thu Jul 11 16:58:33 2024
+// Date        : Fri Jul 12 17:28:16 2024
 // Host        : ZXPRISM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_hdmi_axi_full_0_0/sys_hdmi_axi_full_0_0_stub.v

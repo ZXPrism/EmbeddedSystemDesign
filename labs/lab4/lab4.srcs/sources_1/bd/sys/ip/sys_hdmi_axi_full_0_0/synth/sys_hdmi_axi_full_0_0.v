@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:hdmi_axi_full:1.0
-// IP Revision: 31
+// IP Revision: 54
 
 (* X_CORE_INFO = "hdmi_axi_full_v1_0,Vivado 2019.1" *)
 (* CHECK_LICENSE_TYPE = "sys_hdmi_axi_full_0_0,hdmi_axi_full_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "sys_hdmi_axi_full_0_0,hdmi_axi_full_v1_0,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=hdmi_axi_full,x_ipVersion=1.0,x_ipCoreRevision=31,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_M00_AXI_TARGET_SLAVE_BASE_ADDR=0x10000000,C_M00_AXI_BURST_LEN=16,C_M00_AXI_ID_WIDTH=1,C_M00_AXI_ADDR_WIDTH=32,C_M00_AXI_DATA_WIDTH=32,C_M00_AXI_AWUSER_WIDTH=1,C_M00_AXI_ARUSER_WIDTH=1,C_M00_AXI_WUSER_WIDTH=1,C_M00_AXI_RUSER_WIDTH=1,C_M00_AXI_BUSER_WIDTH=1}" *)
+(* CORE_GENERATION_INFO = "sys_hdmi_axi_full_0_0,hdmi_axi_full_v1_0,{x_ipProduct=Vivado 2019.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=hdmi_axi_full,x_ipVersion=1.0,x_ipCoreRevision=54,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_M00_AXI_TARGET_SLAVE_BASE_ADDR=0x10000000,C_M00_AXI_BURST_LEN=16,C_M00_AXI_ID_WIDTH=1,C_M00_AXI_ADDR_WIDTH=32,C_M00_AXI_DATA_WIDTH=32,C_M00_AXI_AWUSER_WIDTH=1,C_M00_AXI_ARUSER_WIDTH=1,C_M00_AXI_WUSER_WIDTH=1,C_M00_AXI_RUSER_WIDTH=1,C_M00_AXI_BUSER_WIDTH=1}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module sys_hdmi_axi_full_0_0 (
   hdmi_clk,

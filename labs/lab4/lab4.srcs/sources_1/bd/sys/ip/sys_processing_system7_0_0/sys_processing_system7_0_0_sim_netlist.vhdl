@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Wed Jul 10 20:49:03 2024
+-- Date        : Fri Jul 12 17:42:05 2024
 -- Host        : ZXPRISM running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_processing_system7_0_0/sys_processing_system7_0_0_sim_netlist.vhdl
+--               C:/zhouleyi03/projects_fpga/EmbededSystemDesign/labs/lab4/lab4.srcs/sources_1/bd/sys/ip/sys_processing_system7_0_0/sys_processing_system7_0_0_sim_netlist.vhdl
 -- Design      : sys_processing_system7_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -817,7 +817,7 @@ entity sys_processing_system7_0_0_processing_system7_v5_5_processing_system7 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of sys_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "processing_system7_v5_5_processing_system7";
   attribute POWER : string;
-  attribute POWER of sys_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666667} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333313} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p0} clockFreq={200.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} />/>";
+  attribute POWER of sys_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666667} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333313} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of sys_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
 end sys_processing_system7_0_0_processing_system7_v5_5_processing_system7;
@@ -3857,7 +3857,7 @@ architecture STRUCTURE of sys_processing_system7_0_0 is
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of inst : label is "sys_processing_system7_0_0.hwdef";
   attribute POWER : string;
-  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666667} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333313} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p0} clockFreq={200.000000} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} />/>";
+  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666667} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333313} readRate={0.5} writeRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={6} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1600.000} /><AXI interface={S_AXI_HP0} dataWidth={64} clockFreq={100} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of inst : label is 0;
   attribute X_INTERFACE_INFO : string;
@@ -3874,7 +3874,7 @@ architecture STRUCTURE of sys_processing_system7_0_0 is
   attribute X_INTERFACE_INFO of DDR_WEB : signal is "xilinx.com:interface:ddrx:1.0 DDR WE_N";
   attribute X_INTERFACE_INFO of FCLK_CLK0 : signal is "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of FCLK_CLK0 : signal is "XIL_INTERFACENAME FCLK_CLK0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN sys_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of FCLK_CLK0 : signal is "XIL_INTERFACENAME FCLK_CLK0, FREQ_HZ 1e+08, PHASE 0.000, CLK_DOMAIN sys_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of FCLK_RESET0_N : signal is "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST";
   attribute X_INTERFACE_PARAMETER of FCLK_RESET0_N : signal is "XIL_INTERFACENAME FCLK_RESET0_N, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of PS_CLK : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
